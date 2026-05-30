@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supporto — Virtua Basket</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root { --orange:#E8722A; --black:#080808; --dark:#111111; --dark2:#1a1a1a; --gray:#888; --white:#ffffff; --font-display:'Barlow Condensed',sans-serif; --font-body:'Barlow',sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--black); color:var(--white); font-family:var(--font-body); }
+  nav { display:flex; align-items:center; justify-content:space-between; padding:16px 32px; background:rgba(8,8,8,0.9); border-bottom:1px solid rgba(255,255,255,0.06); position:sticky; top:0; z-index:10; backdrop-filter:blur(12px); }
+  .nav-logo { display:flex; align-items:center; gap:8px; text-decoration:none; }
+  .nav-logo-text { font-family:var(--font-display); font-weight:900; font-size:16px; letter-spacing:2px; color:var(--white); text-transform:uppercase; }
+  .nav-logo-text span { color:var(--orange); }
+  .back-btn { color:var(--gray); text-decoration:none; font-size:14px; transition:color 0.2s; }
+  .back-btn:hover { color:var(--white); }
+  main { max-width:760px; margin:0 auto; padding:60px 24px 100px; }
+  .page-tag { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--orange); margin-bottom:16px; }
+  h1 { font-family:var(--font-display); font-weight:900; font-size:clamp(36px,7vw,64px); text-transform:uppercase; line-height:1; margin-bottom:24px; }
+  .hero-text { color:var(--gray); font-size:16px; line-height:1.6; margin-bottom:56px; }
+  .contact-card { background:var(--dark); border:1px solid rgba(232,114,42,0.3); border-radius:16px; padding:32px; margin-bottom:48px; display:flex; align-items:center; gap:20px; }
+  .contact-icon { font-size:40px; }
+  .contact-title { font-family:var(--font-display); font-weight:900; font-size:20px; text-transform:uppercase; margin-bottom:6px; }
+  .contact-text { color:var(--gray); font-size:14px; line-height:1.6; }
+  .contact-btn { display:inline-block; margin-top:14px; background:var(--orange); color:var(--white); padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:700; font-size:14px; transition:all 0.2s; }
+  .contact-btn:hover { background:var(--orange-dk, #c45a18); }
+  h2 { font-family:var(--font-display); font-weight:900; font-size:28px; text-transform:uppercase; margin-bottom:24px; }
+  .faq { display:flex; flex-direction:column; gap:12px; }
+  .faq-item { background:var(--dark); border:1px solid rgba(255,255,255,0.06); border-radius:12px; overflow:hidden; }
+  .faq-q { padding:18px 20px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:15px; user-select:none; transition:background 0.2s; }
+  .faq-q:hover { background:var(--dark2); }
+  .faq-q .arrow { color:var(--orange); font-size:18px; transition:transform 0.2s; }
+  .faq-a { color:var(--gray); font-size:14px; line-height:1.7; padding:0 20px; max-height:0; overflow:hidden; transition:all 0.3s; }
+  .faq-item.open .faq-a { max-height:200px; padding:0 20px 18px; }
+  .faq-item.open .arrow { transform:rotate(45deg); }
+  .social-section { margin-top:60px; }
+  .social-grid { display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
+  .social-link { display:flex; align-items:center; gap:10px; background:var(--dark); border:1px solid rgba(255,255,255,0.08); padding:12px 20px; border-radius:10px; text-decoration:none; color:var(--white); font-size:14px; font-weight:600; transition:all 0.2s; }
+  .social-link:hover { border-color:rgba(232,114,42,0.4); background:var(--dark2); }
+  footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 24px; text-align:center; }
+  .footer-copy { color:var(--gray); font-size:13px; }
+  .footer-copy a { color:var(--orange); text-decoration:none; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="icon.png" style="width:28px;height:28px;border-radius:6px;object-fit:cover;" alt="logo">
+    <span class="nav-logo-text">Virtua<span>Basket</span></span>
+  </a>
+  <a href="index.html" class="back-btn">← Home</a>
+</nav>
+<main>
+  <div class="page-tag">Assistenza</div>
+  <h1>Supporto</h1>
+  <p class="hero-text">Hai bisogno di aiuto? Siamo qui per te. Contattaci via email o cerca la risposta nelle FAQ qui sotto.</p>
+
+  <div class="contact-card">
+    <div class="contact-icon">✉️</div>
+    <div>
+      <div class="contact-title">Contattaci</div>
+      <div class="contact-text">Per qualsiasi problema, domanda o segnalazione scrivi a:<br><strong>info@virtuabasket.it</strong><br>Risponderemo entro 48 ore lavorative.</div>
+      <a href="mailto:info@virtuabasket.it" class="contact-btn">Invia email</a>
+    </div>
+  </div>
+
+  <h2>Domande Frequenti</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Come faccio a registrarmi?
+        <span class="arrow">+</span>
+      </div>
+      <div class="faq-a">Puoi registrarti con email e password oppure usando il tuo account Google. La registrazione è gratuita e richiede pochi secondi. Scarica l'app dall'App Store o Play Store, oppure accedi dalla versione browser su app.virtuabasket.it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Come funzionano i pick?
+        <span class="arrow">+</span>
+      </div>
+      <div class="faq-a">Prima di ogni giornata LBA scegli il tuo quintetto dalla rosa dei giocatori disponibili. I pick si chiudono all'orario di inizio della prima partita della giornata. I punti vengono assegnati in base alle statistiche reali dei giocatori scelti.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Come creo o entro in una lega?
+        <span class="arrow">+</span>
+      </div>
+      <div class="faq-a">Dalla sezione Leghe puoi unirti alla lega generale Virtua Basket oppure creare una lega privata e invitare i tuoi amici con un codice di invito.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Come funziona il Draft?
+        <span class="arrow">+</span>
+      </div>
+      <div class="faq-a">Nelle leghe private puoi organizzare un draft snake. L'admin della lega configura data, ora e durata per pick. L'ordine snake garantisce una distribuzione equa dei turni tra tutti i partecipanti.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Come si calcolano i punti?
+        <span class="arrow">+</span>
+      </div>
+      <div class="faq-a">I punti si basano sulle statistiche reali LBA: punti segnati, rimbalzi, assist, stoppate e palle rubate. Consulta il regolamento completo per i dettagli del sistema di punteggio.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Posso disattivare le notifiche push?
+        <span class="arrow">+</span>
+      </div>
+      <div class="faq-a">Sì. Vai nel tuo profilo → Notifiche e puoi disattivare le notifiche. Puoi anche disattivarle direttamente dalle impostazioni del tuo dispositivo.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Come cancello il mio account?
+        <span class="arrow">+</span>
+      </div>
+      <div class="faq-a">Scrivi a info@virtuabasket.it con oggetto "Cancellazione account" e il tuo nickname. Provvederemo alla cancellazione permanente di tutti i tuoi dati entro 48 ore.</div>
+    </div>
+  </div>
+
+  <div class="social-section">
+    <h2>Seguici sui Social</h2>
+    <div class="social-grid">
+      <a href="https://www.instagram.com/virtuabasket/" class="social-link" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://www.facebook.com/virtuabasket" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://t.me/virtuabasket" class="social-link" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-copy">© 2026 Virtua Basket · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Termini</a></div>
+</footer>
+<script>
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open')
+}
+</script>
+</body>
+</html>

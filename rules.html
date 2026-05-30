@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regolamento — Virtua Basket</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root { --orange:#E8722A; --black:#080808; --dark:#111111; --dark2:#1a1a1a; --gray:#888; --white:#ffffff; --font-display:'Barlow Condensed',sans-serif; --font-body:'Barlow',sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--black); color:var(--white); font-family:var(--font-body); }
+  nav { display:flex; align-items:center; justify-content:space-between; padding:16px 32px; background:rgba(8,8,8,0.9); border-bottom:1px solid rgba(255,255,255,0.06); position:sticky; top:0; z-index:10; backdrop-filter:blur(12px); }
+  .nav-logo { display:flex; align-items:center; gap:8px; text-decoration:none; }
+  .nav-logo-text { font-family:var(--font-display); font-weight:900; font-size:16px; letter-spacing:2px; color:var(--white); text-transform:uppercase; }
+  .nav-logo-text span { color:var(--orange); }
+  .back-btn { color:var(--gray); text-decoration:none; font-size:14px; transition:color 0.2s; }
+  .back-btn:hover { color:var(--white); }
+  main { max-width:820px; margin:0 auto; padding:60px 24px 100px; }
+  .page-tag { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--orange); margin-bottom:16px; }
+  h1 { font-family:var(--font-display); font-weight:900; font-size:clamp(36px,7vw,64px); text-transform:uppercase; line-height:1; margin-bottom:8px; }
+  .page-date { color:var(--gray); font-size:13px; margin-bottom:48px; }
+  .toc { background:var(--dark); border:1px solid rgba(255,255,255,0.06); border-radius:14px; padding:24px 28px; margin-bottom:56px; }
+  .toc-title { font-family:var(--font-display); font-weight:900; font-size:14px; text-transform:uppercase; letter-spacing:2px; color:var(--orange); margin-bottom:16px; }
+  .toc a { display:block; color:var(--gray); text-decoration:none; font-size:14px; padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.04); transition:color 0.2s; }
+  .toc a:last-child { border-bottom:none; }
+  .toc a:hover { color:var(--white); }
+  .toc a span { color:var(--orange); margin-right:8px; font-family:var(--font-display); font-weight:700; }
+  .section { margin-bottom:48px; scroll-margin-top:80px; }
+  .section-header { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .section-bar { width:3px; height:22px; background:var(--orange); border-radius:2px; flex-shrink:0; }
+  h2 { font-family:var(--font-display); font-weight:900; font-size:22px; text-transform:uppercase; letter-spacing:0.5px; color:var(--orange); }
+  h3 { font-family:var(--font-display); font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:1px; color:var(--white); margin:24px 0 10px; }
+  p, li { color:var(--gray); font-size:15px; line-height:1.8; margin-bottom:10px; }
+  ul, ol { padding-left:20px; }
+  li { margin-bottom:6px; }
+  strong { color:var(--white); }
+  .highlight { background:var(--dark); border-left:3px solid var(--orange); padding:16px 20px; border-radius:0 10px 10px 0; margin:16px 0; }
+  .highlight p { margin-bottom:0; }
+  .note { background:rgba(232,114,42,0.06); border:1px solid rgba(232,114,42,0.2); border-radius:10px; padding:16px 20px; margin:16px 0; }
+  .note p { margin-bottom:0; color:var(--white); font-size:14px; }
+  .note strong { color:var(--orange); }
+  .placeholder { background:rgba(232,114,42,0.04); border:1px dashed rgba(232,114,42,0.3); border-radius:10px; padding:20px; margin:16px 0; text-align:center; }
+  .placeholder p { color:var(--orange); font-size:13px; margin:0; opacity:0.7; }
+  .table-wrap { overflow-x:auto; margin:16px 0; border-radius:10px; border:1px solid rgba(255,255,255,0.06); }
+  table { width:100%; border-collapse:collapse; }
+  th { background:var(--dark2); color:var(--orange); font-family:var(--font-display); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:1px; padding:12px 16px; text-align:left; }
+  td { padding:11px 16px; border-top:1px solid rgba(255,255,255,0.05); color:var(--gray); font-size:14px; }
+  tr:hover td { background:rgba(255,255,255,0.02); }
+  footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 24px; text-align:center; }
+  .footer-copy { color:var(--gray); font-size:13px; }
+  .footer-copy a { color:var(--orange); text-decoration:none; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="icon.png" style="width:28px;height:28px;border-radius:6px;object-fit:cover;" alt="logo">
+    <span class="nav-logo-text">Virtua<span>Basket</span></span>
+  </a>
+  <a href="index.html" class="back-btn">← Home</a>
+</nav>
+
+<main>
+  <div class="page-tag">Gioco</div>
+  <h1>Regolamento<br>del Gioco</h1>
+  <div class="page-date">v1.0 — Maggio 2026</div>
+
+  <div class="toc">
+    <div class="toc-title">Indice</div>
+    <a href="#pick"><span>1.</span> Pick Giornaliera</a>
+    <a href="#punteggio"><span>2.</span> Sistema di Punteggio</a>
+    <a href="#leghe"><span>3.</span> Leghe e Modalità di Gioco</a>
+    <a href="#draft"><span>4.</span> Draft Snake</a>
+    <a href="#classifica"><span>5.</span> Classifiche</a>
+    <a href="#deadline"><span>6.</span> Deadline e Pick Mancanti</a>
+    <a href="#parita"><span>7.</span> Parità</a>
+  </div>
+
+  <div class="section" id="pick">
+    <div class="section-header"><div class="section-bar"></div><h2>1. Pick Giornaliera</h2></div>
+    <p><strong>Regola base:</strong> prima di ogni giornata LBA scegli il tuo quintetto titolare (5 giocatori) più eventuali riserve, a seconda della modalità di gioco della tua lega.</p>
+    <div class="highlight"><p>🏀 <strong>Capitano:</strong> puoi designare un capitano tra i tuoi giocatori con long press. Il capitano riceve un moltiplicatore sui punti segnati.</p></div>
+    <h3>Ruoli disponibili</h3>
+    <ul>
+      <li><strong>Playmaker (PM)</strong> — 1 slot obbligatorio</li>
+      <li><strong>Guardia (G)</strong> — 1 slot obbligatorio</li>
+      <li><strong>Ala (A)</strong> — 2 slot obbligatori</li>
+      <li><strong>Centro (C)</strong> — 2 slot obbligatori</li>
+      <li><strong>Coach</strong> — 1 slot opzionale</li>
+    </ul>
+    <div class="note"><p>⚠️ I pick si chiudono all'orario di inizio della prima partita della giornata LBA. Dopo la chiusura non è possibile modificare la formazione.</p></div>
+  </div>
+
+  <div class="section" id="punteggio">
+    <div class="section-header"><div class="section-bar"></div><h2>2. Sistema di Punteggio</h2></div>
+    <p>I punti vengono calcolati automaticamente in base alle statistiche reali delle partite LBA.</p>
+    <h3>Statistiche Base</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Statistica</th><th>Punti</th></tr>
+        <tr><td>Punto segnato</td><td>+1 pt</td></tr>
+        <tr><td>Rimbalzo offensivo</td><td>+1.5 pt</td></tr>
+        <tr><td>Rimbalzo difensivo</td><td>+1 pt</td></tr>
+        <tr><td>Assist</td><td>+1.5 pt</td></tr>
+        <tr><td>Stoppata</td><td>+2 pt</td></tr>
+        <tr><td>Palla rubata</td><td>+2 pt</td></tr>
+        <tr><td>Palla persa</td><td>-1 pt</td></tr>
+        <tr><td>Fallo subito (tiro libero)</td><td>+0.5 pt</td></tr>
+      </table>
+    </div>
+    <div class="note"><p>⭐ <strong>Bonus Capitano:</strong> i punti del capitano vengono moltiplicati per 1.5x. Scegli il tuo capitano con saggezza!</p></div>
+    <div class="placeholder"><p>🚧 Il sistema di punteggio potrebbe essere aggiornato prima del lancio ufficiale della stagione LBA 2026-27.</p></div>
+  </div>
+
+  <div class="section" id="leghe">
+    <div class="section-header"><div class="section-bar"></div><h2>3. Leghe e Modalità di Gioco</h2></div>
+    <h3>Lega Generale</h3>
+    <p>La lega generale è aperta a tutti gli utenti. Tutti competono nella stessa classifica stagionale senza draft.</p>
+    <h3>Leghe Private</h3>
+    <p>Crea una lega privata e invita i tuoi amici con un codice. Le leghe private supportano più modalità:</p>
+    <ul>
+      <li><strong>Tutti vs tutti / Roster libero</strong> — classifica generale senza draft, roster libero ogni giornata</li>
+      <li><strong>Tutti vs tutti / Draft</strong> — classifica generale con draft iniziale, roster fisso per la stagione</li>
+      <li><strong>Calendario 1v1 / Draft</strong> — scontri diretti settimanali, roster fisso dopo il draft</li>
+    </ul>
+    <div class="note"><p>ℹ️ Le leghe private supportano da 6 a 12 partecipanti.</p></div>
+  </div>
+
+  <div class="section" id="draft">
+    <div class="section-header"><div class="section-bar"></div><h2>4. Draft Snake</h2></div>
+    <p>Nelle modalità con draft, ogni partecipante costruisce il proprio roster prima dell'inizio della stagione attraverso un draft snake.</p>
+    <h3>Come funziona</h3>
+    <ul>
+      <li>L'ordine di pick è determinato casualmente dall'admin prima del draft</li>
+      <li>Il sistema snake inverte l'ordine ad ogni round per garantire equità</li>
+      <li>Ogni partecipante ha un tempo limitato per effettuare la propria pick</li>
+      <li>Se il tempo scade, scatta l'<strong>autopick automatico</strong> dal primo giocatore in wishlist o dal migliore disponibile</li>
+    </ul>
+    <div class="highlight"><p>⭐ <strong>Wishlist:</strong> puoi preparare la tua wishlist prima del draft. In caso di autopick, il sistema sceglie il primo giocatore disponibile nella tua lista.</p></div>
+    <h3>Numero di round</h3>
+    <p>Il numero di round di default è 12, configurabile dall'admin della lega al momento della creazione del draft.</p>
+  </div>
+
+  <div class="section" id="classifica">
+    <div class="section-header"><div class="section-bar"></div><h2>5. Classifiche</h2></div>
+    <h3>Classifica Giornata</h3>
+    <p>Mostra i punteggi di tutti i partecipanti per la giornata corrente o per le giornate precedenti.</p>
+    <h3>Classifica Stagionale</h3>
+    <p>Somma cumulativa dei punti di tutte le giornate. Chi termina la stagione con più punti vince la lega.</p>
+    <h3>Modalità Calendario 1v1</h3>
+    <p>In questa modalità ogni giornata è uno scontro diretto tra due partecipanti. Vince chi segna più punti nello scontro. La classifica riflette vittorie, pareggi e sconfitte come in un campionato.</p>
+  </div>
+
+  <div class="section" id="deadline">
+    <div class="section-header"><div class="section-bar"></div><h2>6. Deadline e Pick Mancanti</h2></div>
+    <p>I pick si chiudono all'orario di inizio della prima partita di ogni giornata LBA. Se non effettui il pick entro la deadline:</p>
+    <ul>
+      <li>Non ricevi punti per quella giornata</li>
+      <li>In modalità roster libero puoi ricominciare dalla giornata successiva</li>
+      <li>In modalità con draft il roster rimane invariato ma non vengono assegnati punti</li>
+    </ul>
+    <div class="note"><p>🔔 Attiva le notifiche push per ricevere un promemoria prima della chiusura dei pick.</p></div>
+  </div>
+
+  <div class="section" id="parita">
+    <div class="section-header"><div class="section-bar"></div><h2>7. Parità</h2></div>
+    <p>In caso di parità nella classifica stagionale, si applicano in ordine i seguenti criteri di spareggio:</p>
+    <ol>
+      <li>Maggior numero di giornate vinte</li>
+      <li>Maggior punteggio nell'ultima giornata disputata</li>
+      <li>Maggior punteggio totale nella fase finale della stagione</li>
+    </ol>
+    <div class="placeholder"><p>🚧 I criteri di spareggio specifici per la modalità Calendario 1v1 verranno definiti prima del lancio ufficiale.</p></div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-copy">© 2026 Virtua Basket · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Supporto</a></div>
+</footer>
+</body>
+</html>
