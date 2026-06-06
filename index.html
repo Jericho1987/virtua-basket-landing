@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtua Basket — Fantasy Basket Serie A</title>
+<meta name="description" content="Il fantasy basket sulla Lega Basket Serie A. Scegli i tuoi giocatori, sfida gli amici, scala le classifiche.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --orange: #E8722A;
+    --orange-dk: #c45a18;
+    --orange-light: rgba(232,114,42,0.12);
+    --black: #080808;
+    --dark: #111111;
+    --dark2: #1a1a1a;
+    --gray: #888;
+    --light: #f5f5f5;
+    --white: #ffffff;
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: var(--font-body); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 32px;
+    background: rgba(8,8,8,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; }
+  .nav-logo-icon { font-size: 20px; }
+  .nav-logo-text { font-family: var(--font-display); font-weight: 900; font-size: 18px; letter-spacing: 1px; color: var(--white); text-transform: uppercase; }
+  .nav-logo-text span { color: var(--orange); }
+  .nav-lang { display: flex; gap: 4px; }
+  .lang-btn {
+    background: none; border: 1px solid rgba(255,255,255,0.15);
+    color: var(--gray); padding: 4px 10px; border-radius: 20px;
+    font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+  .lang-btn:hover, .lang-btn.active { border-color: var(--orange); color: var(--orange); background: var(--orange-light); }
+
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,114,42,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--orange-light); border: 1px solid rgba(232,114,42,0.3);
+    color: var(--orange); padding: 6px 16px; border-radius: 20px;
+    font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(52px, 10vw, 96px);
+    line-height: 0.9; text-transform: uppercase; letter-spacing: -1px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-title span { color: var(--orange); }
+  .hero-subtitle {
+    font-size: clamp(16px, 2.5vw, 20px); color: var(--gray);
+    max-width: 520px; line-height: 1.6; margin-bottom: 48px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--orange); color: var(--white);
+    padding: 14px 28px; border-radius: 12px;
+    text-decoration: none; font-weight: 700; font-size: 15px;
+    transition: all 0.2s; border: 2px solid var(--orange);
+  }
+  .btn-primary:hover { background: var(--orange-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,114,42,0.4); }
+  .btn-secondary {
+    display: flex; align-items: center; gap: 10px;
+    background: transparent; color: var(--white);
+    padding: 14px 28px; border-radius: 12px;
+    text-decoration: none; font-weight: 600; font-size: 15px;
+    border: 2px solid rgba(255,255,255,0.2); transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.5); transform: translateY(-2px); }
+  .btn-ghost {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--dark2); color: var(--gray);
+    padding: 14px 28px; border-radius: 12px;
+    text-decoration: none; font-weight: 600; font-size: 14px;
+    border: 2px solid rgba(255,255,255,0.08); transition: all 0.2s;
+  }
+  .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+
+  .hero-screens {
+    margin-top: 72px; position: relative;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .screens-row {
+    display: flex; gap: 16px; align-items: flex-end; justify-content: center;
+  }
+  .screen-phone {
+    border-radius: 32px; overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    transition: transform 0.3s;
+  }
+  .screen-phone:hover { transform: translateY(-8px); }
+  .screen-phone.side { width: 160px; opacity: 0.85; }
+  .screen-phone.main {
+    width: 200px;
+    border-color: rgba(232,114,42,0.4);
+    box-shadow: 0 32px 80px rgba(232,114,42,0.2);
+  }
+  .screen-phone img { width: 100%; display: block; }
+
+  .section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+  .section-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(36px, 6vw, 60px); text-transform: uppercase; line-height: 1; margin-bottom: 16px; }
+  .section-sub { color: var(--gray); font-size: 16px; line-height: 1.6; max-width: 500px; margin-bottom: 60px; }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .feature-card {
+    background: var(--dark); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px; padding: 32px; transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .feature-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .feature-card:hover { border-color: rgba(232,114,42,0.2); transform: translateY(-4px); }
+  .feature-card:hover::before { transform: scaleX(1); }
+  .feature-icon { font-size: 32px; margin-bottom: 16px; }
+  .feature-title { font-family: var(--font-display); font-weight: 900; font-size: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .feature-text { color: var(--gray); font-size: 14px; line-height: 1.6; }
+
+  .howto { background: var(--dark); padding: 100px 24px; }
+  .howto-inner { max-width: 1100px; margin: 0 auto; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 60px; }
+  .step { text-align: center; }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--orange-light); border: 2px solid rgba(232,114,42,0.3);
+    color: var(--orange); font-family: var(--font-display); font-weight: 900; font-size: 22px;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
+  }
+  .step-title { font-family: var(--font-display); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 10px; }
+  .step-text { color: var(--gray); font-size: 14px; line-height: 1.6; }
+
+  .download { padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
+  .download::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(232,114,42,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .download-inner { max-width: 600px; margin: 0 auto; position: relative; }
+  .store-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+  .store-btn {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--dark); border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white); padding: 14px 28px; border-radius: 12px;
+    text-decoration: none; transition: all 0.2s; min-width: 180px;
+  }
+  .store-btn:hover { border-color: rgba(232,114,42,0.5); background: var(--dark2); transform: translateY(-2px); }
+  .store-btn-icon { font-size: 28px; }
+  .store-btn-text { text-align: left; }
+  .store-btn-sub { font-size: 10px; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; }
+  .store-btn-name { font-family: var(--font-display); font-weight: 700; font-size: 16px; }
+
+  footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 60px 32px 40px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: flex; gap: 48px; flex-wrap: wrap; margin-bottom: 48px; }
+  .footer-brand { flex: 1; min-width: 220px; }
+  .footer-logo { font-family: var(--font-display); font-weight: 900; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .footer-logo span { color: var(--orange); }
+  .footer-desc { color: var(--gray); font-size: 13px; line-height: 1.6; max-width: 260px; }
+  .footer-links h4 { font-family: var(--font-display); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--gray); margin-bottom: 16px; }
+  .footer-links a { display: block; color: var(--gray); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-social { display: flex; gap: 12px; margin-top: 20px; }
+  .social-btn {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--dark2); border: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 16px; transition: all 0.2s; color: var(--gray);
+  }
+  .social-btn:hover { border-color: var(--orange); background: var(--orange-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-copy { color: var(--gray); font-size: 12px; }
+  .footer-copy a { color: var(--orange); text-decoration: none; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .screens-row { gap: 8px; }
+    .screen-phone.side { width: 100px; }
+    .screen-phone.main { width: 130px; }
+    .footer-top { gap: 32px; }
+    .store-btns { flex-direction: column; align-items: center; }
+  }
+
+  .social-btn i { font-size: 15px; }
+  [data-lang] { display: none; }
+  [data-lang].active { display: block; }
+  .inline-lang { display: none; }
+  .inline-lang.active { display: inline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="icon.png" style="width:48px;height:48px;object-fit:contain;" alt="Virtua Basket">
+    <span class="nav-logo-text">Virtua<span>Basket</span></span>
+  </a>
+  <div class="nav-lang">
+    <button class="lang-btn active" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">
+    <span data-lang="it" class="active">Fantasy Basket — Lega Basket Serie A</span>
+    <span data-lang="en">Fantasy Basketball — Italian Serie A</span>
+  </div>
+
+  <h1 class="hero-title">
+    <span data-lang="it" class="active">Il basket<br>è uno <span>sport</span>.<br>Questo è un <span>gioco</span>.</span>
+    <span data-lang="en">Basketball<br>is a <span>sport</span>.<br>This is a <span>game</span>.</span>
+  </h1>
+
+  <p class="hero-subtitle">
+    <span data-lang="it" class="active">Scegli i tuoi giocatori, sfida gli amici nelle leghe, scala le classifiche. Il fantasy basket sulla Lega Basket Serie A.</span>
+    <span data-lang="en">Pick your players, challenge friends in leagues, climb the rankings. Fantasy basketball on the Italian Serie A.</span>
+  </p>
+
+  <div class="hero-btns">
+    <a href="#download" class="btn-primary">
+      📱
+      <span data-lang="it" class="active">Scarica l'app</span>
+      <span data-lang="en">Download the app</span>
+    </a>
+    <a href="https://app.virtuabasket.it" class="btn-secondary" target="_blank">
+      🌐
+      <span data-lang="it" class="active">Usa dal browser</span>
+      <span data-lang="en">Use in browser</span>
+    </a>
+  </div>
+
+  <div class="hero-screens">
+    <div class="screens-row">
+      <div class="screen-phone side">
+        <img src="images/screen1.png" alt="Home Virtua Basket">
+      </div>
+      <div class="screen-phone main">
+        <img src="images/screen2.png" alt="Pick giocatori">
+      </div>
+      <div class="screen-phone side">
+        <img src="images/screen3.png" alt="Classifica">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="section-tag">
+    <span data-lang="it" class="active">Funzionalità</span>
+    <span data-lang="en">Features</span>
+  </div>
+  <h2 class="section-title">
+    <span data-lang="it" class="active">Tutto quello<br>che ti serve</span>
+    <span data-lang="en">Everything<br>you need</span>
+  </h2>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">🏀</div><div class="feature-title" data-key="f1-title"></div><div class="feature-text" data-key="f1-text"></div></div>
+    <div class="feature-card"><div class="feature-icon">🏆</div><div class="feature-title" data-key="f2-title"></div><div class="feature-text" data-key="f2-text"></div></div>
+    <div class="feature-card"><div class="feature-icon">📊</div><div class="feature-title" data-key="f3-title"></div><div class="feature-text" data-key="f3-text"></div></div>
+    <div class="feature-card"><div class="feature-icon">🔔</div><div class="feature-title" data-key="f4-title"></div><div class="feature-text" data-key="f4-text"></div></div>
+    <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-title" data-key="f5-title"></div><div class="feature-text" data-key="f5-text"></div></div>
+    <div class="feature-card"><div class="feature-icon">👥</div><div class="feature-title" data-key="f6-title"></div><div class="feature-text" data-key="f6-text"></div></div>
+  </div>
+</section>
+
+<div class="howto">
+  <div class="howto-inner">
+    <div class="section-tag">
+      <span data-lang="it" class="active">Come funziona</span>
+      <span data-lang="en">How it works</span>
+    </div>
+    <h2 class="section-title">
+      <span data-lang="it" class="active">Semplice.<br>Appassionante.</span>
+      <span data-lang="en">Simple.<br>Exciting.</span>
+    </h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-title" data-key="s1-title"></div><div class="step-text" data-key="s1-text"></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-title" data-key="s2-title"></div><div class="step-text" data-key="s2-text"></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-title" data-key="s3-title"></div><div class="step-text" data-key="s3-text"></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-title" data-key="s4-title"></div><div class="step-text" data-key="s4-text"></div></div>
+    </div>
+  </div>
+</div>
+
+<section class="download" id="download">
+  <div class="download-inner">
+    <div class="section-tag">
+      <span data-lang="it" class="active">Scarica ora</span>
+      <span data-lang="en">Download now</span>
+    </div>
+    <h2 class="section-title">
+      <span data-lang="it" class="active">Pronto a<br><span style="color:var(--orange)">competere</span>?</span>
+      <span data-lang="en">Ready to<br><span style="color:var(--orange)">compete</span>?</span>
+    </h2>
+    <p style="color:var(--gray);font-size:15px;line-height:1.6;margin-top:16px;">
+      <span data-lang="it" class="active">Disponibile su Android e iOS. Oppure gioca direttamente dal browser.</span>
+      <span data-lang="en">Available on Android and iOS. Or play directly from your browser.</span>
+    </p>
+    <div class="store-btns">
+      <a href="https://play.google.com/store/apps/details?id=com.virtuabasket" class="store-btn">
+        <i class="fab fa-google-play" style="font-size:28px;color:#E8722A;"></i>
+        <div class="store-btn-text">
+          <div class="store-btn-sub"><span data-lang="it" class="active">Scarica su</span><span data-lang="en">Get it on</span></div>
+          <div class="store-btn-name">Google Play</div>
+        </div>
+      </a>
+      <a href="https://apps.apple.com/app/virtua-basket/id6774968256" class="store-btn">
+        <i class="fab fa-apple" style="font-size:28px;color:#888;"></i>
+        <div class="store-btn-text">
+          <div class="store-btn-sub"><span data-lang="it" class="active">Scarica su</span><span data-lang="en">Download on</span></div>
+          <div class="store-btn-name">App Store</div>
+        </div>
+      </a>
+      <a href="https://app.virtuabasket.it" class="btn-ghost" target="_blank">
+        🌐
+        <span data-lang="it" class="active">Versione browser</span>
+        <span data-lang="en">Browser version</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="icon.png" style="width:44px;height:44px;vertical-align:middle;margin-right:8px;object-fit:contain;" alt="Virtua Basket">
+          Virtua<span>Basket</span>
+        </div>
+        <p class="footer-desc">
+          <span data-lang="it" class="active">Il fantasy basket sulla Lega Basket Serie A italiana.</span>
+          <span data-lang="en">Fantasy basketball on the Italian Serie A.</span>
+        </p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/virtuabasket/" class="social-btn" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/virtuabasket" class="social-btn" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://t.me/virtuabasket" class="social-btn" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>App</h4>
+        <a href="https://app.virtuabasket.it" target="_blank"><span data-lang="it" class="active">Versione browser</span><span data-lang="en">Browser version</span></a>
+        <a href="https://play.google.com/store/apps/details?id=com.virtuabasket">Google Play</a>
+        <a href="https://apps.apple.com/app/virtua-basket/id6774968256">App Store</a>
+      </div>
+      <div class="footer-links">
+        <h4><span data-lang="it" class="active">Legale</span><span data-lang="en">Legal</span></h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html"><span data-lang="it" class="active">Termini di Servizio</span><span data-lang="en">Terms of Service</span></a>
+        <a href="support.html"><span data-lang="it" class="active">Supporto</span><span data-lang="en">Support</span></a>
+        <a href="rules.html"><span data-lang="it" class="active">Regolamento</span><span data-lang="en">Game Rules</span></a>
+      </div>
+      <div class="footer-links">
+        <h4><span data-lang="it" class="active">Contatti</span><span data-lang="en">Contact</span></h4>
+        <a href="mailto:info@virtuabasket.it">info@virtuabasket.it</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">
+        © 2026 Virtua Basket ·
+        <a href="privacy.html">Privacy</a> ·
+        <a href="terms.html"><span data-lang="it" class="active">Termini</span><span data-lang="en">Terms</span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const T = {
+  it: {
+    'f1-title': 'Pick Giocatori',
+    'f1-text': 'Prima di ogni giornata scegli i tuoi giocatori dalla rosa LBA. Punti, rimbalzi, assist: ogni statistica conta per scalare la classifica.',
+    'f2-title': 'Leghe Private & Draft',
+    'f2-text': 'Crea una lega privata con i tuoi amici, organizza un draft snake e costruisci il tuo roster. Oppure entra nella lega generale aperta a tutti.',
+    'f3-title': 'Classifiche Live',
+    'f3-text': 'Segui le classifiche in tempo reale durante le partite LBA. Giornata e stagionale: tutto aggiornato dopo ogni match.',
+    'f4-title': 'Notifiche Push',
+    'f4-text': 'Ricevi promemoria prima della chiusura dei pick e notifiche quando vengono pubblicati i risultati della giornata.',
+    'f5-title': 'Sistema di Punteggio',
+    'f5-text': 'Punti calcolati su statistiche reali LBA: punti segnati, rimbalzi, assist, stoppate, palle rubate. Il miglior quintetto vince.',
+    'f6-title': 'Draft Snake',
+    'f6-text': 'Sistema di draft snake con dispersione ottimale, wishlist giocatori, autopick automatico e log delle scelte in tempo reale.',
+    's1-title': 'Registrati',
+    's1-text': 'Crea il tuo account gratuito in pochi secondi con email o Google.',
+    's2-title': 'Unisciti a una Lega',
+    's2-text': 'Entra nella lega generale o crea una lega privata con i tuoi amici.',
+    's3-title': 'Fai i tuoi Pick',
+    's3-text': 'Prima di ogni giornata LBA scegli il tuo quintetto dalla rosa dei giocatori.',
+    's4-title': 'Scala la Classifica',
+    's4-text': 'I tuoi punti si accumulano giornata dopo giornata. Chi arriverà in cima alla classifica finale?',
+  },
+  en: {
+    'f1-title': 'Pick Players',
+    'f1-text': 'Before each game day, choose your players from the LBA roster. Points, rebounds, assists: every stat counts to climb the standings.',
+    'f2-title': 'Private Leagues & Draft',
+    'f2-text': 'Create a private league with friends, organize a snake draft and build your roster. Or join the open general league.',
+    'f3-title': 'Live Rankings',
+    'f3-text': 'Follow rankings in real time during LBA matches. Game day and season standings: updated after every game.',
+    'f4-title': 'Push Notifications',
+    'f4-text': 'Receive reminders before picks close and notifications when game day results are published.',
+    'f5-title': 'Scoring System',
+    'f5-text': 'Points calculated on real LBA stats: points scored, rebounds, assists, blocks, steals. The best five wins.',
+    'f6-title': 'Snake Draft',
+    'f6-text': 'Snake draft system with optimal dispersion, player wishlist, autopick and real-time pick log.',
+    's1-title': 'Sign Up',
+    's1-text': 'Create your free account in seconds with email or Google.',
+    's2-title': 'Join a League',
+    's2-text': 'Enter the general league or create a private league with your friends.',
+    's3-title': 'Make your Picks',
+    's3-text': 'Before each LBA game day, choose your starting five from the player roster.',
+    's4-title': 'Climb the Rankings',
+    's4-text': 'Your points accumulate game day after game day. Who will reach the top of the final standings?',
+  }
+}
+
+let currentLang = 'it'
+function setLang(lang) {
+  currentLang = lang
+  document.querySelectorAll('[data-lang]').forEach(el => { el.classList.toggle('active', el.dataset.lang === lang) })
+  document.querySelectorAll('.lang-btn').forEach((btn, i) => { btn.classList.toggle('active', ['it','en'][i] === lang) })
+  const dict = T[lang] || T['it']
+  document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (dict[key]) el.textContent = dict[key] })
+  document.documentElement.lang = lang
+}
+setLang('it')
+const browserLang = navigator.language?.slice(0,2)
+if (['it','en'].includes(browserLang)) setLang(browserLang)
+</script>
+</body>
+</html>
