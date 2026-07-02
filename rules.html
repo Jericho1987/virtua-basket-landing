@@ -54,6 +54,12 @@
   .formula-card { background:var(--dark); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px; }
   .formula-card-title { font-family:var(--font-display); font-weight:900; font-size:16px; text-transform:uppercase; color:var(--orange); margin-bottom:12px; }
   .formula-card p { font-size:13px; margin-bottom:12px; }
+  .budget-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:16px 0; }
+  @media(max-width:600px){ .budget-grid { grid-template-columns:1fr; } }
+  .budget-card { background:var(--dark); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:20px; text-align:center; }
+  .budget-role { font-family:var(--font-display); font-weight:900; font-size:28px; color:var(--orange); }
+  .budget-slots { font-size:13px; color:var(--gray); margin:4px 0; }
+  .budget-min { font-family:var(--font-display); font-weight:700; font-size:18px; color:var(--white); }
   footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 24px; text-align:center; }
   .footer-copy { color:var(--gray); font-size:13px; }
   .footer-copy a { color:var(--orange); text-decoration:none; }
@@ -71,51 +77,89 @@
 <main>
   <div class="page-tag">Gioco</div>
   <h1>Regolamento<br>del Gioco</h1>
-  <div class="page-date">v1.0 — Giugno 2026</div>
+  <div class="page-date">v2.0 — Luglio 2026</div>
 
   <div class="toc">
     <div class="toc-title">Indice</div>
     <a href="#pick"><span>1.</span> Pick Giornaliera</a>
-    <a href="#punteggio"><span>2.</span> Sistema di Punteggio</a>
-    <a href="#leghe"><span>3.</span> Leghe e Modalità di Gioco</a>
-    <a href="#draft"><span>4.</span> Draft Snake</a>
-    <a href="#classifica"><span>5.</span> Classifiche</a>
-    <a href="#deadline"><span>6.</span> Deadline e Pick Mancanti</a>
-    <a href="#parita"><span>7.</span> Parità</a>
+    <a href="#budget"><span>2.</span> Sistema Budget-Minuti</a>
+    <a href="#punteggio"><span>3.</span> Sistema di Punteggio</a>
+    <a href="#leghe"><span>4.</span> Leghe e Modalità di Gioco</a>
+    <a href="#formula-roster"><span>5.</span> Formula Roster (LBA)</a>
+    <a href="#draft"><span>6.</span> Draft Snake</a>
+    <a href="#classifica"><span>7.</span> Classifiche</a>
+    <a href="#deadline"><span>8.</span> Deadline e Pick Mancanti</a>
+    <a href="#parita"><span>9.</span> Parità</a>
   </div>
 
   <!-- 1. PICK -->
   <div class="section" id="pick">
     <div class="section-header"><div class="section-bar"></div><h2>1. Pick Giornaliera</h2></div>
-    <p><strong>Regola base:</strong> prima di ogni giornata scegli la tua formazione da 10 giocatori — 6 titolari e 4 riserve — tra tutti i giocatori disponibili nella competizione della tua lega (LBA o EuroLeague).</p>
-    <div class="highlight"><p>🏀 <strong>Capitano:</strong> tieni premuto su un giocatore per nominarlo capitano. Il capitano riceve un moltiplicatore <strong>2x</strong> sui punti fantasy.</p></div>
+    <p><strong>Regola base:</strong> prima di ogni giornata scegli la tua formazione da <strong>10 giocatori</strong> tra tutti i giocatori disponibili nella competizione della tua lega (LBA o EuroLeague).</p>
 
     <h3>Struttura della formazione</h3>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Slot</th><th>Ruolo</th><th>Moltiplicatore</th></tr>
-        <tr><td>2× Guardia (G)</td><td>Guardia</td><td class="plus">100%</td></tr>
-        <tr><td>2× Ala (A)</td><td>Ala</td><td class="plus">100%</td></tr>
-        <tr><td>1× Centro (C)</td><td>Centro</td><td class="plus">100%</td></tr>
-        <tr><td>1× Sesto Uomo</td><td>Qualsiasi ruolo</td><td class="plus">100%</td></tr>
-        <tr><td>4× Riserva</td><td>Qualsiasi ruolo</td><td>50%</td></tr>
-      </table>
+    <p>La formazione è divisa in tre sezioni con slot fissi. <strong>L'ordine in cui inserisci i giocatori all'interno di ogni sezione determina la priorità di consumo del budget minuti.</strong></p>
+
+    <div class="budget-grid">
+      <div class="budget-card">
+        <div class="budget-role">G</div>
+        <div class="budget-slots">4 slot</div>
+        <div class="budget-min">80 minuti</div>
+        <div class="budget-slots">budget totale</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-role">A</div>
+        <div class="budget-slots">4 slot</div>
+        <div class="budget-min">80 minuti</div>
+        <div class="budget-slots">budget totale</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-role">C</div>
+        <div class="budget-slots">2 slot</div>
+        <div class="budget-min">40 minuti</div>
+        <div class="budget-slots">budget totale</div>
+      </div>
     </div>
 
-    <h3>Vincolo di roster</h3>
-    <p>La formazione deve rispettare questi vincoli minimi sul totale dei 10 giocatori selezionati:</p>
-    <ul>
-      <li>Almeno <strong>4 Guardie</strong></li>
-      <li>Almeno <strong>4 Ali</strong></li>
-      <li>Almeno <strong>2 Centri</strong></li>
-    </ul>
     <div class="note"><p>⚠️ I pick si chiudono all'orario di inizio della prima partita della giornata. Dopo la chiusura non è possibile modificare la formazione.</p></div>
   </div>
 
-  <!-- 2. PUNTEGGIO -->
+  <!-- 2. BUDGET MINUTI -->
+  <div class="section" id="budget">
+    <div class="section-header"><div class="section-bar"></div><h2>2. Sistema Budget-Minuti</h2></div>
+    <p>Il punteggio non si basa su moltiplicatori fissi ma su un sistema a <strong>budget di minuti</strong>. Ogni ruolo ha un budget totale di minuti da coprire — ispirato alla realtà del basket, dove una partita dura 40 minuti con 2 guardie, 2 ali e 1 centro in campo (200 minuti totali per squadra).</p>
+
+    <h3>Come funziona</h3>
+    <p>Per ogni sezione (G, A, C), i giocatori vengono processati <strong>in ordine di slot</strong> (G1 prima di G2, A1 prima di A2, ecc.). Ogni giocatore consuma dal budget i minuti che ha realmente giocato, fino ad esaurimento.</p>
+
+    <div class="highlight">
+      <p>📐 <strong>Formula per ogni giocatore:</strong><br>
+      <code>Contributo = (min(minuti_giocati, budget_residuo) / minuti_giocati) × fanta_punti</code></p>
+    </div>
+
+    <h3>Esempio pratico</h3>
+    <p>Budget guardie: <strong>80 minuti</strong></p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Slot</th><th>Giocatore</th><th>Min. giocati</th><th>FP grezzi</th><th>Budget usato</th><th>Contributo</th></tr>
+        <tr><td>G1</td><td>Spissu</td><td>30</td><td>20</td><td>30 (residuo: 50)</td><td class="plus">20.0 pt</td></tr>
+        <tr><td>G2</td><td>Lang</td><td>20</td><td>15</td><td>20 (residuo: 30)</td><td class="plus">15.0 pt</td></tr>
+        <tr><td>G3</td><td>Gallo</td><td>34</td><td>10</td><td>30 (residuo: 0)</td><td class="plus">8.8 pt</td></tr>
+        <tr><td>G4</td><td>De Nicolao</td><td>23</td><td>12</td><td>0 (budget esaurito)</td><td class="minus">0.0 pt</td></tr>
+      </table>
+    </div>
+    <p>Gallo vale solo 8.8pt invece di 10 perché il budget residuo era 30 min su 34 giocati: (30/34) × 10 = 8.8. De Nicolao vale 0 perché il budget era già esaurito.</p>
+
+    <div class="note"><p>💡 <strong>Strategia:</strong> metti in G1/A1/C1 i giocatori più affidabili per minutaggio. Se un titolare non gioca e hai un ottimo giocatore in G3, tutto il budget passa a lui. L'ordine è la tua vera scelta tattica.</p></div>
+
+    <h3>Se non copri tutti i minuti</h3>
+    <p>Se i tuoi giocatori coprono meno minuti del budget disponibile (es. hai solo 2 guardie che giocano 30+20=50 min su 80 disponibili), i 30 minuti non coperti semplicemente non producono punti. Non c'è penalità esplicita, ma hai "sprecato" potenziale.</p>
+  </div>
+
+  <!-- 3. PUNTEGGIO -->
   <div class="section" id="punteggio">
-    <div class="section-header"><div class="section-bar"></div><h2>2. Sistema di Punteggio</h2></div>
-    <p>I punti vengono calcolati automaticamente in base alle statistiche reali delle partite. Ogni lega può scegliere tra tre formule: <strong>Easy</strong>, <strong>Advanced</strong> o <strong>Custom</strong>.</p>
+    <div class="section-header"><div class="section-bar"></div><h2>3. Sistema di Punteggio</h2></div>
+    <p>I punti fantasy grezzi vengono calcolati automaticamente in base alle statistiche reali delle partite. Ogni lega può scegliere tra tre formule: <strong>Easy</strong>, <strong>Advanced</strong> o <strong>Custom</strong>.</p>
 
     <div class="formula-grid">
       <div class="formula-card">
@@ -160,98 +204,150 @@
 
     <h3>🛠️ Custom</h3>
     <p>L'admin di una lega privata può creare una formula personalizzata impostando liberamente i coefficienti per ogni statistica, partendo dalla formula Advanced come base. La formula custom non è modificabile dopo che è stata disputata almeno una giornata.</p>
-
-    <div class="note"><p>⭐ <strong>Bonus Capitano:</strong> i punti del capitano vengono moltiplicati per <strong>2x</strong>. Scegli il tuo capitano con saggezza!</p></div>
   </div>
 
-  <!-- 3. LEGHE -->
+  <!-- 4. LEGHE -->
   <div class="section" id="leghe">
-    <div class="section-header"><div class="section-bar"></div><h2>3. Leghe e Modalità di Gioco</h2></div>
+    <div class="section-header"><div class="section-bar"></div><h2>4. Leghe e Modalità di Gioco</h2></div>
 
     <h3>Leghe Ufficiali</h3>
     <p>Virtua Basket offre due leghe ufficiali a cui tutti gli utenti vengono iscritti automaticamente al momento della registrazione:</p>
     <ul>
-      <li><strong>🇮🇹 Virtua Basket LBA</strong> — basata sulla Lega Basket Serie A</li>
-      <li><strong>🌍 Virtua EuroLeague</strong> — basata sulla EuroLeague</li>
+      <li><strong>🇮🇹 Virtua Basket LBA</strong> — basata sulla Lega Basket Serie A (formula roster 5+5)</li>
+      <li><strong>🌍 Virtua EuroLeague</strong> — basata sulla EuroLeague (nessun vincolo nazionalità)</li>
     </ul>
     <p>Le leghe ufficiali usano la modalità <strong>Regular Season</strong> con roster libero ogni giornata.</p>
 
     <h3>Leghe Private</h3>
-    <p>Puoi creare una lega privata con i tuoi amici scegliendo competizione, modalità di gioco e formula di punteggio. Le leghe private supportano da 6 a 12 partecipanti e possono essere pubbliche (joinable liberamente) o protette da password.</p>
+    <p>Puoi creare una lega privata con i tuoi amici scegliendo competizione, modalità di gioco, formula punteggio e — per le leghe LBA — formula roster. Le leghe private supportano da 6 a 12 partecipanti e possono essere pubbliche o protette da password.</p>
 
     <div class="table-wrap">
       <table>
-        <tr><th>Modalità</th><th>Descrizione</th><th>Draft</th></tr>
+        <tr><th>Modalità</th><th>Descrizione</th><th>Roster</th><th>Draft</th></tr>
         <tr>
           <td><strong>Regular Season</strong></td>
-          <td>Tutti contro tutti, roster libero ogni giornata. Classifica per ranking points.</td>
+          <td>Tutti contro tutti. Classifica per ranking points.</td>
+          <td>Libero ogni giornata</td>
           <td>No</td>
         </tr>
         <tr>
           <td><strong>Regular Season Pro</strong></td>
-          <td>Tutti contro tutti, roster fisso costruito tramite draft iniziale.</td>
+          <td>Tutti contro tutti. Classifica per ranking points.</td>
+          <td>Fisso da draft (12 giocatori)</td>
           <td>Sì</td>
         </tr>
         <tr>
           <td><strong>Calendario 1v1</strong></td>
-          <td>Sfide dirette stile campionato ogni giornata. 2pt vittoria, 0pt sconfitta. Roster fisso da draft.</td>
+          <td>Sfide dirette stile campionato. 2pt vittoria, 0pt sconfitta.</td>
+          <td>Fisso da draft (12 giocatori)</td>
           <td>Sì</td>
         </tr>
       </table>
     </div>
+
+    <h3>Roster fisso — come funziona</h3>
+    <p>Nelle modalità con draft costruisci un roster da <strong>12 giocatori</strong>: almeno 4G + 4A + 2C, più 2 slot extra di qualsiasi ruolo. Ogni giornata scegli i <strong>10 da schierare</strong> tra i tuoi 12, rispettando sempre la struttura 4G+4A+2C. I 2 non schierati non producono punti.</p>
   </div>
 
-  <!-- 4. DRAFT -->
+  <!-- 5. FORMULA ROSTER -->
+  <div class="section" id="formula-roster">
+    <div class="section-header"><div class="section-bar"></div><h2>5. Formula Roster (LBA)</h2></div>
+    <p>Solo per leghe LBA, l'admin può scegliere la <strong>formula roster</strong> al momento della creazione della lega. Questa scelta è irreversibile dopo la creazione.</p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula-card-title">🇮🇹 6+6 (Regola LBA)</div>
+        <p>Riproduce il regolamento reale della Lega Basket Serie A.</p>
+        <ul style="font-size:13px; color:var(--gray);">
+          <li>Il roster (draft) può avere <strong>max 6 stranieri</strong> e <strong>max 6 italiani</strong></li>
+          <li>La formazione settimanale può avere <strong>max 5 stranieri</strong> in campo</li>
+          <li>Almeno <strong>5 italiani</strong> obbligatori tra i 10 schierati</li>
+        </ul>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🌍 Libera</div>
+        <p>Nessun vincolo di nazionalità.</p>
+        <ul style="font-size:13px; color:var(--gray);">
+          <li>Puoi draftare fino a <strong>12 stranieri</strong></li>
+          <li>Puoi schierare fino a <strong>10 stranieri</strong></li>
+          <li>Nessuna restrizione su italiani/stranieri</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note"><p>⚠️ La <strong>Lega Ufficiale LBA</strong> usa la formula <strong>5+5</strong> — max 5 stranieri tra i 10 schierati ogni giornata, con roster libero (non fisso da draft).</p></div>
+  </div>
+
+  <!-- 6. DRAFT -->
   <div class="section" id="draft">
-    <div class="section-header"><div class="section-bar"></div><h2>4. Draft Snake</h2></div>
-    <p>Nelle modalità con draft, ogni partecipante costruisce il proprio roster prima dell'inizio della stagione attraverso un draft snake.</p>
+    <div class="section-header"><div class="section-bar"></div><h2>6. Draft Snake</h2></div>
+    <p>Nelle modalità con roster fisso, ogni partecipante costruisce il proprio roster prima dell'inizio della stagione attraverso un <strong>draft snake di 12 round</strong>.</p>
 
     <h3>Come funziona</h3>
     <ul>
-      <li>L'admin della lega configura data, ora e tempo per ogni pick</li>
+      <li>L'admin configura data, ora e tempo per ogni pick (6h, 12h, 24h o 48h)</li>
       <li>L'ordine di pick è generato casualmente e mostrato prima dell'avvio</li>
-      <li>Il sistema <strong>snake</strong> inverte l'ordine ad ogni round per garantire equità — chi ha pickato per ultimo nel round pari, picka per primo nel round dispari</li>
-      <li>Ogni partecipante ha un tempo configurabile per effettuare la propria pick (6h, 12h, 24h o 48h)</li>
-      <li>Se il tempo scade, scatta l'<strong>autopick automatico</strong> dal primo giocatore disponibile in wishlist</li>
+      <li>Il sistema <strong>snake</strong> inverte l'ordine ad ogni round per garantire equità</li>
+      <li>Ogni partecipante ha il tempo configurato per effettuare la propria pick</li>
     </ul>
 
-    <div class="highlight"><p>⭐ <strong>Wishlist:</strong> prepara la tua wishlist prima e durante il draft. In caso di autopick il sistema sceglie il primo giocatore disponibile nella tua lista.</p></div>
+    <h3>Vincoli di pick nel draft</h3>
+    <p>Il sistema impedisce pick che renderebbero impossibile completare il roster minimo. Ad esempio, se sei all'11° round e hai già 4A e 2C ma solo 3G, puoi pickare solo guardie.</p>
+    <p>Con formula <strong>6+6</strong>, il sistema blocca anche le pick che violano i limiti di nazionalità (max 6 stranieri e max 6 italiani nel roster da 12).</p>
 
-    <h3>Numero di round</h3>
-    <p>Il numero di round dipende dal numero di partecipanti della lega, configurato al momento della creazione del draft dall'admin.</p>
+    <div class="highlight"><p>⭐ <strong>Wishlist:</strong> prepara la tua wishlist prima e durante il draft. Se scatta l'autopick, il sistema scorre la wishlist e sceglie il primo giocatore disponibile che rispetta tutti i vincoli.</p></div>
+
+    <h3>Pick saltata</h3>
+    <p>Se il tempo scade e nessun giocatore in wishlist rispetta i vincoli correnti, il turno viene <strong>saltato</strong> e il draft avanza. Il giocatore può recuperare la pick saltata in modo asincrono in qualsiasi momento successivo, scegliendo tra i giocatori ancora disponibili.</p>
+
+    <h3>Fine draft</h3>
+    <p>A fine draft, chi ha ancora ruoli minimi scoperti (meno di 4G, 4A o 2C) riceve un <strong>autopick forzato</strong> sui ruoli mancanti — il miglior giocatore disponibile per media punti che rispetta i vincoli. Gli slot extra non coperti rimangono vuoti.</p>
 
     <div class="note"><p>🔔 Attiva le notifiche push per ricevere un avviso quando è il tuo turno di pickare.</p></div>
   </div>
 
-  <!-- 5. CLASSIFICHE -->
+  <!-- 7. CLASSIFICHE -->
   <div class="section" id="classifica">
-    <div class="section-header"><div class="section-bar"></div><h2>5. Classifiche</h2></div>
+    <div class="section-header"><div class="section-bar"></div><h2>7. Classifiche</h2></div>
 
     <h3>Classifica Giornata</h3>
-    <p>Mostra i punteggi fantasy di tutti i partecipanti per la giornata corrente o per le giornate precedenti. Puoi visualizzare la formazione di qualsiasi partecipante toccando il suo nome.</p>
+    <p>Mostra i punteggi fantasy (calcolati con il sistema budget-minuti) di tutti i partecipanti per la giornata corrente o per le giornate precedenti. Puoi visualizzare la formazione di qualsiasi partecipante toccando il suo nome.</p>
 
     <h3>Classifica Stagionale — Regular Season</h3>
-    <p>Basata sui <strong>ranking points</strong>: ogni giornata vengono assegnati punti in base alla posizione in classifica giornaliera. Chi termina la stagione con più ranking points vince la lega.</p>
+    <p>Basata sui <strong>ranking points</strong> assegnati in base alla posizione in classifica giornaliera:</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Posizione</th><th>Ranking Points</th></tr>
+        <tr><td>1°</td><td class="plus">25 pt</td></tr>
+        <tr><td>2°</td><td class="plus">18 pt</td></tr>
+        <tr><td>3°</td><td class="plus">15 pt</td></tr>
+        <tr><td>4°</td><td class="plus">12 pt</td></tr>
+        <tr><td>5°</td><td class="plus">10 pt</td></tr>
+        <tr><td>6°</td><td class="plus">8 pt</td></tr>
+        <tr><td>7°</td><td class="plus">6 pt</td></tr>
+        <tr><td>8°</td><td class="plus">4 pt</td></tr>
+      </table>
+    </div>
 
     <h3>Classifica Stagionale — Calendario 1v1</h3>
-    <p>In questa modalità ogni giornata è uno scontro diretto tra due partecipanti. Vince chi fa più punti fantasy con il suo roster. La classifica riflette vittorie e sconfitte come in un vero campionato.</p>
+    <p>Ogni giornata è uno scontro diretto tra due partecipanti. Vince chi fa più punti fantasy con il suo roster (calcolati con il sistema budget-minuti). La classifica riflette vittorie e sconfitte come in un vero campionato.</p>
   </div>
 
-  <!-- 6. DEADLINE -->
+  <!-- 8. DEADLINE -->
   <div class="section" id="deadline">
-    <div class="section-header"><div class="section-bar"></div><h2>6. Deadline e Pick Mancanti</h2></div>
+    <div class="section-header"><div class="section-bar"></div><h2>8. Deadline e Pick Mancanti</h2></div>
     <p>I pick si chiudono prima dell'inizio della prima partita di ogni giornata. Se non effettui il pick entro la deadline:</p>
     <ul>
       <li>Non ricevi punti per quella giornata</li>
       <li>In modalità <strong>Regular Season</strong> puoi ricominciare dalla giornata successiva con un nuovo roster</li>
-      <li>In modalità con <strong>draft</strong> il roster rimane invariato ma non vengono assegnati punti per la giornata mancata</li>
+      <li>In modalità con <strong>roster fisso</strong> il roster rimane invariato ma non vengono assegnati punti per la giornata mancata</li>
     </ul>
     <div class="note"><p>🔔 Attiva le notifiche push per ricevere un promemoria prima della chiusura dei pick.</p></div>
   </div>
 
-  <!-- 7. PARITA -->
+  <!-- 9. PARITA -->
   <div class="section" id="parita">
-    <div class="section-header"><div class="section-bar"></div><h2>7. Parità</h2></div>
+    <div class="section-header"><div class="section-bar"></div><h2>9. Parità</h2></div>
     <p>In caso di parità nella classifica stagionale, si applicano in ordine i seguenti criteri di spareggio:</p>
     <ol>
       <li>Maggior numero di giornate vinte</li>
