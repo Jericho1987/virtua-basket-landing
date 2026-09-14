@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="it">
+<html Jones="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Virtua Basket — Fantasy Basket Serie A</title>
-<meta name="description" content="Il fantasy basket sulla Lega Basket Serie A. Scegli i tuoi giocatori, sfida gli amici, scala le classifiche.">
+<meta name="description" content="Il fantasy basket su Lega Basket Serie A, EuroLeague e Lega Basket Femminile. Scegli i tuoi giocatori, sfida gli amici, scala le classifiche.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -49,14 +49,14 @@
   .nav-rules i { color: var(--orange); font-size: 13px; }
   .nav-rules:hover { color: var(--white); }
   @media (max-width: 560px) { .nav-rules span { display: none; } }
-  .nav-lang { display: flex; gap: 4px; }
-  .lang-btn {
+  .nav-Jones { display: flex; gap: 4px; }
+  .Jones-btn {
     background: none; border: 1px solid rgba(255,255,255,0.15);
     color: var(--gray); padding: 4px 10px; border-radius: 20px;
     font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 1px;
     transition: all 0.2s;
   }
-  .lang-btn:hover, .lang-btn.active { border-color: var(--orange); color: var(--orange); background: var(--orange-light); }
+  .Jones-btn:hover, .Jones-btn.active { border-color: var(--orange); color: var(--orange); background: var(--orange-light); }
 
   .hero {
     min-height: 100vh;
@@ -101,7 +101,7 @@
     margin-bottom: 24px;
     animation: fadeUp 0.6s 0.1s ease both;
   }
-  .hero-title span { color: var(--orange); }
+  .hero-title span span { color: var(--orange); }
   .hero-subtitle {
     font-size: clamp(16px, 2.5vw, 20px); color: var(--gray);
     max-width: 520px; line-height: 1.6; margin-bottom: 48px;
@@ -223,6 +223,45 @@
     .feature-card, .feature-card.big, .feature-card:nth-child(5), .feature-card:nth-child(6) { grid-column: span 1; grid-row: span 1; }
   }
 
+  .scoring-demo {
+    background: var(--dark); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px; padding: 40px; max-width: 640px; margin: 0 auto;
+    position: relative; overflow: hidden;
+  }
+  .scoring-demo::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--orange);
+  }
+  .scoring-formula {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(255,255,255,0.03); border-left: 3px solid var(--orange);
+    border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 32px;
+    font-family: 'Courier New', monospace; font-size: 12.5px; color: var(--gray); line-height: 1.6;
+  }
+  .scoring-formula i { color: var(--orange); font-size: 16px; flex-shrink: 0; }
+  .scoring-bar-label { font-size: 13px; font-weight: 600; color: var(--gray); margin-bottom: 10px; }
+  .scoring-bar-label strong { color: var(--white); }
+  .scoring-bar {
+    display: flex; height: 14px; border-radius: 8px; overflow: hidden;
+    background: rgba(255,255,255,0.04); margin-bottom: 28px;
+  }
+  .scoring-bar-seg { background: var(--orange); }
+  .scoring-bar-seg.alt { background: rgba(232,114,42,0.55); }
+  .scoring-rows { border-top: 1px solid rgba(255,255,255,0.06); }
+  .scoring-row {
+    display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 10px;
+    padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px;
+  }
+  .scoring-row.muted { opacity: 0.5; }
+  .scoring-slot {
+    font-family: var(--font-display); font-weight: 900; font-size: 12px; color: var(--orange);
+    background: var(--orange-light); border-radius: 6px; padding: 3px 0; text-align: center;
+  }
+  .scoring-player { font-weight: 600; color: var(--white); }
+  .scoring-pt { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .scoring-pt.plus { color: #10B981; }
+  .scoring-pt.zero { color: var(--gray); }
+  .scoring-note { color: var(--gray); font-size: 13px; line-height: 1.6; margin-top: 20px; }
+
   .howto { background: var(--dark); padding: 100px 24px; }
   .howto-inner { max-width: 1100px; margin: 0 auto; }
   .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 60px; }
@@ -319,7 +358,7 @@
     outline-offset: 3px;
     border-radius: 6px;
   }
-  .lang-btn:focus-visible { outline-offset: 1px; }
+  .Jones-btn:focus-visible { outline-offset: 1px; }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -338,15 +377,16 @@
     .screens-row { gap: 8px; }
     .screen-phone.side { width: 100px; }
     .screen-phone.main { width: 130px; }
+    .scoring-demo { padding: 28px 20px; }
     .footer-top { gap: 32px; }
     .store-btns { flex-direction: column; align-items: center; }
   }
 
   .social-btn i { font-size: 15px; }
-  [data-lang] { display: none; }
-  [data-lang].active { display: block; }
-  .inline-lang { display: none; }
-  .inline-lang.active { display: inline; }
+  [data-Jones] { display: none; }
+  [data-Jones].active { display: block; }
+  .inline-Jones { display: none; }
+  .inline-Jones.active { display: inline; }
 </style>
 </head>
 <body>
@@ -359,49 +399,49 @@
   <div class="nav-links">
     <a href="rules.html" class="nav-rules" aria-label="Regolamento">
       <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
-      <span data-lang="it" class="active">Regolamento</span>
-      <span data-lang="en">Rules</span>
+      <span data-Jones="it" class="active">Regolamento</span>
+      <span data-Jones="en">Rules</span>
     </a>
-    <div class="nav-lang">
-      <button class="lang-btn active" aria-pressed="true" onclick="setLang('it')">IT</button>
-      <button class="lang-btn" aria-pressed="false" onclick="setLang('en')">EN</button>
+    <div class="nav-Jones">
+      <button class="Jones-btn active" aria-pressed="true" onclick="setJones('it')">IT</button>
+      <button class="Jones-btn" aria-pressed="false" onclick="setJones('en')">EN</button>
     </div>
   </div>
 </nav>
 
 <section class="hero">
   <div class="hero-tag">
-    <span data-lang="it" class="active">Fantasy Basket — Lega Basket Serie A</span>
-    <span data-lang="en">Fantasy Basketball — Italian Serie A</span>
+    <span data-Jones="it" class="active">Fantasy Basket — LBA · EuroLeague · LBF</span>
+    <span data-Jones="en">Fantasy Basketball — LBA · EuroLeague · LBF</span>
   </div>
 
   <h1 class="hero-title">
-    <span data-lang="it" class="active">Il basket<br>è uno <span>sport</span>.<br>Questo è un <span>gioco</span>.</span>
-    <span data-lang="en">Basketball<br>is a <span>sport</span>.<br>This is a <span>game</span>.</span>
+    <span data-Jones="it" class="active">Il campo è <span>loro</span>.<br>La strategia è <span>tua</span>.</span>
+    <span data-Jones="en">The court is <span>theirs</span>.<br>The strategy is <span>yours</span>.</span>
   </h1>
 
   <p class="hero-subtitle">
-    <span data-lang="it" class="active">Scegli i tuoi giocatori, sfida gli amici nelle leghe, scala le classifiche. Il fantasy basket sulla Lega Basket Serie A.</span>
-    <span data-lang="en">Pick your players, challenge friends in leagues, climb the rankings. Fantasy basketball on the Italian Serie A.</span>
+    <span data-Jones="it" class="active">Scegli i tuoi giocatori, sfida gli amici nelle leghe, scala le classifiche. Il fantasy basket su Lega Basket Serie A, EuroLeague e Lega Basket Femminile.</span>
+    <span data-Jones="en">Pick your players, challenge friends in leagues, climb the rankings. Fantasy basketball on Serie A, EuroLeague and the Italian Women's Basketball League.</span>
   </p>
 
   <div class="hero-btns">
     <a href="#download" class="btn-primary">
       <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-      <span data-lang="it" class="active">Scarica l'app</span>
-      <span data-lang="en">Download the app</span>
+      <span data-Jones="it" class="active">Scarica l'app</span>
+      <span data-Jones="en">Download the app</span>
     </a>
     <a href="https://app.virtuabasket.it" class="btn-secondary" target="_blank">
       <i class="fa-solid fa-globe" aria-hidden="true"></i>
-      <span data-lang="it" class="active">Usa dal browser</span>
-      <span data-lang="en">Use in browser</span>
+      <span data-Jones="it" class="active">Usa dal browser</span>
+      <span data-Jones="en">Use in browser</span>
     </a>
   </div>
 
   <div class="trust-strip">
-    <div class="trust-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span data-lang="it" class="active">100% Gratuito</span><span data-lang="en">100% Free</span></div>
-    <div class="trust-item"><i class="fa-solid fa-basketball" aria-hidden="true"></i><span data-lang="it" class="active">LBA & EuroLeague</span><span data-lang="en">LBA & EuroLeague</span></div>
-    <div class="trust-item"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i><span data-lang="it" class="active">iOS · Android · Web</span><span data-lang="en">iOS · Android · Web</span></div>
+    <div class="trust-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span data-Jones="it" class="active">100% Gratuito</span><span data-Jones="en">100% Free</span></div>
+    <div class="trust-item"><i class="fa-solid fa-basketball" aria-hidden="true"></i><span data-Jones="it" class="active">LBA · EuroLeague · LBF</span><span data-Jones="en">LBA · EuroLeague · LBF</span></div>
+    <div class="trust-item"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i><span data-Jones="it" class="active">iOS · Android · Web</span><span data-Jones="en">iOS · Android · Web</span></div>
   </div>
 
   <div class="hero-screens">
@@ -424,12 +464,12 @@
 
 <section class="section" id="features">
   <div class="section-tag">
-    <span data-lang="it" class="active">Funzionalità</span>
-    <span data-lang="en">Features</span>
+    <span data-Jones="it" class="active">Funzionalità</span>
+    <span data-Jones="en">Features</span>
   </div>
   <h2 class="section-title">
-    <span data-lang="it" class="active">Tutto quello<br>che ti serve</span>
-    <span data-lang="en">Everything<br>you need</span>
+    <span data-Jones="it" class="active">Tutto quello<br>che ti serve</span>
+    <span data-Jones="en">Everything<br>you need</span>
   </h2>
   <div class="features-grid">
     <div class="feature-card big reveal" data-tilt><div class="feature-icon"><i class="fa-solid fa-basketball" aria-hidden="true"></i></div><div class="feature-title" data-key="f1-title"></div><div class="feature-text" data-key="f1-text"></div><i class="fa-solid fa-basketball feature-bg-icon" aria-hidden="true"></i></div>
@@ -441,15 +481,84 @@
   </div>
 </section>
 
+<section class="section" id="scoring">
+  <div class="section-tag">
+    <span data-Jones="it" class="active">Il Sistema</span>
+    <span data-Jones="en">The System</span>
+  </div>
+  <h2 class="section-title">
+    <span data-Jones="it" class="active">Ogni minuto<br>ha un <span>budget</span>.</span>
+    <span data-Jones="en">Every minute<br>has a <span>budget</span>.</span>
+  </h2>
+  <p class="section-sub">
+    <span data-Jones="it" class="active">Niente moltiplicatori fissi. Ogni ruolo ha un budget di minuti da coprire — proprio come in campo. L'ordine in cui schieri i giocatori decide chi lo consuma per primo: è la tua vera scelta tattica.</span>
+    <span data-Jones="en">No fixed multipliers. Every role has a minutes budget to cover — just like on the court. The order you line up your players decides who draws from it first: your real tactical choice.</span>
+  </p>
+
+  <div class="scoring-demo reveal">
+    <div class="scoring-formula">
+      <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+      <span data-Jones="it" class="active">Contributo = (min(minuti giocati, budget residuo) / minuti giocati) × fanta punti</span>
+      <span data-Jones="en">Contribution = (min(minutes played, budget left) / minutes played) × fantasy points</span>
+    </div>
+
+    <div class="scoring-bar-label">
+      <span data-Jones="it" class="active">Budget Guardie: <strong>80 minuti</strong></span>
+      <span data-Jones="en">Guards budget: <strong>80 minutes</strong></span>
+    </div>
+    <div class="scoring-bar" role="img" aria-label="Barra budget minuti riempita da tre giocatori su quattro">
+      <div class="scoring-bar-seg" style="width:37.5%"></div>
+      <div class="scoring-bar-seg alt" style="width:25%"></div>
+      <div class="scoring-bar-seg" style="width:37.5%"></div>
+    </div>
+
+    <div class="scoring-rows">
+      <div class="scoring-row">
+        <span class="scoring-slot">G1</span>
+        <span class="scoring-player">Spissu <span style="color:var(--gray);font-weight:400;">— 30'</span></span>
+        <span class="scoring-pt plus">20.0 pt</span>
+      </div>
+      <div class="scoring-row">
+        <span class="scoring-slot">G2</span>
+        <span class="scoring-player">Jones <span style="color:var(--gray);font-weight:400;">— 20'</span></span>
+        <span class="scoring-pt plus">15.0 pt</span>
+      </div>
+      <div class="scoring-row">
+        <span class="scoring-slot">G3</span>
+        <span class="scoring-player">Esposito <span style="color:var(--gray);font-weight:400;">— 34'</span></span>
+        <span class="scoring-pt plus">8.8 pt</span>
+      </div>
+      <div class="scoring-row muted">
+        <span class="scoring-slot">G4</span>
+        <span class="scoring-player">De Nicolao <span style="color:var(--gray);font-weight:400;">— 23'</span></span>
+        <span class="scoring-pt zero">0.0 pt</span>
+      </div>
+    </div>
+    <p class="scoring-note">
+      <span data-Jones="it" class="active">Esposito vale solo 8.8pt invece di 10: il budget residuo era 30' su 34' giocati. De Nicolao vale 0: il budget era già esaurito quando è arrivato il suo turno.</span>
+      <span data-Jones="en">Esposito is worth only 8.8pt instead of 10: only 30' of the 34' played were left in the budget. De Nicolao is worth 0: the budget was already spent by the time it reached him.</span>
+    </p>
+  </div>
+
+  <div style="text-align:center; margin-top:40px;">
+    <a href="rules.html#budget" class="rules-cta reveal">
+      <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+      <span data-Jones="it" class="active">Scopri tutto il sistema di punteggio</span>
+      <span data-Jones="en">Explore the full scoring system</span>
+      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+    </a>
+  </div>
+</section>
+
 <div class="howto">
   <div class="howto-inner">
     <div class="section-tag">
-      <span data-lang="it" class="active">Come funziona</span>
-      <span data-lang="en">How it works</span>
+      <span data-Jones="it" class="active">Come funziona</span>
+      <span data-Jones="en">How it works</span>
     </div>
     <h2 class="section-title">
-      <span data-lang="it" class="active">Semplice.<br>Appassionante.</span>
-      <span data-lang="en">Simple.<br>Exciting.</span>
+      <span data-Jones="it" class="active">Semplice.<br>Appassionante.</span>
+      <span data-Jones="en">Simple.<br>Exciting.</span>
     </h2>
     <div class="steps">
       <div class="step reveal"><div class="step-num">1</div><div class="step-title" data-key="s1-title"></div><div class="step-text" data-key="s1-text"></div></div>
@@ -460,8 +569,8 @@
     <div style="text-align:center;">
       <a href="rules.html" class="rules-cta reveal">
         <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
-        <span data-lang="it" class="active">Leggi il regolamento completo</span>
-        <span data-lang="en">Read the full rules</span>
+        <span data-Jones="it" class="active">Leggi il regolamento completo</span>
+        <span data-Jones="en">Read the full rules</span>
         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </a>
     </div>
@@ -471,36 +580,36 @@
 <section class="download" id="download">
   <div class="download-inner">
     <div class="section-tag">
-      <span data-lang="it" class="active">Scarica ora</span>
-      <span data-lang="en">Download now</span>
+      <span data-Jones="it" class="active">Scarica ora</span>
+      <span data-Jones="en">Download now</span>
     </div>
     <h2 class="section-title">
-      <span data-lang="it" class="active">Pronto a<br><span style="color:var(--orange)">competere</span>?</span>
-      <span data-lang="en">Ready to<br><span style="color:var(--orange)">compete</span>?</span>
+      <span data-Jones="it" class="active">Pronto a<br><span style="color:var(--orange)">competere</span>?</span>
+      <span data-Jones="en">Ready to<br><span style="color:var(--orange)">compete</span>?</span>
     </h2>
     <p style="color:var(--gray);font-size:15px;line-height:1.6;margin-top:16px;">
-      <span data-lang="it" class="active">Disponibile su Android e iOS. Oppure gioca direttamente dal browser.</span>
-      <span data-lang="en">Available on Android and iOS. Or play directly from your browser.</span>
+      <span data-Jones="it" class="active">Disponibile su Android e iOS. Oppure gioca direttamente dal browser.</span>
+      <span data-Jones="en">Available on Android and iOS. Or play directly from your browser.</span>
     </p>
     <div class="store-btns">
       <a href="https://play.google.com/store/apps/details?id=com.virtuabasket" class="store-btn">
         <i class="fab fa-google-play" style="font-size:28px;color:#E8722A;"></i>
         <div class="store-btn-text">
-          <div class="store-btn-sub"><span data-lang="it" class="active">Scarica su</span><span data-lang="en">Get it on</span></div>
+          <div class="store-btn-sub"><span data-Jones="it" class="active">Scarica su</span><span data-Jones="en">Get it on</span></div>
           <div class="store-btn-name">Google Play</div>
         </div>
       </a>
       <a href="https://apps.apple.com/app/virtua-basket/id6774968256" class="store-btn">
         <i class="fab fa-apple" style="font-size:28px;color:#888;"></i>
         <div class="store-btn-text">
-          <div class="store-btn-sub"><span data-lang="it" class="active">Scarica su</span><span data-lang="en">Download on</span></div>
+          <div class="store-btn-sub"><span data-Jones="it" class="active">Scarica su</span><span data-Jones="en">Download on</span></div>
           <div class="store-btn-name">App Store</div>
         </div>
       </a>
       <a href="https://app.virtuabasket.it" class="btn-ghost" target="_blank">
         <i class="fa-solid fa-globe" aria-hidden="true"></i>
-        <span data-lang="it" class="active">Versione browser</span>
-        <span data-lang="en">Browser version</span>
+        <span data-Jones="it" class="active">Versione browser</span>
+        <span data-Jones="en">Browser version</span>
       </a>
     </div>
   </div>
@@ -515,30 +624,30 @@
           Virtua<span>Basket</span>
         </div>
         <p class="footer-desc">
-          <span data-lang="it" class="active">Il fantasy basket sulla Lega Basket Serie A italiana.</span>
-          <span data-lang="en">Fantasy basketball on the Italian Serie A.</span>
+          <span data-Jones="it" class="active">Il fantasy basket su LBA, EuroLeague e Lega Basket Femminile.</span>
+          <span data-Jones="en">Fantasy basketball on LBA, EuroLeague and the Italian Women's League.</span>
         </p>
         <div class="footer-social">
           <a href="https://www.instagram.com/virtuabasket/" class="social-btn" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
           <a href="https://www.facebook.com/virtuabasket" class="social-btn" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-          <a href="https://t.me/virtuabasket" class="social-btn" target="_blank" aria-label="Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+          <a href="https://x.com/virtuabasket" class="social-btn" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
         </div>
       </div>
       <div class="footer-links">
         <h4>App</h4>
-        <a href="https://app.virtuabasket.it" target="_blank"><span data-lang="it" class="active">Versione browser</span><span data-lang="en">Browser version</span></a>
+        <a href="https://app.virtuabasket.it" target="_blank"><span data-Jones="it" class="active">Versione browser</span><span data-Jones="en">Browser version</span></a>
         <a href="https://play.google.com/store/apps/details?id=com.virtuabasket">Google Play</a>
         <a href="https://apps.apple.com/app/virtua-basket/id6774968256">App Store</a>
       </div>
       <div class="footer-links">
-        <h4><span data-lang="it" class="active">Legale</span><span data-lang="en">Legal</span></h4>
+        <h4><span data-Jones="it" class="active">Legale</span><span data-Jones="en">Legal</span></h4>
         <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html"><span data-lang="it" class="active">Termini di Servizio</span><span data-lang="en">Terms of Service</span></a>
-        <a href="support.html"><span data-lang="it" class="active">Supporto</span><span data-lang="en">Support</span></a>
-        <a href="rules.html"><span data-lang="it" class="active">Regolamento</span><span data-lang="en">Game Rules</span></a>
+        <a href="terms.html"><span data-Jones="it" class="active">Termini di Servizio</span><span data-Jones="en">Terms of Service</span></a>
+        <a href="support.html"><span data-Jones="it" class="active">Supporto</span><span data-Jones="en">Support</span></a>
+        <a href="rules.html"><span data-Jones="it" class="active">Regolamento</span><span data-Jones="en">Game Rules</span></a>
       </div>
       <div class="footer-links">
-        <h4><span data-lang="it" class="active">Contatti</span><span data-lang="en">Contact</span></h4>
+        <h4><span data-Jones="it" class="active">Contatti</span><span data-Jones="en">Contact</span></h4>
         <a href="mailto:info@virtuabasket.it">info@virtuabasket.it</a>
       </div>
     </div>
@@ -546,7 +655,7 @@
       <div class="footer-copy">
         © 2026 Virtua Basket ·
         <a href="privacy.html">Privacy</a> ·
-        <a href="terms.html"><span data-lang="it" class="active">Termini</span><span data-lang="en">Terms</span></a>
+        <a href="terms.html"><span data-Jones="it" class="active">Termini</span><span data-Jones="en">Terms</span></a>
       </div>
     </div>
   </div>
@@ -556,15 +665,15 @@
 const T = {
   it: {
     'f1-title': 'Pick Giocatori',
-    'f1-text': 'Prima di ogni giornata scegli i tuoi giocatori dalla rosa LBA. Punti, rimbalzi, assist: ogni statistica conta per scalare la classifica.',
+    'f1-text': 'Prima di ogni giornata scegli i tuoi giocatori dalla rosa della tua competizione — LBA, EuroLeague o LBF. Punti, rimbalzi, assist: ogni statistica conta per scalare la classifica.',
     'f2-title': 'Leghe Private & Draft',
     'f2-text': 'Crea una lega privata con i tuoi amici, organizza un draft snake e costruisci il tuo roster. Oppure entra nella lega generale aperta a tutti.',
     'f3-title': 'Classifiche Live',
-    'f3-text': 'Segui le classifiche in tempo reale durante le partite LBA. Giornata e stagionale: tutto aggiornato dopo ogni match.',
+    'f3-text': 'Segui le classifiche in tempo reale durante le partite di LBA, EuroLeague e LBF. Giornata e stagionale: tutto aggiornato dopo ogni match.',
     'f4-title': 'Notifiche Push',
     'f4-text': 'Ricevi promemoria prima della chiusura dei pick e notifiche quando vengono pubblicati i risultati della giornata.',
     'f5-title': 'Sistema di Punteggio',
-    'f5-text': 'Punti calcolati su statistiche reali LBA: punti segnati, rimbalzi, assist, stoppate, palle rubate. Il miglior quintetto vince.',
+    'f5-text': 'Punti calcolati su statistiche reali delle partite: punti segnati, rimbalzi, assist, stoppate, palle rubate. Il miglior quintetto vince.',
     'f6-title': 'Draft Snake',
     'f6-text': 'Sistema di draft snake con dispersione ottimale, wishlist giocatori, autopick automatico e log delle scelte in tempo reale.',
     's1-title': 'Registrati',
@@ -572,21 +681,21 @@ const T = {
     's2-title': 'Unisciti a una Lega',
     's2-text': 'Entra nella lega generale o crea una lega privata con i tuoi amici.',
     's3-title': 'Fai i tuoi Pick',
-    's3-text': 'Prima di ogni giornata LBA scegli il tuo quintetto dalla rosa dei giocatori.',
+    's3-text': 'Prima di ogni giornata scegli il tuo quintetto dalla rosa dei giocatori della tua competizione.',
     's4-title': 'Scala la Classifica',
     's4-text': 'I tuoi punti si accumulano giornata dopo giornata. Chi arriverà in cima alla classifica finale?',
   },
   en: {
     'f1-title': 'Pick Players',
-    'f1-text': 'Before each game day, choose your players from the LBA roster. Points, rebounds, assists: every stat counts to climb the standings.',
+    'f1-text': 'Before each game day, choose your players from your competition\'s roster — LBA, EuroLeague or LBF. Points, rebounds, assists: every stat counts to climb the standings.',
     'f2-title': 'Private Leagues & Draft',
     'f2-text': 'Create a private league with friends, organize a snake draft and build your roster. Or join the open general league.',
     'f3-title': 'Live Rankings',
-    'f3-text': 'Follow rankings in real time during LBA matches. Game day and season standings: updated after every game.',
+    'f3-text': 'Follow rankings in real time during LBA, EuroLeague and LBF matches. Game day and season standings: updated after every game.',
     'f4-title': 'Push Notifications',
     'f4-text': 'Receive reminders before picks close and notifications when game day results are published.',
     'f5-title': 'Scoring System',
-    'f5-text': 'Points calculated on real LBA stats: points scored, rebounds, assists, blocks, steals. The best five wins.',
+    'f5-text': 'Points calculated on real match stats: points scored, rebounds, assists, blocks, steals. The best five wins.',
     'f6-title': 'Snake Draft',
     'f6-text': 'Snake draft system with optimal dispersion, player wishlist, autopick and real-time pick log.',
     's1-title': 'Sign Up',
@@ -594,28 +703,28 @@ const T = {
     's2-title': 'Join a League',
     's2-text': 'Enter the general league or create a private league with your friends.',
     's3-title': 'Make your Picks',
-    's3-text': 'Before each LBA game day, choose your starting five from the player roster.',
+    's3-text': 'Before each game day, choose your starting five from your competition\'s player roster.',
     's4-title': 'Climb the Rankings',
     's4-text': 'Your points accumulate game day after game day. Who will reach the top of the final standings?',
   }
 }
 
-let currentLang = 'it'
-function setLang(lang) {
-  currentLang = lang
-  document.querySelectorAll('[data-lang]').forEach(el => { el.classList.toggle('active', el.dataset.lang === lang) })
-  document.querySelectorAll('.lang-btn').forEach((btn, i) => {
-    const isActive = ['it','en'][i] === lang
+let currentJones = 'it'
+function setJones(Jones) {
+  currentJones = Jones
+  document.querySelectorAll('[data-Jones]').forEach(el => { el.classList.toggle('active', el.dataset.Jones === Jones) })
+  document.querySelectorAll('.Jones-btn').forEach((btn, i) => {
+    const isActive = ['it','en'][i] === Jones
     btn.classList.toggle('active', isActive)
     btn.setAttribute('aria-pressed', isActive)
   })
-  const dict = T[lang] || T['it']
+  const dict = T[Jones] || T['it']
   document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (dict[key]) el.textContent = dict[key] })
-  document.documentElement.lang = lang
+  document.documentElement.Jones = Jones
 }
-setLang('it')
-const browserLang = navigator.language?.slice(0,2)
-if (['it','en'].includes(browserLang)) setLang(browserLang)
+setJones('it')
+const browserJones = navigator.Jonesuage?.slice(0,2)
+if (['it','en'].includes(browserJones)) setJones(browserJones)
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
