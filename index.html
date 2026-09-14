@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html Jones="it">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Virtua Basket — Fantasy Basket Serie A</title>
 <meta name="description" content="Il fantasy basket su Lega Basket Serie A, EuroLeague e Lega Basket Femminile. Scegli i tuoi giocatori, sfida gli amici, scala le classifiche.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Virtua Basket">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://virtuabasket.it/">
+<meta property="og:title" content="Virtua Basket — Fantasy Basket LBA · EuroLeague · LBF">
+<meta property="og:description" content="Il fantasy basket su Lega Basket Serie A, EuroLeague e Lega Basket Femminile. Scegli i tuoi giocatori, sfida gli amici, scala le classifiche.">
+<meta property="og:image" content="https://virtuabasket.it/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Virtua Basket — Fantasy Basket LBA, EuroLeague, LBF">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Virtua Basket — Fantasy Basket LBA · EuroLeague · LBF">
+<meta name="twitter:description" content="Il fantasy basket su Lega Basket Serie A, EuroLeague e Lega Basket Femminile. Scegli i tuoi giocatori, sfida gli amici, scala le classifiche.">
+<meta name="twitter:image" content="https://virtuabasket.it/images/og-image.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -49,14 +66,14 @@
   .nav-rules i { color: var(--orange); font-size: 13px; }
   .nav-rules:hover { color: var(--white); }
   @media (max-width: 560px) { .nav-rules span { display: none; } }
-  .nav-Jones { display: flex; gap: 4px; }
-  .Jones-btn {
+  .nav-lang { display: flex; gap: 4px; }
+  .lang-btn {
     background: none; border: 1px solid rgba(255,255,255,0.15);
     color: var(--gray); padding: 4px 10px; border-radius: 20px;
     font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 1px;
     transition: all 0.2s;
   }
-  .Jones-btn:hover, .Jones-btn.active { border-color: var(--orange); color: var(--orange); background: var(--orange-light); }
+  .lang-btn:hover, .lang-btn.active { border-color: var(--orange); color: var(--orange); background: var(--orange-light); }
 
   .hero {
     min-height: 100vh;
@@ -170,7 +187,7 @@
     box-shadow: 0 32px 80px rgba(232,114,42,0.2);
     will-change: transform;
   }
-  .screen-phone img { width: 100%; display: block; }
+  .screen-phone img { width: 100%; height: auto; display: block; }
 
   .phone-float { animation: floatY 5s ease-in-out infinite; }
   .phone-float:hover { animation-play-state: paused; }
@@ -358,7 +375,7 @@
     outline-offset: 3px;
     border-radius: 6px;
   }
-  .Jones-btn:focus-visible { outline-offset: 1px; }
+  .lang-btn:focus-visible { outline-offset: 1px; }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -383,79 +400,79 @@
   }
 
   .social-btn i { font-size: 15px; }
-  [data-Jones] { display: none; }
-  [data-Jones].active { display: block; }
-  .inline-Jones { display: none; }
-  .inline-Jones.active { display: inline; }
+  [data-lang] { display: none; }
+  [data-lang].active { display: block; }
+  .inline-lang { display: none; }
+  .inline-lang.active { display: inline; }
 </style>
 </head>
 <body>
 
 <nav>
   <a href="#" class="nav-logo">
-    <img src="icon.png" style="width:48px;height:48px;object-fit:contain;" alt="Virtua Basket">
+    <img src="icon.png" width="48" height="48" style="width:48px;height:48px;object-fit:contain;" alt="Virtua Basket">
     <span class="nav-logo-text">Virtua<span>Basket</span></span>
   </a>
   <div class="nav-links">
     <a href="rules.html" class="nav-rules" aria-label="Regolamento">
       <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
-      <span data-Jones="it" class="active">Regolamento</span>
-      <span data-Jones="en">Rules</span>
+      <span data-lang="it" class="active">Regolamento</span>
+      <span data-lang="en">Rules</span>
     </a>
-    <div class="nav-Jones">
-      <button class="Jones-btn active" aria-pressed="true" onclick="setJones('it')">IT</button>
-      <button class="Jones-btn" aria-pressed="false" onclick="setJones('en')">EN</button>
+    <div class="nav-lang">
+      <button class="lang-btn active" aria-pressed="true" onclick="setlang('it')">IT</button>
+      <button class="lang-btn" aria-pressed="false" onclick="setlang('en')">EN</button>
     </div>
   </div>
 </nav>
 
 <section class="hero">
   <div class="hero-tag">
-    <span data-Jones="it" class="active">Fantasy Basket — LBA · EuroLeague · LBF</span>
-    <span data-Jones="en">Fantasy Basketball — LBA · EuroLeague · LBF</span>
+    <span data-lang="it" class="active">Fantasy Basket — LBA · EuroLeague · LBF</span>
+    <span data-lang="en">Fantasy Basketball — LBA · EuroLeague · LBF</span>
   </div>
 
   <h1 class="hero-title">
-    <span data-Jones="it" class="active">Il campo è <span>loro</span>.<br>La strategia è <span>tua</span>.</span>
-    <span data-Jones="en">The court is <span>theirs</span>.<br>The strategy is <span>yours</span>.</span>
+    <span data-lang="it" class="active">Il campo è <span>loro</span>.<br>La strategia è <span>tua</span>.</span>
+    <span data-lang="en">The court is <span>theirs</span>.<br>The strategy is <span>yours</span>.</span>
   </h1>
 
   <p class="hero-subtitle">
-    <span data-Jones="it" class="active">Scegli i tuoi giocatori, sfida gli amici nelle leghe, scala le classifiche. Il fantasy basket su Lega Basket Serie A, EuroLeague e Lega Basket Femminile.</span>
-    <span data-Jones="en">Pick your players, challenge friends in leagues, climb the rankings. Fantasy basketball on Serie A, EuroLeague and the Italian Women's Basketball League.</span>
+    <span data-lang="it" class="active">Scegli i tuoi giocatori, sfida gli amici nelle leghe, scala le classifiche. Il fantasy basket su Lega Basket Serie A, EuroLeague e Lega Basket Femminile.</span>
+    <span data-lang="en">Pick your players, challenge friends in leagues, climb the rankings. Fantasy basketball on Serie A, EuroLeague and the Italian Women's Basketball League.</span>
   </p>
 
   <div class="hero-btns">
     <a href="#download" class="btn-primary">
       <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-      <span data-Jones="it" class="active">Scarica l'app</span>
-      <span data-Jones="en">Download the app</span>
+      <span data-lang="it" class="active">Scarica l'app</span>
+      <span data-lang="en">Download the app</span>
     </a>
     <a href="https://app.virtuabasket.it" class="btn-secondary" target="_blank">
       <i class="fa-solid fa-globe" aria-hidden="true"></i>
-      <span data-Jones="it" class="active">Usa dal browser</span>
-      <span data-Jones="en">Use in browser</span>
+      <span data-lang="it" class="active">Usa dal browser</span>
+      <span data-lang="en">Use in browser</span>
     </a>
   </div>
 
   <div class="trust-strip">
-    <div class="trust-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span data-Jones="it" class="active">100% Gratuito</span><span data-Jones="en">100% Free</span></div>
-    <div class="trust-item"><i class="fa-solid fa-basketball" aria-hidden="true"></i><span data-Jones="it" class="active">LBA · EuroLeague · LBF</span><span data-Jones="en">LBA · EuroLeague · LBF</span></div>
-    <div class="trust-item"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i><span data-Jones="it" class="active">iOS · Android · Web</span><span data-Jones="en">iOS · Android · Web</span></div>
+    <div class="trust-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span data-lang="it" class="active">100% Gratuito</span><span data-lang="en">100% Free</span></div>
+    <div class="trust-item"><i class="fa-solid fa-basketball" aria-hidden="true"></i><span data-lang="it" class="active">LBA · EuroLeague · LBF</span><span data-lang="en">LBA · EuroLeague · LBF</span></div>
+    <div class="trust-item"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i><span data-lang="it" class="active">iOS · Android · Web</span><span data-lang="en">iOS · Android · Web</span></div>
   </div>
 
   <div class="hero-screens">
     <div class="screens-row">
       <div class="screen-phone side reveal">
-        <img src="images/screen1.png" alt="Home Virtua Basket">
+        <img src="images/screen1.png" width="1290" height="2796" alt="Home Virtua Basket">
       </div>
       <div class="phone-float">
         <div class="screen-phone main reveal" data-tilt>
-          <img src="images/screen2.png" alt="Pick giocatori">
+          <img src="images/screen2.png" width="1290" height="2796" alt="Pick giocatori">
         </div>
       </div>
       <div class="screen-phone side reveal">
-        <img src="images/screen3.png" alt="Classifica">
+        <img src="images/screen3.png" width="1290" height="2796" alt="Classifica">
       </div>
     </div>
   </div>
@@ -464,12 +481,12 @@
 
 <section class="section" id="features">
   <div class="section-tag">
-    <span data-Jones="it" class="active">Funzionalità</span>
-    <span data-Jones="en">Features</span>
+    <span data-lang="it" class="active">Funzionalità</span>
+    <span data-lang="en">Features</span>
   </div>
   <h2 class="section-title">
-    <span data-Jones="it" class="active">Tutto quello<br>che ti serve</span>
-    <span data-Jones="en">Everything<br>you need</span>
+    <span data-lang="it" class="active">Tutto quello<br>che ti serve</span>
+    <span data-lang="en">Everything<br>you need</span>
   </h2>
   <div class="features-grid">
     <div class="feature-card big reveal" data-tilt><div class="feature-icon"><i class="fa-solid fa-basketball" aria-hidden="true"></i></div><div class="feature-title" data-key="f1-title"></div><div class="feature-text" data-key="f1-text"></div><i class="fa-solid fa-basketball feature-bg-icon" aria-hidden="true"></i></div>
@@ -483,28 +500,28 @@
 
 <section class="section" id="scoring">
   <div class="section-tag">
-    <span data-Jones="it" class="active">Il Sistema</span>
-    <span data-Jones="en">The System</span>
+    <span data-lang="it" class="active">Il Sistema</span>
+    <span data-lang="en">The System</span>
   </div>
   <h2 class="section-title">
-    <span data-Jones="it" class="active">Ogni minuto<br>ha un <span>budget</span>.</span>
-    <span data-Jones="en">Every minute<br>has a <span>budget</span>.</span>
+    <span data-lang="it" class="active">Ogni minuto<br>ha un <span>budget</span>.</span>
+    <span data-lang="en">Every minute<br>has a <span>budget</span>.</span>
   </h2>
   <p class="section-sub">
-    <span data-Jones="it" class="active">Niente moltiplicatori fissi. Ogni ruolo ha un budget di minuti da coprire — proprio come in campo. L'ordine in cui schieri i giocatori decide chi lo consuma per primo: è la tua vera scelta tattica.</span>
-    <span data-Jones="en">No fixed multipliers. Every role has a minutes budget to cover — just like on the court. The order you line up your players decides who draws from it first: your real tactical choice.</span>
+    <span data-lang="it" class="active">Niente moltiplicatori fissi. Ogni ruolo ha un budget di minuti da coprire — proprio come in campo. L'ordine in cui schieri i giocatori decide chi lo consuma per primo: è la tua vera scelta tattica.</span>
+    <span data-lang="en">No fixed multipliers. Every role has a minutes budget to cover — just like on the court. The order you line up your players decides who draws from it first: your real tactical choice.</span>
   </p>
 
   <div class="scoring-demo reveal">
     <div class="scoring-formula">
       <i class="fa-solid fa-calculator" aria-hidden="true"></i>
-      <span data-Jones="it" class="active">Contributo = (min(minuti giocati, budget residuo) / minuti giocati) × fanta punti</span>
-      <span data-Jones="en">Contribution = (min(minutes played, budget left) / minutes played) × fantasy points</span>
+      <span data-lang="it" class="active">Contributo = (min(minuti giocati, budget residuo) / minuti giocati) × fanta punti</span>
+      <span data-lang="en">Contribution = (min(minutes played, budget left) / minutes played) × fantasy points</span>
     </div>
 
     <div class="scoring-bar-label">
-      <span data-Jones="it" class="active">Budget Guardie: <strong>80 minuti</strong></span>
-      <span data-Jones="en">Guards budget: <strong>80 minutes</strong></span>
+      <span data-lang="it" class="active">Budget Guardie: <strong>80 minuti</strong></span>
+      <span data-lang="en">Guards budget: <strong>80 minutes</strong></span>
     </div>
     <div class="scoring-bar" role="img" aria-label="Barra budget minuti riempita da tre giocatori su quattro">
       <div class="scoring-bar-seg" style="width:37.5%"></div>
@@ -520,7 +537,7 @@
       </div>
       <div class="scoring-row">
         <span class="scoring-slot">G2</span>
-        <span class="scoring-player">Jones <span style="color:var(--gray);font-weight:400;">— 20'</span></span>
+        <span class="scoring-player">lang <span style="color:var(--gray);font-weight:400;">— 20'</span></span>
         <span class="scoring-pt plus">15.0 pt</span>
       </div>
       <div class="scoring-row">
@@ -535,16 +552,16 @@
       </div>
     </div>
     <p class="scoring-note">
-      <span data-Jones="it" class="active">Esposito vale solo 8.8pt invece di 10: il budget residuo era 30' su 34' giocati. De Nicolao vale 0: il budget era già esaurito quando è arrivato il suo turno.</span>
-      <span data-Jones="en">Esposito is worth only 8.8pt instead of 10: only 30' of the 34' played were left in the budget. De Nicolao is worth 0: the budget was already spent by the time it reached him.</span>
+      <span data-lang="it" class="active">Esposito vale solo 8.8pt invece di 10: il budget residuo era 30' su 34' giocati. De Nicolao vale 0: il budget era già esaurito quando è arrivato il suo turno.</span>
+      <span data-lang="en">Esposito is worth only 8.8pt instead of 10: only 30' of the 34' played were left in the budget. De Nicolao is worth 0: the budget was already spent by the time it reached him.</span>
     </p>
   </div>
 
   <div style="text-align:center; margin-top:40px;">
     <a href="rules.html#budget" class="rules-cta reveal">
       <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-      <span data-Jones="it" class="active">Scopri tutto il sistema di punteggio</span>
-      <span data-Jones="en">Explore the full scoring system</span>
+      <span data-lang="it" class="active">Scopri tutto il sistema di punteggio</span>
+      <span data-lang="en">Explore the full scoring system</span>
       <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
     </a>
   </div>
@@ -553,12 +570,12 @@
 <div class="howto">
   <div class="howto-inner">
     <div class="section-tag">
-      <span data-Jones="it" class="active">Come funziona</span>
-      <span data-Jones="en">How it works</span>
+      <span data-lang="it" class="active">Come funziona</span>
+      <span data-lang="en">How it works</span>
     </div>
     <h2 class="section-title">
-      <span data-Jones="it" class="active">Semplice.<br>Appassionante.</span>
-      <span data-Jones="en">Simple.<br>Exciting.</span>
+      <span data-lang="it" class="active">Semplice.<br>Appassionante.</span>
+      <span data-lang="en">Simple.<br>Exciting.</span>
     </h2>
     <div class="steps">
       <div class="step reveal"><div class="step-num">1</div><div class="step-title" data-key="s1-title"></div><div class="step-text" data-key="s1-text"></div></div>
@@ -569,8 +586,8 @@
     <div style="text-align:center;">
       <a href="rules.html" class="rules-cta reveal">
         <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
-        <span data-Jones="it" class="active">Leggi il regolamento completo</span>
-        <span data-Jones="en">Read the full rules</span>
+        <span data-lang="it" class="active">Leggi il regolamento completo</span>
+        <span data-lang="en">Read the full rules</span>
         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </a>
     </div>
@@ -580,36 +597,36 @@
 <section class="download" id="download">
   <div class="download-inner">
     <div class="section-tag">
-      <span data-Jones="it" class="active">Scarica ora</span>
-      <span data-Jones="en">Download now</span>
+      <span data-lang="it" class="active">Scarica ora</span>
+      <span data-lang="en">Download now</span>
     </div>
     <h2 class="section-title">
-      <span data-Jones="it" class="active">Pronto a<br><span style="color:var(--orange)">competere</span>?</span>
-      <span data-Jones="en">Ready to<br><span style="color:var(--orange)">compete</span>?</span>
+      <span data-lang="it" class="active">Pronto a<br><span style="color:var(--orange)">competere</span>?</span>
+      <span data-lang="en">Ready to<br><span style="color:var(--orange)">compete</span>?</span>
     </h2>
     <p style="color:var(--gray);font-size:15px;line-height:1.6;margin-top:16px;">
-      <span data-Jones="it" class="active">Disponibile su Android e iOS. Oppure gioca direttamente dal browser.</span>
-      <span data-Jones="en">Available on Android and iOS. Or play directly from your browser.</span>
+      <span data-lang="it" class="active">Disponibile su Android e iOS. Oppure gioca direttamente dal browser.</span>
+      <span data-lang="en">Available on Android and iOS. Or play directly from your browser.</span>
     </p>
     <div class="store-btns">
       <a href="https://play.google.com/store/apps/details?id=com.virtuabasket" class="store-btn">
         <i class="fab fa-google-play" style="font-size:28px;color:#E8722A;"></i>
         <div class="store-btn-text">
-          <div class="store-btn-sub"><span data-Jones="it" class="active">Scarica su</span><span data-Jones="en">Get it on</span></div>
+          <div class="store-btn-sub"><span data-lang="it" class="active">Scarica su</span><span data-lang="en">Get it on</span></div>
           <div class="store-btn-name">Google Play</div>
         </div>
       </a>
       <a href="https://apps.apple.com/app/virtua-basket/id6774968256" class="store-btn">
         <i class="fab fa-apple" style="font-size:28px;color:#888;"></i>
         <div class="store-btn-text">
-          <div class="store-btn-sub"><span data-Jones="it" class="active">Scarica su</span><span data-Jones="en">Download on</span></div>
+          <div class="store-btn-sub"><span data-lang="it" class="active">Scarica su</span><span data-lang="en">Download on</span></div>
           <div class="store-btn-name">App Store</div>
         </div>
       </a>
       <a href="https://app.virtuabasket.it" class="btn-ghost" target="_blank">
         <i class="fa-solid fa-globe" aria-hidden="true"></i>
-        <span data-Jones="it" class="active">Versione browser</span>
-        <span data-Jones="en">Browser version</span>
+        <span data-lang="it" class="active">Versione browser</span>
+        <span data-lang="en">Browser version</span>
       </a>
     </div>
   </div>
@@ -620,12 +637,12 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="icon.png" style="width:44px;height:44px;vertical-align:middle;margin-right:8px;object-fit:contain;" alt="Virtua Basket">
+          <img src="icon.png" width="44" height="44" style="width:44px;height:44px;vertical-align:middle;margin-right:8px;object-fit:contain;" alt="Virtua Basket">
           Virtua<span>Basket</span>
         </div>
         <p class="footer-desc">
-          <span data-Jones="it" class="active">Il fantasy basket su LBA, EuroLeague e Lega Basket Femminile.</span>
-          <span data-Jones="en">Fantasy basketball on LBA, EuroLeague and the Italian Women's League.</span>
+          <span data-lang="it" class="active">Il fantasy basket su LBA, EuroLeague e Lega Basket Femminile.</span>
+          <span data-lang="en">Fantasy basketball on LBA, EuroLeague and the Italian Women's League.</span>
         </p>
         <div class="footer-social">
           <a href="https://www.instagram.com/virtuabasket/" class="social-btn" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
@@ -635,19 +652,19 @@
       </div>
       <div class="footer-links">
         <h4>App</h4>
-        <a href="https://app.virtuabasket.it" target="_blank"><span data-Jones="it" class="active">Versione browser</span><span data-Jones="en">Browser version</span></a>
+        <a href="https://app.virtuabasket.it" target="_blank"><span data-lang="it" class="active">Versione browser</span><span data-lang="en">Browser version</span></a>
         <a href="https://play.google.com/store/apps/details?id=com.virtuabasket">Google Play</a>
         <a href="https://apps.apple.com/app/virtua-basket/id6774968256">App Store</a>
       </div>
       <div class="footer-links">
-        <h4><span data-Jones="it" class="active">Legale</span><span data-Jones="en">Legal</span></h4>
+        <h4><span data-lang="it" class="active">Legale</span><span data-lang="en">Legal</span></h4>
         <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html"><span data-Jones="it" class="active">Termini di Servizio</span><span data-Jones="en">Terms of Service</span></a>
-        <a href="support.html"><span data-Jones="it" class="active">Supporto</span><span data-Jones="en">Support</span></a>
-        <a href="rules.html"><span data-Jones="it" class="active">Regolamento</span><span data-Jones="en">Game Rules</span></a>
+        <a href="terms.html"><span data-lang="it" class="active">Termini di Servizio</span><span data-lang="en">Terms of Service</span></a>
+        <a href="support.html"><span data-lang="it" class="active">Supporto</span><span data-lang="en">Support</span></a>
+        <a href="rules.html"><span data-lang="it" class="active">Regolamento</span><span data-lang="en">Game Rules</span></a>
       </div>
       <div class="footer-links">
-        <h4><span data-Jones="it" class="active">Contatti</span><span data-Jones="en">Contact</span></h4>
+        <h4><span data-lang="it" class="active">Contatti</span><span data-lang="en">Contact</span></h4>
         <a href="mailto:info@virtuabasket.it">info@virtuabasket.it</a>
       </div>
     </div>
@@ -655,7 +672,7 @@
       <div class="footer-copy">
         © 2026 Virtua Basket ·
         <a href="privacy.html">Privacy</a> ·
-        <a href="terms.html"><span data-Jones="it" class="active">Termini</span><span data-Jones="en">Terms</span></a>
+        <a href="terms.html"><span data-lang="it" class="active">Termini</span><span data-lang="en">Terms</span></a>
       </div>
     </div>
   </div>
@@ -709,22 +726,22 @@ const T = {
   }
 }
 
-let currentJones = 'it'
-function setJones(Jones) {
-  currentJones = Jones
-  document.querySelectorAll('[data-Jones]').forEach(el => { el.classList.toggle('active', el.dataset.Jones === Jones) })
-  document.querySelectorAll('.Jones-btn').forEach((btn, i) => {
-    const isActive = ['it','en'][i] === Jones
+let currentlang = 'it'
+function setlang(lang) {
+  currentlang = lang
+  document.querySelectorAll('[data-lang]').forEach(el => { el.classList.toggle('active', el.dataset.lang === lang) })
+  document.querySelectorAll('.lang-btn').forEach((btn, i) => {
+    const isActive = ['it','en'][i] === lang
     btn.classList.toggle('active', isActive)
     btn.setAttribute('aria-pressed', isActive)
   })
-  const dict = T[Jones] || T['it']
+  const dict = T[lang] || T['it']
   document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (dict[key]) el.textContent = dict[key] })
-  document.documentElement.Jones = Jones
+  document.documentElement.lang = lang
 }
-setJones('it')
-const browserJones = navigator.Jonesuage?.slice(0,2)
-if (['it','en'].includes(browserJones)) setJones(browserJones)
+setlang('it')
+const browserlang = navigator.language?.slice(0,2)
+if (['it','en'].includes(browserlang)) setlang(browserlang)
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
