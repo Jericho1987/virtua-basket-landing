@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" type="image/png" href="icon.png">
 <style>
   :root {
     --orange: #E8722A;
@@ -39,6 +40,15 @@
   .nav-logo-icon { font-size: 20px; }
   .nav-logo-text { font-family: var(--font-display); font-weight: 900; font-size: 18px; letter-spacing: 1px; color: var(--white); text-transform: uppercase; }
   .nav-logo-text span { color: var(--orange); }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-rules {
+    display: flex; align-items: center; gap: 7px;
+    color: var(--gray); text-decoration: none; font-size: 14px; font-weight: 600;
+    transition: color 0.2s;
+  }
+  .nav-rules i { color: var(--orange); font-size: 13px; }
+  .nav-rules:hover { color: var(--white); }
+  @media (max-width: 560px) { .nav-rules span { display: none; } }
   .nav-lang { display: flex; gap: 4px; }
   .lang-btn {
     background: none; border: 1px solid rgba(255,255,255,0.15);
@@ -62,6 +72,19 @@
     width: 600px; height: 600px;
     background: radial-gradient(circle, rgba(232,114,42,0.15) 0%, transparent 70%);
     pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -120px; right: 8%;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(232,114,42,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grain {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
+    background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black 0%, transparent 75%);
   }
   .hero-tag {
     display: inline-block;
@@ -113,8 +136,21 @@
   }
   .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
 
+  .trust-strip {
+    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+    margin-top: 36px;
+    animation: fadeUp 0.6s 0.35s ease both;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px; padding: 7px 16px;
+    font-size: 12px; font-weight: 600; color: var(--gray); letter-spacing: 0.3px;
+  }
+  .trust-item i { color: var(--orange); font-size: 13px; }
+
   .hero-screens {
-    margin-top: 72px; position: relative;
+    margin-top: 64px; position: relative;
     animation: fadeUp 0.8s 0.4s ease both;
   }
   .screens-row {
@@ -132,18 +168,32 @@
     width: 200px;
     border-color: rgba(232,114,42,0.4);
     box-shadow: 0 32px 80px rgba(232,114,42,0.2);
+    will-change: transform;
   }
   .screen-phone img { width: 100%; display: block; }
+
+  .phone-float { animation: floatY 5s ease-in-out infinite; }
+  .phone-float:hover { animation-play-state: paused; }
 
   .section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
   .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
   .section-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(36px, 6vw, 60px); text-transform: uppercase; line-height: 1; margin-bottom: 16px; }
   .section-sub { color: var(--gray); font-size: 16px; line-height: 1.6; max-width: 500px; margin-bottom: 60px; }
-  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(140px, auto); gap: 20px;
+  }
   .feature-card {
     background: var(--dark); border: 1px solid rgba(255,255,255,0.06);
     border-radius: 16px; padding: 32px; transition: all 0.3s;
     position: relative; overflow: hidden;
+    grid-column: span 2;
+  }
+  .feature-card:nth-child(5), .feature-card:nth-child(6) { grid-column: span 1; }
+  .feature-card.big {
+    grid-column: span 2; grid-row: span 2;
+    padding: 40px; display: flex; flex-direction: column; justify-content: flex-end;
+    will-change: transform;
   }
   .feature-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -151,9 +201,27 @@
   }
   .feature-card:hover { border-color: rgba(232,114,42,0.2); transform: translateY(-4px); }
   .feature-card:hover::before { transform: scaleX(1); }
-  .feature-icon { font-size: 32px; margin-bottom: 16px; }
+  .feature-icon, .feature-title, .feature-text { position: relative; z-index: 1; }
+  .feature-icon { font-size: 32px; margin-bottom: 16px; color: var(--orange); }
+  .feature-card.big .feature-icon { font-size: 52px; margin-bottom: 24px; }
   .feature-title { font-family: var(--font-display); font-weight: 900; font-size: 20px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .feature-card.big .feature-title { font-size: 28px; }
   .feature-text { color: var(--gray); font-size: 14px; line-height: 1.6; }
+  .feature-card.big .feature-text { font-size: 15px; max-width: 320px; }
+  .feature-bg-icon {
+    display: none; position: absolute; right: -18px; bottom: -28px;
+    font-size: 180px; color: rgba(232,114,42,0.06); z-index: 0; pointer-events: none;
+  }
+  .feature-card.big .feature-bg-icon { display: block; }
+
+  @media (max-width: 1000px) {
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .feature-card.big { grid-row: span 1; }
+  }
+  @media (max-width: 640px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card, .feature-card.big, .feature-card:nth-child(5), .feature-card:nth-child(6) { grid-column: span 1; grid-row: span 1; }
+  }
 
   .howto { background: var(--dark); padding: 100px 24px; }
   .howto-inner { max-width: 1100px; margin: 0 auto; }
@@ -167,6 +235,17 @@
   }
   .step-title { font-family: var(--font-display); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 10px; }
   .step-text { color: var(--gray); font-size: 14px; line-height: 1.6; }
+  .rules-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 56px; padding: 14px 24px;
+    background: rgba(232,114,42,0.06); border: 1px solid rgba(232,114,42,0.25);
+    border-radius: 12px; text-decoration: none; color: var(--white);
+    font-size: 14px; font-weight: 600; transition: all 0.2s;
+  }
+  .rules-cta:hover { border-color: rgba(232,114,42,0.5); background: var(--orange-light); }
+  .rules-cta i:first-child { color: var(--orange); font-size: 15px; }
+  .rules-cta i:last-child { color: var(--gray); font-size: 12px; transition: transform 0.2s; }
+  .rules-cta:hover i:last-child { transform: translateX(4px); color: var(--orange); }
 
   .download { padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
   .download::before {
@@ -219,6 +298,38 @@
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .features-grid .reveal:nth-child(2) { transition-delay: 0.06s; }
+  .features-grid .reveal:nth-child(3) { transition-delay: 0.12s; }
+  .features-grid .reveal:nth-child(4) { transition-delay: 0.18s; }
+  .features-grid .reveal:nth-child(5) { transition-delay: 0.24s; }
+  .features-grid .reveal:nth-child(6) { transition-delay: 0.3s; }
+  .steps .reveal:nth-child(2) { transition-delay: 0.06s; }
+  .steps .reveal:nth-child(3) { transition-delay: 0.12s; }
+  .steps .reveal:nth-child(4) { transition-delay: 0.18s; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .lang-btn:focus-visible { outline-offset: 1px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
 
   @media (max-width: 768px) {
     nav { padding: 14px 20px; }
@@ -245,9 +356,16 @@
     <img src="icon.png" style="width:48px;height:48px;object-fit:contain;" alt="Virtua Basket">
     <span class="nav-logo-text">Virtua<span>Basket</span></span>
   </a>
-  <div class="nav-lang">
-    <button class="lang-btn active" onclick="setLang('it')">IT</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  <div class="nav-links">
+    <a href="rules.html" class="nav-rules" aria-label="Regolamento">
+      <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+      <span data-lang="it" class="active">Regolamento</span>
+      <span data-lang="en">Rules</span>
+    </a>
+    <div class="nav-lang">
+      <button class="lang-btn active" aria-pressed="true" onclick="setLang('it')">IT</button>
+      <button class="lang-btn" aria-pressed="false" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </nav>
 
@@ -269,30 +387,39 @@
 
   <div class="hero-btns">
     <a href="#download" class="btn-primary">
-      📱
+      <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
       <span data-lang="it" class="active">Scarica l'app</span>
       <span data-lang="en">Download the app</span>
     </a>
     <a href="https://app.virtuabasket.it" class="btn-secondary" target="_blank">
-      🌐
+      <i class="fa-solid fa-globe" aria-hidden="true"></i>
       <span data-lang="it" class="active">Usa dal browser</span>
       <span data-lang="en">Use in browser</span>
     </a>
   </div>
 
+  <div class="trust-strip">
+    <div class="trust-item"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span data-lang="it" class="active">100% Gratuito</span><span data-lang="en">100% Free</span></div>
+    <div class="trust-item"><i class="fa-solid fa-basketball" aria-hidden="true"></i><span data-lang="it" class="active">LBA & EuroLeague</span><span data-lang="en">LBA & EuroLeague</span></div>
+    <div class="trust-item"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i><span data-lang="it" class="active">iOS · Android · Web</span><span data-lang="en">iOS · Android · Web</span></div>
+  </div>
+
   <div class="hero-screens">
     <div class="screens-row">
-      <div class="screen-phone side">
+      <div class="screen-phone side reveal">
         <img src="images/screen1.png" alt="Home Virtua Basket">
       </div>
-      <div class="screen-phone main">
-        <img src="images/screen2.png" alt="Pick giocatori">
+      <div class="phone-float">
+        <div class="screen-phone main reveal" data-tilt>
+          <img src="images/screen2.png" alt="Pick giocatori">
+        </div>
       </div>
-      <div class="screen-phone side">
+      <div class="screen-phone side reveal">
         <img src="images/screen3.png" alt="Classifica">
       </div>
     </div>
   </div>
+  <div class="hero-grain" aria-hidden="true"></div>
 </section>
 
 <section class="section" id="features">
@@ -305,12 +432,12 @@
     <span data-lang="en">Everything<br>you need</span>
   </h2>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon">🏀</div><div class="feature-title" data-key="f1-title"></div><div class="feature-text" data-key="f1-text"></div></div>
-    <div class="feature-card"><div class="feature-icon">🏆</div><div class="feature-title" data-key="f2-title"></div><div class="feature-text" data-key="f2-text"></div></div>
-    <div class="feature-card"><div class="feature-icon">📊</div><div class="feature-title" data-key="f3-title"></div><div class="feature-text" data-key="f3-text"></div></div>
-    <div class="feature-card"><div class="feature-icon">🔔</div><div class="feature-title" data-key="f4-title"></div><div class="feature-text" data-key="f4-text"></div></div>
-    <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-title" data-key="f5-title"></div><div class="feature-text" data-key="f5-text"></div></div>
-    <div class="feature-card"><div class="feature-icon">👥</div><div class="feature-title" data-key="f6-title"></div><div class="feature-text" data-key="f6-text"></div></div>
+    <div class="feature-card big reveal" data-tilt><div class="feature-icon"><i class="fa-solid fa-basketball" aria-hidden="true"></i></div><div class="feature-title" data-key="f1-title"></div><div class="feature-text" data-key="f1-text"></div><i class="fa-solid fa-basketball feature-bg-icon" aria-hidden="true"></i></div>
+    <div class="feature-card reveal"><div class="feature-icon"><i class="fa-solid fa-trophy" aria-hidden="true"></i></div><div class="feature-title" data-key="f2-title"></div><div class="feature-text" data-key="f2-text"></div></div>
+    <div class="feature-card reveal"><div class="feature-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div><div class="feature-title" data-key="f3-title"></div><div class="feature-text" data-key="f3-text"></div></div>
+    <div class="feature-card reveal"><div class="feature-icon"><i class="fa-solid fa-bell" aria-hidden="true"></i></div><div class="feature-title" data-key="f4-title"></div><div class="feature-text" data-key="f4-text"></div></div>
+    <div class="feature-card reveal"><div class="feature-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div><div class="feature-title" data-key="f5-title"></div><div class="feature-text" data-key="f5-text"></div></div>
+    <div class="feature-card reveal"><div class="feature-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div><div class="feature-title" data-key="f6-title"></div><div class="feature-text" data-key="f6-text"></div></div>
   </div>
 </section>
 
@@ -325,10 +452,18 @@
       <span data-lang="en">Simple.<br>Exciting.</span>
     </h2>
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-title" data-key="s1-title"></div><div class="step-text" data-key="s1-text"></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-title" data-key="s2-title"></div><div class="step-text" data-key="s2-text"></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-title" data-key="s3-title"></div><div class="step-text" data-key="s3-text"></div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-title" data-key="s4-title"></div><div class="step-text" data-key="s4-text"></div></div>
+      <div class="step reveal"><div class="step-num">1</div><div class="step-title" data-key="s1-title"></div><div class="step-text" data-key="s1-text"></div></div>
+      <div class="step reveal"><div class="step-num">2</div><div class="step-title" data-key="s2-title"></div><div class="step-text" data-key="s2-text"></div></div>
+      <div class="step reveal"><div class="step-num">3</div><div class="step-title" data-key="s3-title"></div><div class="step-text" data-key="s3-text"></div></div>
+      <div class="step reveal"><div class="step-num">4</div><div class="step-title" data-key="s4-title"></div><div class="step-text" data-key="s4-text"></div></div>
+    </div>
+    <div style="text-align:center;">
+      <a href="rules.html" class="rules-cta reveal">
+        <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+        <span data-lang="it" class="active">Leggi il regolamento completo</span>
+        <span data-lang="en">Read the full rules</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
     </div>
   </div>
 </div>
@@ -363,7 +498,7 @@
         </div>
       </a>
       <a href="https://app.virtuabasket.it" class="btn-ghost" target="_blank">
-        🌐
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
         <span data-lang="it" class="active">Versione browser</span>
         <span data-lang="en">Browser version</span>
       </a>
@@ -384,9 +519,9 @@
           <span data-lang="en">Fantasy basketball on the Italian Serie A.</span>
         </p>
         <div class="footer-social">
-          <a href="https://www.instagram.com/virtuabasket/" class="social-btn" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/virtuabasket" class="social-btn" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://t.me/virtuabasket" class="social-btn" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.instagram.com/virtuabasket/" class="social-btn" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/virtuabasket" class="social-btn" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://t.me/virtuabasket" class="social-btn" target="_blank" aria-label="Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a>
         </div>
       </div>
       <div class="footer-links">
@@ -469,7 +604,11 @@ let currentLang = 'it'
 function setLang(lang) {
   currentLang = lang
   document.querySelectorAll('[data-lang]').forEach(el => { el.classList.toggle('active', el.dataset.lang === lang) })
-  document.querySelectorAll('.lang-btn').forEach((btn, i) => { btn.classList.toggle('active', ['it','en'][i] === lang) })
+  document.querySelectorAll('.lang-btn').forEach((btn, i) => {
+    const isActive = ['it','en'][i] === lang
+    btn.classList.toggle('active', isActive)
+    btn.setAttribute('aria-pressed', isActive)
+  })
   const dict = T[lang] || T['it']
   document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (dict[key]) el.textContent = dict[key] })
   document.documentElement.lang = lang
@@ -477,6 +616,42 @@ function setLang(lang) {
 setLang('it')
 const browserLang = navigator.language?.slice(0,2)
 if (['it','en'].includes(browserLang)) setLang(browserLang)
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+function enableTilt(el, max = 8) {
+  let rect = null
+  el.addEventListener('pointerenter', () => { rect = el.getBoundingClientRect() })
+  el.addEventListener('pointermove', (e) => {
+    if (!rect) rect = el.getBoundingClientRect()
+    const px = (e.clientX - rect.left) / rect.width
+    const py = (e.clientY - rect.top) / rect.height
+    const rotateY = (px - 0.5) * max * 2
+    const rotateX = (0.5 - py) * max * 2
+    el.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`
+  })
+  el.addEventListener('pointerleave', () => { el.style.transform = ''; rect = null })
+}
+const supportsFineHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+if (supportsFineHover && !prefersReducedMotion) {
+  document.querySelectorAll('[data-tilt]').forEach(el => enableTilt(el))
+}
+
+if (prefersReducedMotion) {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'))
+} else if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view')
+        revealObserver.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' })
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el))
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'))
+}
 </script>
 </body>
 </html>

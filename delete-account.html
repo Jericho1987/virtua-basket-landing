@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eliminazione Account — Virtua Basket</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="icon.png">
 <style>
   :root { --orange:#E8722A; --black:#080808; --dark:#111111; --dark2:#1a1a1a; --gray:#888; --white:#ffffff; --font-display:'Barlow Condensed',sans-serif; --font-body:'Barlow',sans-serif; }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -33,16 +34,20 @@
   .note { background:rgba(232,114,42,0.06); border:1px solid rgba(232,114,42,0.2); border-radius:10px; padding:16px 20px; margin:24px 0; }
   .btn { display:inline-block; background:var(--orange); color:var(--white); font-family:var(--font-display); font-weight:900; font-size:16px; letter-spacing:1px; text-transform:uppercase; text-decoration:none; padding:14px 32px; border-radius:10px; margin-top:16px; transition:opacity 0.2s; }
   .btn:hover { opacity:0.85; }
+  a:focus-visible, button:focus-visible { outline:2px solid var(--orange); outline-offset:3px; border-radius:6px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">
-    <img src="/icon.png" alt="Virtua Basket" />
-    <span class="nav-logo-text">Virtua <span>Basket</span></span>
+  <a href="index.html" class="nav-logo">
+    <img src="icon.png" style="width:28px;height:28px;border-radius:6px;object-fit:cover;" alt="Virtua Basket" />
+    <span class="nav-logo-text">Virtua<span>Basket</span></span>
   </a>
-  <a href="/" class="back-btn">← Torna alla home</a>
+  <a href="index.html" class="back-btn">← Home</a>
 </nav>
 
 <main>
@@ -92,6 +97,10 @@
   </div>
 
 </main>
+
+<footer style="border-top:1px solid rgba(255,255,255,0.06); padding:32px 24px; text-align:center;">
+  <div style="color:var(--gray); font-size:13px;">© 2026 Virtua Basket · <a href="index.html" style="color:var(--orange); text-decoration:none;">Home</a> · <a href="privacy.html" style="color:var(--orange); text-decoration:none;">Privacy</a> · <a href="support.html" style="color:var(--orange); text-decoration:none;">Supporto</a></div>
+</footer>
 
 </body>
 </html>

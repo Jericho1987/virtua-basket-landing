@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Termini di Servizio — Virtua Basket</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="icon.png">
 <style>
   :root { --orange:#E8722A; --black:#080808; --dark:#111111; --dark2:#1a1a1a; --gray:#888; --white:#ffffff; --font-display:'Barlow Condensed',sans-serif; --font-body:'Barlow',sans-serif; }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -28,6 +29,10 @@
   footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 24px; text-align:center; }
   .footer-copy { color:var(--gray); font-size:13px; }
   .footer-copy a { color:var(--orange); text-decoration:none; }
+  a:focus-visible, button:focus-visible { outline:2px solid var(--orange); outline-offset:3px; border-radius:6px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
 </style>
 </head>
 <body>

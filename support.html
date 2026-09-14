@@ -6,6 +6,7 @@
 <title>Supporto — Virtua Basket</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" type="image/png" href="icon.png">
 <style>
   :root { --orange:#E8722A; --black:#080808; --dark:#111111; --dark2:#1a1a1a; --gray:#888; --white:#ffffff; --font-display:'Barlow Condensed',sans-serif; --font-body:'Barlow',sans-serif; }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -42,6 +43,10 @@
   footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 24px; text-align:center; }
   .footer-copy { color:var(--gray); font-size:13px; }
   .footer-copy a { color:var(--orange); text-decoration:none; }
+  a:focus-visible, button:focus-visible, .faq-q:focus-visible { outline:2px solid var(--orange); outline-offset:3px; border-radius:6px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
 </style>
 </head>
 <body>
@@ -58,7 +63,7 @@
   <p class="hero-text">Hai bisogno di aiuto? Siamo qui per te. Contattaci via email o cerca la risposta nelle FAQ qui sotto.</p>
 
   <div class="contact-card">
-    <div class="contact-icon">✉️</div>
+    <div class="contact-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
     <div>
       <div class="contact-title">Contattaci</div>
       <div class="contact-text">Per qualsiasi problema, domanda o segnalazione scrivi a:<br><strong>info@virtuabasket.it</strong><br>Risponderemo entro 48 ore lavorative.</div>
@@ -69,49 +74,49 @@
   <h2>Domande Frequenti</h2>
   <div class="faq">
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
         Come faccio a registrarmi?
         <span class="arrow">+</span>
       </div>
       <div class="faq-a">Puoi registrarti con email e password oppure usando il tuo account Google. La registrazione è gratuita e richiede pochi secondi. Scarica l'app dall'App Store o Play Store, oppure accedi dalla versione browser su app.virtuabasket.it.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
         Come funzionano i pick?
         <span class="arrow">+</span>
       </div>
       <div class="faq-a">Prima di ogni giornata LBA scegli il tuo quintetto dalla rosa dei giocatori disponibili. I pick si chiudono all'orario di inizio della prima partita della giornata. I punti vengono assegnati in base alle statistiche reali dei giocatori scelti.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
         Come creo o entro in una lega?
         <span class="arrow">+</span>
       </div>
       <div class="faq-a">Dalla sezione Leghe puoi unirti alla lega generale Virtua Basket oppure creare una lega privata e invitare i tuoi amici con un codice di invito.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
         Come funziona il Draft?
         <span class="arrow">+</span>
       </div>
       <div class="faq-a">Nelle leghe private puoi organizzare un draft snake. L'admin della lega configura data, ora e durata per pick. L'ordine snake garantisce una distribuzione equa dei turni tra tutti i partecipanti.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
         Come si calcolano i punti?
         <span class="arrow">+</span>
       </div>
       <div class="faq-a">I punti si basano sulle statistiche reali LBA: punti segnati, rimbalzi, assist, stoppate e palle rubate. Consulta il regolamento completo per i dettagli del sistema di punteggio.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
         Posso disattivare le notifiche push?
         <span class="arrow">+</span>
       </div>
       <div class="faq-a">Sì. Vai nel tuo profilo → Notifiche e puoi disattivare le notifiche. Puoi anche disattivarle direttamente dalle impostazioni del tuo dispositivo.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
         Come cancello il mio account?
         <span class="arrow">+</span>
       </div>
@@ -133,7 +138,8 @@
 </footer>
 <script>
 function toggleFaq(el) {
-  el.parentElement.classList.toggle('open')
+  const isOpen = el.parentElement.classList.toggle('open')
+  el.setAttribute('aria-expanded', isOpen)
 }
 </script>
 </body>

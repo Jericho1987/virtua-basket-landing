@@ -6,6 +6,7 @@
 <title>Regolamento — Virtua Basket</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" type="image/png" href="icon.png">
 <style>
   :root { --orange:#E8722A; --black:#080808; --dark:#111111; --dark2:#1a1a1a; --gray:#888; --white:#ffffff; --font-display:'Barlow Condensed',sans-serif; --font-body:'Barlow',sans-serif; }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -63,6 +64,11 @@
   footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 24px; text-align:center; }
   .footer-copy { color:var(--gray); font-size:13px; }
   .footer-copy a { color:var(--orange); text-decoration:none; }
+  a:focus-visible, button:focus-visible { outline:2px solid var(--orange); outline-offset:3px; border-radius:6px; }
+  .note i, .highlight i, .placeholder i { color:var(--orange); margin-right:6px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
 </style>
 </head>
 <body>
@@ -121,7 +127,7 @@
       </div>
     </div>
 
-    <div class="note"><p>⚠️ I pick si chiudono all'orario di inizio della prima partita della giornata. Dopo la chiusura non è possibile modificare la formazione.</p></div>
+    <div class="note"><p><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> I pick si chiudono all'orario di inizio della prima partita della giornata. Dopo la chiusura non è possibile modificare la formazione.</p></div>
   </div>
 
   <!-- 2. BUDGET MINUTI -->
@@ -133,7 +139,7 @@
     <p>Per ogni sezione (G, A, C), i giocatori vengono processati <strong>in ordine di slot</strong> (G1 prima di G2, A1 prima di A2, ecc.). Ogni giocatore consuma dal budget i minuti che ha realmente giocato, fino ad esaurimento.</p>
 
     <div class="highlight">
-      <p>📐 <strong>Formula per ogni giocatore:</strong><br>
+      <p><i class="fa-solid fa-calculator" aria-hidden="true"></i> <strong>Formula per ogni giocatore:</strong><br>
       <code>Contributo = (min(minuti_giocati, budget_residuo) / minuti_giocati) × fanta_punti</code></p>
     </div>
 
@@ -150,7 +156,7 @@
     </div>
     <p>Gallo vale solo 8.8pt invece di 10 perché il budget residuo era 30 min su 34 giocati: (30/34) × 10 = 8.8. De Nicolao vale 0 perché il budget era già esaurito.</p>
 
-    <div class="note"><p>💡 <strong>Strategia:</strong> metti in G1/A1/C1 i giocatori più affidabili per minutaggio. Se un titolare non gioca e hai un ottimo giocatore in G3, tutto il budget passa a lui. L'ordine è la tua vera scelta tattica.</p></div>
+    <div class="note"><p><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <strong>Strategia:</strong> metti in G1/A1/C1 i giocatori più affidabili per minutaggio. Se un titolare non gioca e hai un ottimo giocatore in G3, tutto il budget passa a lui. L'ordine è la tua vera scelta tattica.</p></div>
 
     <h3>Se non copri tutti i minuti</h3>
     <p>Se i tuoi giocatori coprono meno minuti del budget disponibile (es. hai solo 2 guardie che giocano 30+20=50 min su 80 disponibili), i 30 minuti non coperti semplicemente non producono punti. Non c'è penalità esplicita, ma hai "sprecato" potenziale.</p>
@@ -163,7 +169,7 @@
 
     <div class="formula-grid">
       <div class="formula-card">
-        <div class="formula-card-title">🎯 Easy</div>
+        <div class="formula-card-title"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Easy</div>
         <p>Formula semplice con coefficienti uguali per tutte le statistiche. Ideale per leghe casual.</p>
         <div class="table-wrap">
           <table>
@@ -182,7 +188,7 @@
         </div>
       </div>
       <div class="formula-card">
-        <div class="formula-card-title">⚡ Advanced</div>
+        <div class="formula-card-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Advanced</div>
         <p>Formula competitiva che premia difesa e giocate decisive con coefficienti differenziati.</p>
         <div class="table-wrap">
           <table>
@@ -202,7 +208,7 @@
       </div>
     </div>
 
-    <h3>🛠️ Custom</h3>
+    <h3><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Custom</h3>
     <p>L'admin di una lega privata può creare una formula personalizzata impostando liberamente i coefficienti per ogni statistica, partendo dalla formula Advanced come base. La formula custom non è modificabile dopo che è stata disputata almeno una giornata.</p>
   </div>
 
@@ -275,7 +281,7 @@
       </div>
     </div>
 
-    <div class="note"><p>⚠️ La <strong>Lega Ufficiale LBA</strong> usa la formula <strong>5+5</strong> — max 5 stranieri tra i 10 schierati ogni giornata, con roster libero (non fisso da draft).</p></div>
+    <div class="note"><p><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> La <strong>Lega Ufficiale LBA</strong> usa la formula <strong>5+5</strong> — max 5 stranieri tra i 10 schierati ogni giornata, con roster libero (non fisso da draft).</p></div>
   </div>
 
   <!-- 6. DRAFT -->
@@ -295,7 +301,7 @@
     <p>Il sistema impedisce pick che renderebbero impossibile completare il roster minimo. Ad esempio, se sei all'11° round e hai già 4A e 2C ma solo 3G, puoi pickare solo guardie.</p>
     <p>Con formula <strong>6+6</strong>, il sistema blocca anche le pick che violano i limiti di nazionalità (max 6 stranieri e max 6 italiani nel roster da 12).</p>
 
-    <div class="highlight"><p>⭐ <strong>Wishlist:</strong> prepara la tua wishlist prima e durante il draft. Se scatta l'autopick, il sistema scorre la wishlist e sceglie il primo giocatore disponibile che rispetta tutti i vincoli.</p></div>
+    <div class="highlight"><p><i class="fa-solid fa-star" aria-hidden="true"></i> <strong>Wishlist:</strong> prepara la tua wishlist prima e durante il draft. Se scatta l'autopick, il sistema scorre la wishlist e sceglie il primo giocatore disponibile che rispetta tutti i vincoli.</p></div>
 
     <h3>Pick saltata</h3>
     <p>Se il tempo scade e nessun giocatore in wishlist rispetta i vincoli correnti, il turno viene <strong>saltato</strong> e il draft avanza. Il giocatore può recuperare la pick saltata in modo asincrono in qualsiasi momento successivo, scegliendo tra i giocatori ancora disponibili.</p>
@@ -303,7 +309,7 @@
     <h3>Fine draft</h3>
     <p>A fine draft, chi ha ancora ruoli minimi scoperti (meno di 4G, 4A o 2C) riceve un <strong>autopick forzato</strong> sui ruoli mancanti — il miglior giocatore disponibile per media punti che rispetta i vincoli. Gli slot extra non coperti rimangono vuoti.</p>
 
-    <div class="note"><p>🔔 Attiva le notifiche push per ricevere un avviso quando è il tuo turno di pickare.</p></div>
+    <div class="note"><p><i class="fa-solid fa-bell" aria-hidden="true"></i> Attiva le notifiche push per ricevere un avviso quando è il tuo turno di pickare.</p></div>
   </div>
 
   <!-- 7. CLASSIFICHE -->
@@ -342,7 +348,7 @@
       <li>In modalità <strong>Regular Season</strong> puoi ricominciare dalla giornata successiva con un nuovo roster</li>
       <li>In modalità con <strong>roster fisso</strong> il roster rimane invariato ma non vengono assegnati punti per la giornata mancata</li>
     </ul>
-    <div class="note"><p>🔔 Attiva le notifiche push per ricevere un promemoria prima della chiusura dei pick.</p></div>
+    <div class="note"><p><i class="fa-solid fa-bell" aria-hidden="true"></i> Attiva le notifiche push per ricevere un promemoria prima della chiusura dei pick.</p></div>
   </div>
 
   <!-- 9. PARITA -->
@@ -354,7 +360,7 @@
       <li>Maggior punteggio nell'ultima giornata disputata</li>
       <li>Maggior punteggio totale nella fase finale della stagione</li>
     </ol>
-    <div class="placeholder"><p>🚧 I criteri di spareggio specifici per la modalità Calendario 1v1 verranno definiti prima del lancio ufficiale della stagione.</p></div>
+    <div class="placeholder"><p><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i> I criteri di spareggio specifici per la modalità Calendario 1v1 verranno definiti prima del lancio ufficiale della stagione.</p></div>
   </div>
 </main>
 
