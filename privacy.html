@@ -6,11 +6,13 @@
 <title>Privacy Policy — Virtua Basket</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="canonical" href="https://www.virtuabasket.it/privacy.html">
 <style>
   :root { --orange:#E8722A; --black:#080808; --dark:#111111; --dark2:#1a1a1a; --gray:#A6A6A6; --white:#ffffff; --font-display:'Barlow Condensed',sans-serif; --font-body:'Barlow',sans-serif; }
   * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
   body { background:var(--black); color:var(--white); font-family:var(--font-body); }
   nav { display:flex; align-items:center; justify-content:space-between; padding:16px 32px; background:rgba(8,8,8,0.9); border-bottom:1px solid rgba(255,255,255,0.06); position:sticky; top:0; z-index:10; backdrop-filter:blur(12px); }
   .nav-logo { display:flex; align-items:center; gap:8px; text-decoration:none; }
@@ -22,7 +24,13 @@
   .page-tag { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--orange); margin-bottom:16px; }
   h1 { font-family:var(--font-display); font-weight:900; font-size:clamp(36px,7vw,64px); text-transform:uppercase; line-height:1; margin-bottom:8px; }
   .page-date { color:var(--gray); font-size:13px; margin-bottom:56px; }
-  .section { margin-bottom:40px; }
+  .toc { background:var(--dark); border:1px solid rgba(255,255,255,0.06); border-radius:14px; padding:24px 28px; margin-bottom:56px; }
+  .toc-title { font-family:var(--font-display); font-weight:900; font-size:14px; text-transform:uppercase; letter-spacing:2px; color:var(--orange); margin-bottom:16px; }
+  .toc a { display:block; color:var(--gray); text-decoration:none; font-size:14px; line-height:1.4; padding:13px 4px; border-bottom:1px solid rgba(255,255,255,0.04); transition:color 0.2s; }
+  .toc a:last-child { border-bottom:none; }
+  .toc a:hover, .toc a.active { color:var(--white); }
+  .toc a span { color:var(--orange); margin-right:8px; font-family:var(--font-display); font-weight:700; }
+  .section { margin-bottom:40px; scroll-margin-top:80px; }
   .section-header { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
   .section-bar { width:3px; height:18px; background:var(--orange); border-radius:2px; flex-shrink:0; }
   h2 { font-family:var(--font-display); font-weight:900; font-size:18px; text-transform:uppercase; letter-spacing:0.5px; color:var(--orange); }
@@ -32,6 +40,14 @@
   .footer-copy { color:var(--gray); font-size:13px; }
   .footer-copy a { color:var(--orange); text-decoration:none; }
   a:focus-visible, button:focus-visible { outline:2px solid var(--orange); outline-offset:3px; border-radius:6px; }
+  .toc-fab {
+    position:fixed; right:20px; bottom:24px; width:48px; height:48px; border-radius:50%;
+    background:var(--orange); color:#fff; display:flex; align-items:center; justify-content:center;
+    text-decoration:none; font-size:18px; box-shadow:0 4px 16px rgba(0,0,0,0.4);
+    opacity:0; pointer-events:none; transform:translateY(12px);
+    transition:opacity 0.25s, transform 0.25s; z-index:20;
+  }
+  .toc-fab.visible { opacity:1; pointer-events:auto; transform:translateY(0); }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
   }
@@ -40,7 +56,7 @@
 <body>
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="icon.png" width="28" height="28" style="width:28px;height:28px;border-radius:6px;object-fit:cover;" alt="logo">
+    <img src="icon.png" width="28" height="28" style="width:28px;height:28px;border-radius:6px;object-fit:cover;" alt="">
     <span class="nav-logo-text">Virtua<span>Basket</span></span>
   </a>
   <a href="index.html" class="back-btn">← Home</a>
@@ -50,14 +66,29 @@
   <h1>Privacy &<br>Cookie Policy</h1>
   <div class="page-date">Ultima modifica: Maggio 2026</div>
 
-  <div class="section">
+  <div class="toc" id="toc">
+    <div class="toc-title">Indice</div>
+    <a href="#titolare"><span>1.</span> Titolare del Trattamento</a>
+    <a href="#dati-raccolti"><span>2.</span> Dati Personali Raccolti</a>
+    <a href="#finalita"><span>3.</span> Finalità del Trattamento</a>
+    <a href="#base-giuridica"><span>4.</span> Base Giuridica</a>
+    <a href="#servizi-terzi"><span>5.</span> Servizi Terzi Utilizzati</a>
+    <a href="#cookie"><span>6.</span> Cookie</a>
+    <a href="#notifiche-push"><span>7.</span> Notifiche Push</a>
+    <a href="#conservazione"><span>8.</span> Conservazione dei Dati</a>
+    <a href="#diritti-utente"><span>9.</span> Diritti dell'Utente (GDPR)</a>
+    <a href="#sicurezza"><span>10.</span> Sicurezza</a>
+    <a href="#modifiche"><span>11.</span> Modifiche alla Privacy Policy</a>
+  </div>
+
+  <div class="section" id="titolare">
     <div class="section-header"><div class="section-bar"></div><h2>Titolare del Trattamento</h2></div>
     <div class="section-content">Aljosa Vella
 Via Nicola Marchese 26, 00141 Roma
 Email: <a href="mailto:info@virtuabasket.it">info@virtuabasket.it</a></div>
   </div>
 
-  <div class="section">
+  <div class="section" id="dati-raccolti">
     <div class="section-header"><div class="section-bar"></div><h2>Dati Personali Raccolti</h2></div>
     <div class="section-content">Questa applicazione raccoglie i seguenti dati personali:
 
@@ -67,7 +98,7 @@ Email: <a href="mailto:info@virtuabasket.it">info@virtuabasket.it</a></div>
 • Dati di accesso Google: in caso di login tramite Google OAuth (nome, email, foto profilo)</div>
   </div>
 
-  <div class="section">
+  <div class="section" id="finalita">
     <div class="section-header"><div class="section-bar"></div><h2>Finalità del Trattamento</h2></div>
     <div class="section-content">I dati raccolti sono utilizzati esclusivamente per:
 
@@ -77,14 +108,14 @@ Email: <a href="mailto:info@virtuabasket.it">info@virtuabasket.it</a></div>
 • Calcolare classifiche e punteggi</div>
   </div>
 
-  <div class="section">
+  <div class="section" id="base-giuridica">
     <div class="section-header"><div class="section-bar"></div><h2>Base Giuridica</h2></div>
     <div class="section-content">Il trattamento è basato su:
 • Esecuzione del contratto: per fornire il servizio richiesto dall'utente
 • Consenso: per l'invio di notifiche push (revocabile in qualsiasi momento)</div>
   </div>
 
-  <div class="section">
+  <div class="section" id="servizi-terzi">
     <div class="section-header"><div class="section-bar"></div><h2>Servizi Terzi Utilizzati</h2></div>
     <div class="section-content">• Supabase (database e autenticazione) — supabase.com/privacy
 • Vercel (hosting) — vercel.com/legal/privacy-policy
@@ -92,22 +123,22 @@ Email: <a href="mailto:info@virtuabasket.it">info@virtuabasket.it</a></div>
 • Google OAuth (accesso con Google) — policies.google.com/privacy</div>
   </div>
 
-  <div class="section">
+  <div class="section" id="cookie">
     <div class="section-header"><div class="section-bar"></div><h2>Cookie</h2></div>
     <div class="section-content">Questa applicazione utilizza esclusivamente cookie tecnici necessari al funzionamento del servizio (gestione della sessione di autenticazione). Non vengono utilizzati cookie di profilazione, analitici o pubblicitari.</div>
   </div>
 
-  <div class="section">
+  <div class="section" id="notifiche-push">
     <div class="section-header"><div class="section-bar"></div><h2>Notifiche Push</h2></div>
     <div class="section-content">Le notifiche push vengono inviate solo previo esplicito consenso dell'utente. Il consenso può essere revocato in qualsiasi momento dalle impostazioni del profilo nell'applicazione o dalle impostazioni del dispositivo.</div>
   </div>
 
-  <div class="section">
+  <div class="section" id="conservazione">
     <div class="section-header"><div class="section-bar"></div><h2>Conservazione dei Dati</h2></div>
     <div class="section-content">I dati personali sono conservati per il tempo necessario all'erogazione del servizio e comunque non oltre la cancellazione dell'account da parte dell'utente. In caso di inattività prolungata (oltre 24 mesi), i dati potranno essere eliminati.</div>
   </div>
 
-  <div class="section">
+  <div class="section" id="diritti-utente">
     <div class="section-header"><div class="section-bar"></div><h2>Diritti dell'Utente (GDPR)</h2></div>
     <div class="section-content">In conformità al Regolamento UE 2016/679 (GDPR), l'utente ha diritto di:
 
@@ -121,18 +152,54 @@ Email: <a href="mailto:info@virtuabasket.it">info@virtuabasket.it</a></div>
 Per esercitare questi diritti, contattare: <a href="mailto:info@virtuabasket.it">info@virtuabasket.it</a></div>
   </div>
 
-  <div class="section">
+  <div class="section" id="sicurezza">
     <div class="section-header"><div class="section-bar"></div><h2>Sicurezza</h2></div>
     <div class="section-content">I dati sono archiviati su infrastruttura Supabase con crittografia in transito (HTTPS/TLS) e a riposo. L'accesso ai dati è protetto da autenticazione e row-level security.</div>
   </div>
 
-  <div class="section">
+  <div class="section" id="modifiche">
     <div class="section-header"><div class="section-bar"></div><h2>Modifiche alla Privacy Policy</h2></div>
     <div class="section-content">Il Titolare si riserva il diritto di modificare questa policy. Le modifiche saranno comunicate agli utenti tramite notifica nell'applicazione o via email.</div>
   </div>
 </main>
+
+<a href="#toc" class="toc-fab" id="tocFab" aria-label="Torna all'indice">
+  <i class="fa-solid fa-list-ul" aria-hidden="true"></i>
+</a>
+
 <footer>
   <div class="footer-copy">© 2026 Virtua Basket · <a href="index.html">Home</a> · <a href="terms.html">Termini</a> · <a href="support.html">Supporto</a></div>
 </footer>
+
+<script>
+const toc = document.getElementById('toc')
+const fab = document.getElementById('tocFab')
+const sections = document.querySelectorAll('.section')
+const tocLinks = document.querySelectorAll('.toc a')
+
+if ('IntersectionObserver' in window) {
+  if (toc && fab) {
+    const fabObserver = new IntersectionObserver((entries) => {
+      fab.classList.toggle('visible', !entries[0].isIntersecting)
+    }, { rootMargin: '-80px 0px 0px 0px' })
+    fabObserver.observe(toc)
+  }
+
+  if (sections.length && tocLinks.length) {
+    const linkById = {}
+    tocLinks.forEach(a => { linkById[a.getAttribute('href').slice(1)] = a })
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const link = linkById[entry.target.id]
+        if (!link || !entry.isIntersecting) return
+        tocLinks.forEach(a => a.classList.remove('active'))
+        link.classList.add('active')
+      })
+    }, { rootMargin: '-96px 0px -70% 0px', threshold: 0 })
+    sections.forEach(s => sectionObserver.observe(s))
+  }
+}
+</script>
 </body>
 </html>
