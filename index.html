@@ -104,7 +104,11 @@
   }
   .nav-rules i { color: var(--orange); font-size: 13px; }
   .nav-rules:hover { color: var(--white); }
-  @media (max-width: 560px) { .nav-rules [data-lang].active { display: none; } }
+  .nav-rules-short { display: none; }
+  @media (max-width: 560px) {
+    .nav-rules-full { display: none; }
+    .nav-rules-short { display: inline; }
+  }
   .nav-lang { display: flex; gap: 8px; }
   .lang-btn {
     background: none; border: 1px solid rgba(255,255,255,0.15);
@@ -456,7 +460,7 @@
   <div class="nav-links">
     <a href="rules.html" class="nav-rules" aria-label="Regolamento">
       <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
-      <span data-lang="it" class="active">Regolamento</span>
+      <span data-lang="it" class="active"><span class="nav-rules-full">Regolamento</span><span class="nav-rules-short">Regole</span></span>
       <span data-lang="en">Rules</span>
     </a>
     <div class="nav-lang">
