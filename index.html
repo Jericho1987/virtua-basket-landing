@@ -104,7 +104,7 @@
   }
   .nav-rules i { color: var(--orange); font-size: 13px; }
   .nav-rules:hover { color: var(--white); }
-  @media (max-width: 560px) { .nav-rules span { display: none; } }
+  @media (max-width: 560px) { .nav-rules [data-lang].active { display: none; } }
   .nav-lang { display: flex; gap: 8px; }
   .lang-btn {
     background: none; border: 1px solid rgba(255,255,255,0.15);
