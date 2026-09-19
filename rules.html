@@ -84,7 +84,7 @@
 <main>
   <div class="page-tag">Gioco</div>
   <h1>Regolamento<br>del Gioco</h1>
-  <div class="page-date">v2.0 — Luglio 2026</div>
+  <div class="page-date">v2.1 — Settembre 2026</div>
 
   <div class="toc">
     <div class="toc-title">Indice</div>
@@ -104,7 +104,9 @@
     <div class="section-header"><div class="section-bar"></div><h2>1. Pick Giornaliera</h2></div>
     <p><strong>Regola base:</strong> prima di ogni giornata scegli la tua formazione da <strong>10 giocatori</strong> tra tutti i giocatori disponibili nella competizione della tua lega (LBA, EuroLeague o LBF).</p>
 
-    <h3>Struttura della formazione</h3>
+    <div class="note"><p><i class="fa-solid fa-sliders" aria-hidden="true"></i> Ogni lega — ufficiale o privata — usa una <strong>Modalità di Pick</strong>: <strong>Fissa</strong> o <strong>Libera</strong>, scelta dall'admin alla creazione della lega. È una scelta indipendente da competizione, modalità di gioco e formula roster: può essere combinata liberamente con qualsiasi altra impostazione.</p></div>
+
+    <h3>Modalità Fissa</h3>
     <p>La formazione è divisa in tre sezioni con slot fissi. <strong>L'ordine in cui inserisci i giocatori all'interno di ogni sezione determina la priorità di consumo del budget minuti.</strong></p>
 
     <div class="budget-grid">
@@ -128,7 +130,11 @@
       </div>
     </div>
 
-    <div class="note"><p><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> I pick si chiudono all'orario di inizio della prima partita della giornata. Dopo la chiusura non è possibile modificare la formazione.</p></div>
+    <h3>Modalità Libera</h3>
+    <p>Scegli i tuoi 10 giocatori in un <strong>ordine unico</strong>, senza sezioni separate per ruolo. Per ogni giocatore scegli tu con quale ruolo schierarlo (Guardia, Ala o Centro); se il giocatore ha <strong>doppio ruolo</strong>, puoi cambiare in qualsiasi momento quale dei due usare. L'ordine complessivo determina la priorità di consumo del budget minuti del ruolo assegnato a ciascun giocatore (stesso meccanismo della sezione 2, applicato all'intera lista invece che alle singole sezioni G/A/C).</p>
+    <p>Non è richiesto rispettare la distribuzione 4+4+2: puoi schierare, ad esempio, 6 Guardie e 4 Ali. Il budget di un ruolo che non copri con nessun giocatore semplicemente non produce punti (vedi "Se non copri tutti i minuti" nella sezione 2).</p>
+
+    <div class="note"><p><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> I pick si chiudono all'orario di inizio della prima partita della giornata. Dopo la chiusura non è possibile modificare la formazione, in entrambe le modalità.</p></div>
   </div>
 
   <!-- 2. BUDGET MINUTI -->
@@ -161,6 +167,9 @@
 
     <h3>Se non copri tutti i minuti</h3>
     <p>Se i tuoi giocatori coprono meno minuti del budget disponibile (es. hai solo 2 guardie che giocano 30+20=50 min su 80 disponibili), i 30 minuti non coperti semplicemente non producono punti. Non c'è penalità esplicita, ma hai "sprecato" potenziale.</p>
+
+    <h3>Doppio ruolo in Modalità Libera</h3>
+    <p>Solo in <strong>Modalità Libera</strong> (vedi sezione 1): se un giocatore con doppio ruolo (es. Ala/Centro) esaurisce il budget del ruolo assegnato mentre ha ancora minuti giocati non "spesi", i minuti restanti attingono automaticamente anche al budget del suo secondo ruolo, se disponibile. In <strong>Modalità Fissa</strong> questo non succede: ogni giocatore consuma solo il budget della sezione (slot) in cui è stato inserito, anche se ha doppio ruolo.</p>
   </div>
 
   <!-- 3. PUNTEGGIO -->
@@ -254,7 +263,8 @@
     </div>
 
     <h3>Roster fisso — come funziona</h3>
-    <p>Nelle modalità con draft costruisci un roster da <strong>12 giocatori</strong>: almeno 4G + 4A + 2C, più 2 slot extra di qualsiasi ruolo. Ogni giornata scegli i <strong>10 da schierare</strong> tra i tuoi 12, rispettando sempre la struttura 4G+4A+2C. I 2 non schierati non producono punti.</p>
+    <p>Nelle modalità con draft costruisci un roster da <strong>12 giocatori</strong>: almeno 4G + 4A + 2C, più 2 slot extra di qualsiasi ruolo. Ogni giornata scegli i <strong>10 da schierare</strong> tra i tuoi 12. I 2 non schierati non producono punti.</p>
+    <p>Come schieri quei 10 dipende dalla <strong>Modalità di Pick</strong> della lega (sezione 1): con Fissa rispetti sempre la struttura 4G+4A+2C; con Libera scegli i 10 in ordine e ruoli liberi, indipendentemente da come li avevi draftati.</p>
   </div>
 
   <!-- 5. FORMULA ROSTER -->
