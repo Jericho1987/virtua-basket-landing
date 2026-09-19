@@ -73,7 +73,7 @@
     --black: #080808;
     --dark: #111111;
     --dark2: #1a1a1a;
-    --gray: #888;
+    --gray: #A6A6A6;
     --light: #f5f5f5;
     --white: #ffffff;
     --font-display: 'Barlow Condensed', sans-serif;
@@ -98,19 +98,20 @@
   .nav-logo-text span { color: var(--orange); }
   .nav-links { display: flex; align-items: center; gap: 24px; }
   .nav-rules {
-    display: flex; align-items: center; gap: 7px;
+    display: flex; align-items: center; gap: 7px; min-height: 44px;
     color: var(--gray); text-decoration: none; font-size: 14px; font-weight: 600;
     transition: color 0.2s;
   }
   .nav-rules i { color: var(--orange); font-size: 13px; }
   .nav-rules:hover { color: var(--white); }
   @media (max-width: 560px) { .nav-rules span { display: none; } }
-  .nav-lang { display: flex; gap: 4px; }
+  .nav-lang { display: flex; gap: 8px; }
   .lang-btn {
     background: none; border: 1px solid rgba(255,255,255,0.15);
-    color: var(--gray); padding: 4px 10px; border-radius: 20px;
+    color: var(--gray); padding: 4px 14px; border-radius: 20px;
     font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 1px;
     transition: all 0.2s;
+    min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
   }
   .lang-btn:hover, .lang-btn.active { border-color: var(--orange); color: var(--orange); background: var(--orange-light); }
 
@@ -376,7 +377,7 @@
   .footer-links a:hover { color: var(--white); }
   .footer-social { display: flex; gap: 12px; margin-top: 20px; }
   .social-btn {
-    width: 38px; height: 38px; border-radius: 50%;
+    width: 44px; height: 44px; border-radius: 50%;
     background: var(--dark2); border: 1px solid rgba(255,255,255,0.08);
     display: flex; align-items: center; justify-content: center;
     text-decoration: none; font-size: 16px; transition: all 0.2s; color: var(--gray);
@@ -649,14 +650,14 @@
     </p>
     <div class="store-btns">
       <a href="https://play.google.com/store/apps/details?id=com.virtuabasket" class="store-btn">
-        <i class="fab fa-google-play" style="font-size:28px;color:#E8722A;"></i>
+        <i class="fab fa-google-play" style="font-size:28px;color:var(--orange);" aria-hidden="true"></i>
         <div class="store-btn-text">
           <div class="store-btn-sub"><span data-lang="it" class="active">Scarica su</span><span data-lang="en">Get it on</span></div>
           <div class="store-btn-name">Google Play</div>
         </div>
       </a>
       <a href="https://apps.apple.com/app/virtua-basket/id6774968256" class="store-btn">
-        <i class="fab fa-apple" style="font-size:28px;color:#888;"></i>
+        <i class="fab fa-apple" style="font-size:28px;color:var(--gray);" aria-hidden="true"></i>
         <div class="store-btn-text">
           <div class="store-btn-sub"><span data-lang="it" class="active">Scarica su</span><span data-lang="en">Download on</span></div>
           <div class="store-btn-name">App Store</div>
