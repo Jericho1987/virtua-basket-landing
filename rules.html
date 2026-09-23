@@ -93,7 +93,7 @@
 <main>
   <div class="page-tag">Gioco</div>
   <h1>Regolamento<br>del Gioco</h1>
-  <div class="page-date">v2.1 — Settembre 2026</div>
+  <div class="page-date">v2.2 — Settembre 2026</div>
 
   <div class="toc" id="toc">
     <div class="toc-title">Indice</div>
@@ -113,10 +113,10 @@
     <div class="section-header"><div class="section-bar"></div><h2>1. Pick Giornaliera</h2></div>
     <p><strong>Regola base:</strong> prima di ogni giornata scegli la tua formazione da <strong>10 giocatori</strong> tra tutti i giocatori disponibili nella competizione della tua lega (LBA, EuroLeague o LBF).</p>
 
-    <div class="note"><p><i class="fa-solid fa-sliders" aria-hidden="true"></i> Ogni lega — ufficiale o privata — usa una <strong>Modalità di Pick</strong>: <strong>Fissa</strong> o <strong>Libera</strong>, scelta dall'admin alla creazione della lega. È una scelta indipendente da competizione, modalità di gioco e formula roster: può essere combinata liberamente con qualsiasi altra impostazione.</p></div>
+    <div class="note"><p><i class="fa-solid fa-sliders" aria-hidden="true"></i> Ogni lega — ufficiale o privata — usa una <strong>Modalità di Pick</strong>: <strong>Fissa</strong> o <strong>Libera</strong>. Le leghe ufficiali usano la Fissa; nelle leghe private la sceglie l'admin. È una scelta indipendente da competizione, modalità di gioco e formula roster: può essere combinata liberamente con qualsiasi altra impostazione.</p></div>
 
     <h3>Modalità Fissa</h3>
-    <p>La formazione è divisa in tre sezioni con slot fissi. <strong>L'ordine in cui inserisci i giocatori all'interno di ogni sezione determina la priorità di consumo del budget minuti.</strong></p>
+    <p>La formazione è divisa in tre sezioni con slot fissi. <strong>L'ordine in cui inserisci i giocatori all'interno di ogni sezione determina la priorità di consumo del budget minuti.</strong> Un giocatore con doppio ruolo può essere inserito nella sezione di uno qualsiasi dei suoi due ruoli.</p>
 
     <div class="budget-grid">
       <div class="budget-card">
@@ -184,51 +184,54 @@
   <!-- 3. PUNTEGGIO -->
   <div class="section" id="punteggio">
     <div class="section-header"><div class="section-bar"></div><h2>3. Sistema di Punteggio</h2></div>
-    <p>I punti fantasy grezzi vengono calcolati automaticamente in base alle statistiche reali delle partite. Ogni lega può scegliere tra tre formule: <strong>Easy</strong>, <strong>Advanced</strong> o <strong>Custom</strong>.</p>
+    <p>I punti fantasy grezzi vengono calcolati automaticamente in base alle statistiche reali delle partite. Esistono tre formule: <strong>Easy</strong>, <strong>Advanced</strong> e <strong>Custom</strong>. Le leghe ufficiali usano la formula <strong>Easy</strong>; nelle leghe private la sceglie l'admin.</p>
 
     <div class="formula-grid">
       <div class="formula-card">
         <div class="formula-card-title"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Easy</div>
-        <p>Formula semplice con coefficienti uguali per tutte le statistiche. Ideale per leghe casual.</p>
+        <p>Formula semplice: ogni statistica positiva vale 1 punto. Ideale per leghe casual.</p>
         <div class="table-wrap">
           <table>
             <tr><th>Statistica</th><th>Coeff.</th></tr>
             <tr><td>Punti</td><td class="plus">+1.00</td></tr>
-            <tr><td>Rimbalzi</td><td class="plus">+1.00</td></tr>
+            <tr><td>Rimbalzi offensivi</td><td class="plus">+1.00</td></tr>
+            <tr><td>Rimbalzi difensivi</td><td class="plus">+1.00</td></tr>
             <tr><td>Assist</td><td class="plus">+1.00</td></tr>
             <tr><td>Stoppate</td><td class="plus">+1.00</td></tr>
-            <tr><td>Recuperi</td><td class="plus">+1.00</td></tr>
-            <tr><td>Falli subiti</td><td class="plus">+1.00</td></tr>
-            <tr><td>Falli commessi</td><td class="minus">−1.00</td></tr>
-            <tr><td>Palle perse</td><td class="minus">−0.50</td></tr>
-            <tr><td>Tiri sbagliati</td><td class="minus">−0.50</td></tr>
-            <tr><td>Tecnici</td><td class="minus">−0.50</td></tr>
+            <tr><td>Palle rubate</td><td class="plus">+1.00</td></tr>
+            <tr><td>Palle perse</td><td class="minus">−1.00</td></tr>
+            <tr><td>Tiri da 2 sbagliati</td><td class="minus">−0.50</td></tr>
+            <tr><td>Tiri da 3 sbagliati</td><td class="minus">−0.50</td></tr>
+            <tr><td>Liberi sbagliati</td><td class="minus">−0.50</td></tr>
           </table>
         </div>
       </div>
       <div class="formula-card">
         <div class="formula-card-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Advanced</div>
-        <p>Formula competitiva che premia difesa e giocate decisive con coefficienti differenziati.</p>
+        <p>Formula competitiva con coefficienti differenziati, che premia di più assist, stoppate e recuperi, più i bonus doppia e tripla doppia.</p>
         <div class="table-wrap">
           <table>
             <tr><th>Statistica</th><th>Coeff.</th></tr>
             <tr><td>Punti</td><td class="plus">+1.00</td></tr>
-            <tr><td>Rimbalzi</td><td class="plus">+1.25</td></tr>
-            <tr><td>Assist</td><td class="plus">+1.00</td></tr>
-            <tr><td>Stoppate</td><td class="plus">+1.75</td></tr>
-            <tr><td>Recuperi</td><td class="plus">+2.00</td></tr>
-            <tr><td>Falli subiti</td><td class="plus">+2.00</td></tr>
-            <tr><td>Falli commessi</td><td class="minus">−1.50</td></tr>
-            <tr><td>Palle perse</td><td class="minus">−0.50</td></tr>
-            <tr><td>Tiri sbagliati</td><td class="minus">−0.75</td></tr>
-            <tr><td>Tecnici</td><td class="minus">−0.50</td></tr>
+            <tr><td>Rimbalzi offensivi</td><td class="plus">+1.25</td></tr>
+            <tr><td>Rimbalzi difensivi</td><td class="plus">+1.00</td></tr>
+            <tr><td>Assist</td><td class="plus">+1.75</td></tr>
+            <tr><td>Stoppate</td><td class="plus">+2.00</td></tr>
+            <tr><td>Palle rubate</td><td class="plus">+2.00</td></tr>
+            <tr><td>Palle perse</td><td class="minus">−1.50</td></tr>
+            <tr><td>Tiri da 2 sbagliati</td><td class="minus">−0.50</td></tr>
+            <tr><td>Tiri da 3 sbagliati</td><td class="minus">−0.75</td></tr>
+            <tr><td>Liberi sbagliati</td><td class="minus">−0.50</td></tr>
+            <tr><td>Bonus doppia doppia</td><td class="plus">+3.00</td></tr>
+            <tr><td>Bonus tripla doppia</td><td class="plus">+7.00</td></tr>
           </table>
         </div>
       </div>
     </div>
+    <p><strong>Bonus Advanced:</strong> si conta in quante di queste categorie il giocatore arriva almeno a 10: punti, rimbalzi totali, assist, palle rubate, stoppate. Con esattamente 2 categorie scatta la doppia doppia (+3), con 3 o più la tripla doppia (+7). I due bonus non si sommano.</p>
 
     <h3><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Custom</h3>
-    <p>L'admin di una lega privata può creare una formula personalizzata impostando liberamente i coefficienti per ogni statistica, partendo dalla formula Advanced come base. La formula custom non è modificabile dopo che è stata disputata almeno una giornata.</p>
+    <p>L'admin di una lega privata può creare una formula personalizzata impostando i coefficienti delle 10 statistiche (da 0 a 5), partendo dai valori della formula Advanced. I bonus doppia e tripla doppia non fanno parte della formula Custom. La formula si può cambiare alle stesse condizioni delle altre regole della lega (vedi sezione 4).</p>
   </div>
 
   <!-- 4. LEGHE -->
@@ -238,14 +241,14 @@
     <h3>Leghe Ufficiali</h3>
     <p>Virtua Basket offre tre leghe ufficiali a cui tutti gli utenti vengono iscritti automaticamente al momento della registrazione:</p>
     <ul>
-      <li><strong>🇮🇹 Virtua Basket LBA</strong> — basata sulla Lega Basket Serie A (formula roster 5+5)</li>
+      <li><strong>🇮🇹 Virtua Basket LBA</strong> — basata sulla Lega Basket Serie A (formula roster 6+6: max 5 stranieri schierati)</li>
       <li><strong>🌍 Virtua EuroLeague</strong> — basata sulla EuroLeague (nessun vincolo nazionalità)</li>
       <li><strong>⛹️‍♀️ Virtua Basket LBF</strong> — basata sulla Lega Basket Femminile (nessun vincolo nazionalità)</li>
     </ul>
-    <p>Le leghe ufficiali usano la modalità <strong>Regular Season</strong> con roster libero ogni giornata.</p>
+    <p>Le leghe ufficiali usano la modalità <strong>Regular Season</strong> (formazione libera ogni giornata), la <strong>Modalità di Pick Fissa</strong> e la formula <strong>Easy</strong>. Le loro regole non sono modificabili.</p>
 
     <h3>Leghe Private</h3>
-    <p>Puoi creare una lega privata con i tuoi amici scegliendo competizione (LBA, EuroLeague o LBF), modalità di gioco, formula punteggio e — per le leghe LBA — formula roster. Le leghe private supportano da 6 a 12 partecipanti e possono essere pubbliche o protette da password.</p>
+    <p>Puoi creare una lega privata con i tuoi amici scegliendo competizione (LBA, EuroLeague o LBF), modalità di gioco, formula punteggio, modalità di pick e — per le leghe LBA — formula roster. Le leghe private possono avere 6, 8, 10 o 12 partecipanti e possono essere pubbliche o protette da password.</p>
 
     <div class="table-wrap">
       <table>
@@ -264,12 +267,15 @@
         </tr>
         <tr>
           <td><strong>Calendario 1v1</strong></td>
-          <td>Sfide dirette stile campionato. 2pt vittoria, 0pt sconfitta.</td>
+          <td>Sfide dirette stile campionato. 2 punti alla vittoria, 1 al pareggio, 0 alla sconfitta.</td>
           <td>Fisso da draft (12 giocatori)</td>
           <td>Sì</td>
         </tr>
       </table>
     </div>
+
+    <h3>Modifica delle regole</h3>
+    <p>L'admin di una lega privata può cambiare modalità di gioco, formula punteggio, modalità di pick e formula roster finché il draft non è stato avviato. Una volta avviato o completato il draft, le regole sono bloccate. Nelle leghe senza draft (Regular Season) le regole restano modificabili dall'admin.</p>
 
     <h3>Roster fisso — come funziona</h3>
     <p>Nelle modalità con draft costruisci un roster da <strong>12 giocatori</strong>: almeno 4G + 4A + 2C, più 2 slot extra di qualsiasi ruolo. Ogni giornata scegli i <strong>10 da schierare</strong> tra i tuoi 12. I 2 non schierati non producono punti.</p>
@@ -279,7 +285,7 @@
   <!-- 5. FORMULA ROSTER -->
   <div class="section" id="formula-roster">
     <div class="section-header"><div class="section-bar"></div><h2>5. Formula Roster (LBA)</h2></div>
-    <p>Solo per leghe LBA, l'admin può scegliere la <strong>formula roster</strong> al momento della creazione della lega. Questa scelta è irreversibile dopo la creazione. Le leghe EuroLeague e LBF non prevedono questa scelta: usano sempre la formula <strong>Libera</strong>, senza vincoli di nazionalità.</p>
+    <p>Solo per le leghe LBA l'admin sceglie la <strong>formula roster</strong>, alla creazione della lega; può cambiarla alle condizioni della sezione 4. Le leghe EuroLeague e LBF non prevedono questa scelta: usano sempre la formula <strong>Libera</strong>, senza vincoli di nazionalità.</p>
 
     <div class="formula-grid">
       <div class="formula-card">
@@ -287,8 +293,8 @@
         <p>Riproduce il regolamento reale della Lega Basket Serie A.</p>
         <ul style="font-size:13px; color:var(--gray);">
           <li>Il roster (draft) può avere <strong>max 6 stranieri</strong> e <strong>max 6 italiani</strong></li>
-          <li>La formazione settimanale può avere <strong>max 5 stranieri</strong> in campo</li>
-          <li>Almeno <strong>5 italiani</strong> obbligatori tra i 10 schierati</li>
+          <li>La formazione di ogni giornata può avere <strong>max 5 stranieri</strong> in campo</li>
+          <li>Quindi almeno <strong>5 italiani</strong> tra i 10 schierati</li>
         </ul>
       </div>
       <div class="formula-card">
@@ -302,7 +308,7 @@
       </div>
     </div>
 
-    <div class="note"><p><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> La <strong>Lega Ufficiale LBA</strong> usa la formula <strong>5+5</strong> — max 5 stranieri tra i 10 schierati ogni giornata, con roster libero (non fisso da draft).</p></div>
+    <div class="note"><p><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> La <strong>lega ufficiale LBA</strong> usa la formula <strong>6+6</strong>: max 5 stranieri tra i 10 schierati ogni giornata. Non essendoci draft, il limite sul roster da 12 non si applica.</p></div>
   </div>
 
   <!-- 6. DRAFT -->
@@ -312,14 +318,14 @@
 
     <h3>Come funziona</h3>
     <ul>
-      <li>L'admin configura data, ora e tempo per ogni pick (6h, 12h, 24h o 48h)</li>
+      <li>L'admin configura data e ora di inizio, il tempo per ogni pick (da 1 a 24 ore) e una fascia oraria attiva (predefinita 08:00–23:00, ora italiana): fuori dalla fascia il countdown si mette in pausa</li>
       <li>L'ordine di pick è generato casualmente e mostrato prima dell'avvio</li>
       <li>Il sistema <strong>snake</strong> inverte l'ordine ad ogni round; ogni 2 round l'ordine di partenza viene inoltre "mescolato" per variare gli abbinamenti, così non capitano sempre gli stessi vicini di scelta — il risultato è che, a fine draft, ogni partecipante ha ottenuto in media la stessa posizione di scelta, indipendentemente da dove partiva nell'ordine iniziale</li>
       <li>Ogni partecipante ha il tempo configurato per effettuare la propria pick</li>
     </ul>
 
     <h3>Vincoli di pick nel draft</h3>
-    <p>Il sistema impedisce pick che renderebbero impossibile completare il roster minimo. Ad esempio, se sei all'11° round e hai già 4A e 2C ma solo 3G, puoi pickare solo guardie.</p>
+    <p>Il sistema impedisce pick che renderebbero impossibile completare il roster minimo. Ad esempio, se sei all'11° round e hai già 4A e 2C ma solo 3G, puoi pickare solo guardie. Per questi minimi conta il ruolo principale del giocatore.</p>
     <p>Con formula <strong>6+6</strong>, il sistema blocca anche le pick che violano i limiti di nazionalità (max 6 stranieri e max 6 italiani nel roster da 12).</p>
 
     <div class="highlight"><p><i class="fa-solid fa-star" aria-hidden="true"></i> <strong>Wishlist:</strong> prepara la tua wishlist prima e durante il draft. Se scatta l'autopick, il sistema scorre la wishlist e sceglie il primo giocatore disponibile che rispetta tutti i vincoli.</p></div>
@@ -328,7 +334,7 @@
     <p>Se il tempo scade e nessun giocatore in wishlist rispetta i vincoli correnti, il turno viene <strong>saltato</strong> e il draft avanza. Il giocatore può recuperare la pick saltata in modo asincrono in qualsiasi momento successivo, scegliendo tra i giocatori ancora disponibili.</p>
 
     <h3>Fine draft</h3>
-    <p>A fine draft, chi ha ancora ruoli minimi scoperti (meno di 4G, 4A o 2C) riceve un <strong>autopick forzato</strong> sui ruoli mancanti — il miglior giocatore disponibile per media punti che rispetta i vincoli. Gli slot extra non coperti rimangono vuoti.</p>
+    <p>A fine draft, chi ha ancora ruoli minimi scoperti (meno di 4G, 4A o 2C) riceve un <strong>autopick forzato</strong> sui ruoli mancanti — il giocatore disponibile con la media punti fantasy più alta, con quel ruolo principale e nel rispetto dei vincoli. Gli slot extra non coperti rimangono vuoti.</p>
 
     <div class="note"><p><i class="fa-solid fa-bell" aria-hidden="true"></i> Attiva le notifiche push per ricevere un avviso quando è il tuo turno di pickare.</p></div>
   </div>
@@ -338,10 +344,36 @@
     <div class="section-header"><div class="section-bar"></div><h2>7. Classifiche</h2></div>
 
     <h3>Classifica Giornata</h3>
-    <p>Mostra i punteggi fantasy (calcolati con il sistema budget-minuti) di tutti i partecipanti per la giornata corrente o per le giornate precedenti. Puoi visualizzare la formazione di qualsiasi partecipante toccando il suo nome.</p>
+    <p>Mostra i punteggi fantasy (calcolati con il sistema budget-minuti) dei partecipanti che hanno inserito la formazione, per la giornata corrente o per le giornate precedenti. Puoi visualizzare la formazione di qualsiasi partecipante toccando il suo nome.</p>
+    <p>Durante le partite i punteggi si aggiornano in diretta. La classifica di giornata diventa <strong>ufficiale</strong>, con l'assegnazione dei ranking points, alle 08:00 (ora italiana) del giorno dopo l'ultima partita della giornata.</p>
 
     <h3>Classifica Stagionale — Regular Season</h3>
-    <p>Basata sui <strong>ranking points</strong> assegnati in base alla posizione in classifica giornaliera:</p>
+    <p>Basata sui <strong>ranking points</strong> assegnati in base alla posizione in classifica giornaliera. La tabella dei punti è diversa per le leghe ufficiali, che contano centinaia di partecipanti, e per le leghe private.</p>
+
+    <p><strong>Leghe ufficiali</strong> (Virtua Basket LBA, Virtua EuroLeague, Virtua Basket LBF):</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Posizione</th><th>Ranking Points</th></tr>
+        <tr><td>1°</td><td class="plus">25 pt</td></tr>
+        <tr><td>2°</td><td class="plus">20 pt</td></tr>
+        <tr><td>3°</td><td class="plus">18 pt</td></tr>
+        <tr><td>4°</td><td class="plus">16 pt</td></tr>
+        <tr><td>5°</td><td class="plus">14 pt</td></tr>
+        <tr><td>6°</td><td class="plus">12 pt</td></tr>
+        <tr><td>7°</td><td class="plus">10 pt</td></tr>
+        <tr><td>8°</td><td class="plus">8 pt</td></tr>
+        <tr><td>9° – 20°</td><td class="plus">7 pt</td></tr>
+        <tr><td>21° – 30°</td><td class="plus">6 pt</td></tr>
+        <tr><td>31° – 40°</td><td class="plus">5 pt</td></tr>
+        <tr><td>41° – 50°</td><td class="plus">4 pt</td></tr>
+        <tr><td>51° – 60°</td><td class="plus">3 pt</td></tr>
+        <tr><td>61° – 70°</td><td class="plus">2 pt</td></tr>
+        <tr><td>71° – 80°</td><td class="plus">1 pt</td></tr>
+        <tr><td>dall'81°</td><td>0 pt</td></tr>
+      </table>
+    </div>
+
+    <p><strong>Leghe private:</strong></p>
     <div class="table-wrap">
       <table>
         <tr><th>Posizione</th><th>Ranking Points</th></tr>
@@ -355,19 +387,21 @@
         <tr><td>8°</td><td class="plus">4 pt</td></tr>
       </table>
     </div>
+    <p>A parità di punteggio nella giornata, la posizione è decisa dai criteri di spareggio della <a href="#parita">sezione 9</a>.</p>
 
     <h3>Classifica Stagionale — Calendario 1v1</h3>
-    <p>Ogni giornata è uno scontro diretto tra due partecipanti. Vince chi fa più punti fantasy con il suo roster (calcolati con il sistema budget-minuti). La classifica riflette vittorie e sconfitte come in un vero campionato.</p>
+    <p>Ogni giornata è uno scontro diretto tra due partecipanti. Vince chi fa più punti fantasy con il suo roster (calcolati con il sistema budget-minuti). Ogni sfida assegna 2 punti alla vittoria, 1 a testa in caso di pareggio e 0 alla sconfitta. La classifica riflette vittorie, pareggi e sconfitte come in un vero campionato.</p>
   </div>
 
   <!-- 8. DEADLINE -->
   <div class="section" id="deadline">
     <div class="section-header"><div class="section-bar"></div><h2>8. Deadline e Pick Mancanti</h2></div>
-    <p>I pick si chiudono prima dell'inizio della prima partita di ogni giornata. Se non effettui il pick entro la deadline:</p>
+    <p>Una giornata si apre ai pick quando la precedente è conclusa, e i pick si chiudono all'orario di inizio della prima partita della giornata. Fino alla chiusura puoi modificare la formazione quante volte vuoi. Se non inserisci la formazione entro la deadline:</p>
     <ul>
-      <li>Non ricevi punti per quella giornata</li>
-      <li>In modalità <strong>Regular Season</strong> puoi ricominciare dalla giornata successiva con un nuovo roster</li>
-      <li>In modalità con <strong>roster fisso</strong> il roster rimane invariato ma non vengono assegnati punti per la giornata mancata</li>
+      <li>Non ricevi punti per quella giornata e non compari nella classifica di giornata (0 ranking points)</li>
+      <li>La formazione non viene copiata automaticamente dalla giornata precedente: va inserita ogni giornata</li>
+      <li>In <strong>Calendario 1v1</strong> il tuo punteggio della sfida è 0</li>
+      <li>In modalità con <strong>roster fisso</strong> il roster rimane invariato per le giornate successive</li>
     </ul>
     <div class="note"><p><i class="fa-solid fa-bell" aria-hidden="true"></i> Attiva le notifiche push per ricevere un promemoria prima della chiusura dei pick.</p></div>
   </div>
@@ -375,13 +409,24 @@
   <!-- 9. PARITA -->
   <div class="section" id="parita">
     <div class="section-header"><div class="section-bar"></div><h2>9. Parità</h2></div>
-    <p>In caso di parità nella classifica stagionale, si applicano in ordine i seguenti criteri di spareggio:</p>
+
+    <h3>Classifica Giornata</h3>
+    <p>Nelle modalità <strong>Regular Season</strong> e <strong>Regular Season Pro</strong>, la posizione nella classifica di giornata è decisa da questi criteri, applicati in ordine:</p>
     <ol>
-      <li>Maggior numero di giornate vinte</li>
-      <li>Maggior punteggio nell'ultima giornata disputata</li>
-      <li>Maggior punteggio totale nella fase finale della stagione</li>
+      <li>Maggior punteggio fantasy della giornata</li>
+      <li>Maggior somma dei punti delle <strong>prime scelte</strong> di ogni ruolo (G1 + A1 + C1)</li>
+      <li>Maggior somma dei punti delle <strong>seconde scelte</strong> di ogni ruolo (G2 + A2 + C2)</li>
+      <li>Miglior punteggio fantasy di un singolo giocatore della formazione</li>
+      <li>Orario: precede chi ha salvato la formazione per l'ultima volta prima</li>
     </ol>
-    <div class="placeholder"><p><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i> I criteri di spareggio specifici per la modalità Calendario 1v1 verranno definiti prima del lancio ufficiale della stagione.</p></div>
+    <p>Nei criteri 2 e 3 contano i punti effettivamente entrati nel punteggio con il sistema budget-minuti; nel criterio 4 conta il punteggio pieno del giocatore. Con la Modalità Libera, la prima e la seconda scelta sono il primo e il secondo giocatore schierati in ogni ruolo. Se due partecipanti risultano identici anche dopo tutti i criteri, condividono la posizione e ricevono gli stessi ranking points.</p>
+
+    <h3>Classifica Stagionale</h3>
+    <ul>
+      <li><strong>Regular Season e Regular Season Pro:</strong> a parità di ranking points precede chi ha il maggior totale di punti fantasy nella stagione.</li>
+      <li><strong>Calendario 1v1:</strong> a parità di punti in classifica precede chi ha la maggior somma di punti fantasy nelle sfide disputate.</li>
+    </ul>
+    <p>Se la parità resta anche dopo questo criterio, i partecipanti condividono la posizione.</p>
   </div>
 </main>
 
