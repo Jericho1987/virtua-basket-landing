@@ -93,7 +93,7 @@
 <main>
   <div class="page-tag">Gioco</div>
   <h1>Regolamento<br>del Gioco</h1>
-  <div class="page-date">v2.2 — Settembre 2026</div>
+  <div class="page-date">v2.3 — Ottobre 2026</div>
 
   <div class="toc" id="toc">
     <div class="toc-title">Indice</div>
@@ -106,18 +106,20 @@
     <a href="#classifica"><span>7.</span> Classifiche</a>
     <a href="#deadline"><span>8.</span> Deadline e Pick Mancanti</a>
     <a href="#parita"><span>9.</span> Parità</a>
+    <a href="#nba"><span>10.</span> NBA: Gara, Salary Cap e Playoff</a>
   </div>
 
   <!-- 1. PICK -->
   <div class="section" id="pick">
     <div class="section-header"><div class="section-bar"></div><h2>1. Pick Giornaliera</h2></div>
-    <p><strong>Regola base:</strong> prima di ogni giornata scegli la tua formazione da <strong>10 giocatori</strong> tra tutti i giocatori disponibili nella competizione della tua lega (LBA, EuroLeague o LBF).</p>
+    <p><strong>Regola base:</strong> prima di ogni giornata scegli la tua formazione da <strong>10 giocatori</strong> tra tutti i giocatori disponibili nella competizione della tua lega (LBA, EuroLeague, LBF o NBA). Nella <strong>NBA</strong>, con la Modalità Libera, la formazione è di <strong>12 giocatori</strong> (vedi sezione 10).</p>
 
-    <div class="note"><p><i class="fa-solid fa-sliders" aria-hidden="true"></i> Ogni lega — ufficiale o privata — usa una <strong>Modalità di Pick</strong>: <strong>Fissa</strong> o <strong>Libera</strong>. Le leghe ufficiali usano la Fissa; nelle leghe private la sceglie l'admin. È una scelta indipendente da competizione, modalità di gioco e formula roster: può essere combinata liberamente con qualsiasi altra impostazione.</p></div>
+    <div class="note"><p><i class="fa-solid fa-sliders" aria-hidden="true"></i> Ogni lega — ufficiale o privata — usa una <strong>Modalità di Pick</strong>: <strong>Fissa</strong> o <strong>Libera</strong>. Le leghe ufficiali LBA, EuroLeague e LBF usano la Fissa, la Virtua NBA usa la Libera; nelle leghe private la sceglie l'admin. È una scelta indipendente da competizione, modalità di gioco e formula roster: può essere combinata liberamente con qualsiasi altra impostazione.</p></div>
 
     <h3>Modalità Fissa</h3>
     <p>La formazione è divisa in tre sezioni con slot fissi. <strong>L'ordine in cui inserisci i giocatori all'interno di ogni sezione determina la priorità di consumo del budget minuti.</strong> Un giocatore con doppio ruolo può essere inserito nella sezione di uno qualsiasi dei suoi due ruoli.</p>
 
+    <p><strong>LBA, EuroLeague, LBF</strong> (partita da 40 minuti):</p>
     <div class="budget-grid">
       <div class="budget-card">
         <div class="budget-role">G</div>
@@ -138,10 +140,31 @@
         <div class="budget-slots">budget totale</div>
       </div>
     </div>
+    <p><strong>NBA</strong> (partita da 48 minuti, quarti da 12):</p>
+    <div class="budget-grid">
+      <div class="budget-card">
+        <div class="budget-role">G</div>
+        <div class="budget-slots">4 slot</div>
+        <div class="budget-min">96 minuti</div>
+        <div class="budget-slots">budget totale</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-role">A</div>
+        <div class="budget-slots">4 slot</div>
+        <div class="budget-min">96 minuti</div>
+        <div class="budget-slots">budget totale</div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-role">C</div>
+        <div class="budget-slots">2 slot</div>
+        <div class="budget-min">48 minuti</div>
+        <div class="budget-slots">budget totale</div>
+      </div>
+    </div>
 
     <h3>Modalità Libera</h3>
-    <p>Scegli i tuoi 10 giocatori in un <strong>ordine unico</strong>, senza sezioni separate per ruolo. Per ogni giocatore scegli tu con quale ruolo schierarlo (Guardia, Ala o Centro); se il giocatore ha <strong>doppio ruolo</strong>, puoi cambiare in qualsiasi momento quale dei due usare. L'ordine complessivo determina la priorità di consumo del budget minuti del ruolo assegnato a ciascun giocatore (stesso meccanismo della sezione 2, applicato all'intera lista invece che alle singole sezioni G/A/C).</p>
-    <p>Non è richiesto rispettare la distribuzione 4+4+2: puoi schierare, ad esempio, 6 Guardie e 4 Ali. Il budget di un ruolo che non copri con nessun giocatore semplicemente non produce punti (vedi "Se non copri tutti i minuti" nella sezione 2).</p>
+    <p>Scegli i tuoi 10 giocatori (12 in NBA) in un <strong>ordine unico</strong>, senza sezioni separate per ruolo. Per ogni giocatore scegli tu con quale ruolo schierarlo (Guardia, Ala o Centro); se il giocatore ha <strong>doppio ruolo</strong>, puoi cambiare in qualsiasi momento quale dei due usare. L'ordine complessivo determina la priorità di consumo del budget minuti del ruolo assegnato a ciascun giocatore (stesso meccanismo della sezione 2, applicato all'intera lista invece che alle singole sezioni G/A/C).</p>
+    <p>Non è richiesto rispettare la distribuzione 4+4+2: puoi schierare, ad esempio, 6 Guardie e 4 Ali (nella NBA 12 giocatori con ruoli liberi). Il budget di un ruolo che non copri con nessun giocatore semplicemente non produce punti (vedi "Se non copri tutti i minuti" nella sezione 2).</p>
 
     <div class="note"><p><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> I pick si chiudono all'orario di inizio della prima partita della giornata. Dopo la chiusura non è possibile modificare la formazione, in entrambe le modalità.</p></div>
   </div>
@@ -149,7 +172,7 @@
   <!-- 2. BUDGET MINUTI -->
   <div class="section" id="budget">
     <div class="section-header"><div class="section-bar"></div><h2>2. Sistema Budget-Minuti</h2></div>
-    <p>Il punteggio non si basa su moltiplicatori fissi ma su un sistema a <strong>budget di minuti</strong>. Ogni ruolo ha un budget totale di minuti da coprire — ispirato alla realtà del basket, dove una partita dura 40 minuti con 2 guardie, 2 ali e 1 centro in campo (200 minuti totali per squadra).</p>
+    <p>Il punteggio non si basa su moltiplicatori fissi ma su un sistema a <strong>budget di minuti</strong>. Ogni ruolo ha un budget totale di minuti da coprire — ispirato alla realtà del basket, dove una partita dura 40 minuti con 2 guardie, 2 ali e 1 centro in campo (200 minuti totali per squadra: 80 + 80 + 40). Nella <strong>NBA</strong> la partita dura 48 minuti, quindi i budget sono <strong>96 + 96 + 48</strong> (240 minuti totali).</p>
 
     <h3>Come funziona</h3>
     <p>Per ogni sezione (G, A, C), i giocatori vengono processati <strong>in ordine di slot</strong> (G1 prima di G2, A1 prima di A2, ecc.). Ogni giocatore consuma dal budget i minuti che ha realmente giocato, fino ad esaurimento.</p>
@@ -160,7 +183,7 @@
     </div>
 
     <h3>Esempio pratico</h3>
-    <p>Budget guardie: <strong>80 minuti</strong></p>
+    <p>Budget guardie (LBA, EuroLeague, LBF): <strong>80 minuti</strong></p>
     <div class="table-wrap">
       <table>
         <tr><th>Slot</th><th>Giocatore</th><th>Min. giocati</th><th>FP grezzi</th><th>Budget usato</th><th>Contributo</th></tr>
@@ -184,7 +207,7 @@
   <!-- 3. PUNTEGGIO -->
   <div class="section" id="punteggio">
     <div class="section-header"><div class="section-bar"></div><h2>3. Sistema di Punteggio</h2></div>
-    <p>I punti fantasy grezzi vengono calcolati automaticamente in base alle statistiche reali delle partite. Esistono tre formule: <strong>Easy</strong>, <strong>Advanced</strong> e <strong>Custom</strong>. Le leghe ufficiali usano la formula <strong>Easy</strong>; nelle leghe private la sceglie l'admin.</p>
+    <p>I punti fantasy grezzi vengono calcolati automaticamente in base alle statistiche reali delle partite. Esistono quattro formule: <strong>Easy</strong>, <strong>Advanced</strong>, <strong>Pro</strong> e <strong>Custom</strong>. Le leghe ufficiali usano la formula <strong>Easy</strong>; nelle leghe private la sceglie l'admin. Scegliendo una formula, l'app mostra sempre l'elenco completo di cosa viene calcolato.</p>
 
     <div class="formula-grid">
       <div class="formula-card">
@@ -230,6 +253,26 @@
     </div>
     <p><strong>Bonus Advanced:</strong> si conta in quante di queste categorie il giocatore arriva almeno a 10: punti, rimbalzi totali, assist, palle rubate, stoppate. Con esattamente 2 categorie scatta la doppia doppia (+3), con 3 o più la tripla doppia (+7). I due bonus non si sommano.</p>
 
+    <h3><i class="fa-solid fa-rocket" aria-hidden="true"></i> Pro</h3>
+    <p>La formula Pro guarda i <strong>tiri realizzati e tentati</strong> (tiri liberi, da 2 e da 3): ogni canestro vale, ogni tentativo costa un po'. I punti segnati non compaiono come voce a parte perché sono già dentro i tiri realizzati. Non ci sono bonus doppia o tripla doppia. È valida per tutte le competizioni (LBA, EuroLeague, LBF e NBA). I punteggi sono più bassi di Easy e Advanced: le formule non si confrontano tra loro.</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Statistica</th><th>Coeff.</th></tr>
+        <tr><td>Tiri liberi realizzati</td><td class="plus">+0.60</td></tr>
+        <tr><td>Tiri liberi tentati</td><td class="minus">−0.10</td></tr>
+        <tr><td>Tiri da 2 realizzati</td><td class="plus">+1.20</td></tr>
+        <tr><td>Tiri da 2 tentati</td><td class="minus">−0.20</td></tr>
+        <tr><td>Tiri da 3 realizzati</td><td class="plus">+1.70</td></tr>
+        <tr><td>Tiri da 3 tentati</td><td class="minus">−0.20</td></tr>
+        <tr><td>Rimbalzi offensivi</td><td class="plus">+0.50</td></tr>
+        <tr><td>Rimbalzi difensivi</td><td class="plus">+0.50</td></tr>
+        <tr><td>Assist</td><td class="plus">+0.50</td></tr>
+        <tr><td>Stoppate</td><td class="plus">+0.50</td></tr>
+        <tr><td>Palle rubate</td><td class="plus">+0.50</td></tr>
+        <tr><td>Palle perse</td><td class="minus">−0.50</td></tr>
+      </table>
+    </div>
+
     <h3><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Custom</h3>
     <p>L'admin di una lega privata può creare una formula personalizzata impostando i coefficienti delle 10 statistiche (da 0 a 5), partendo dai valori della formula Advanced. I bonus doppia e tripla doppia non fanno parte della formula Custom. La formula si può cambiare alle stesse condizioni delle altre regole della lega (vedi sezione 4).</p>
   </div>
@@ -239,16 +282,17 @@
     <div class="section-header"><div class="section-bar"></div><h2>4. Leghe e Modalità di Gioco</h2></div>
 
     <h3>Leghe Ufficiali</h3>
-    <p>Virtua Basket offre tre leghe ufficiali a cui tutti gli utenti vengono iscritti automaticamente al momento della registrazione:</p>
+    <p>Virtua Basket offre quattro leghe ufficiali a cui tutti gli utenti vengono iscritti automaticamente al momento della registrazione:</p>
     <ul>
       <li><strong>🇮🇹 Virtua Basket LBA</strong> — basata sulla Lega Basket Serie A (formula roster 6+6: max 5 stranieri schierati)</li>
       <li><strong>🌍 Virtua EuroLeague</strong> — basata sulla EuroLeague (nessun vincolo nazionalità)</li>
       <li><strong>⛹️‍♀️ Virtua Basket LBF</strong> — basata sulla Lega Basket Femminile (nessun vincolo nazionalità)</li>
+      <li><strong>🏀 Virtua NBA</strong> — basata sulla NBA: formazione libera da 12 giocatori ogni Gara, con tetto salariale rigido (vedi sezione 10)</li>
     </ul>
-    <p>Le leghe ufficiali usano la modalità <strong>Regular Season</strong> (formazione libera ogni giornata), la <strong>Modalità di Pick Fissa</strong> e la formula <strong>Easy</strong>. Le loro regole non sono modificabili. Da ogni lega ufficiale si può uscire e rientrare in qualsiasi momento, per esempio se vuoi giocare solo in una lega privata.</p>
+    <p>Le leghe ufficiali usano la modalità <strong>Regular Season</strong> (formazione libera ogni giornata) e la formula <strong>Easy</strong>; LBA, EuroLeague e LBF usano la <strong>Modalità di Pick Fissa</strong>, la Virtua NBA la <strong>Modalità di Pick Libera</strong>. Le loro regole non sono modificabili. Da ogni lega ufficiale si può uscire e rientrare in qualsiasi momento, per esempio se vuoi giocare solo in una lega privata.</p>
 
     <h3>Leghe Private</h3>
-    <p>Puoi creare una lega privata con i tuoi amici scegliendo competizione (LBA, EuroLeague o LBF), modalità di gioco, formula punteggio, modalità di pick e — per le leghe LBA — formula roster. Le leghe private possono avere 6, 8, 10 o 12 partecipanti e possono essere pubbliche o protette da password.</p>
+    <p>Puoi creare una lega privata con i tuoi amici scegliendo competizione (LBA, EuroLeague, LBF o NBA), modalità di gioco, formula punteggio, modalità di pick e — per le leghe LBA — formula roster; per la NBA anche il tetto salariale e, nelle leghe a calendario, le impostazioni di stagione e playoff (sezione 10). Il numero di partecipanti lo scegli tu, da 2 fino a un massimo che dipende dalla lega: con il draft 12 (LBF), 20 (LBA ed EuroLeague) o 30 (NBA), senza draft molto di più. Le leghe private possono essere pubbliche o protette da password.</p>
 
     <div class="table-wrap">
       <table>
@@ -274,8 +318,11 @@
       </table>
     </div>
 
+    <h3>Il commissioner</h3>
+    <p>Alla creazione di una lega privata puoi scegliere <strong>"Solo commissioner"</strong>: gestisci la lega (regole, draft, membri) ma non hai una squadra. Non entri nell'ordine del draft, nel calendario né nelle classifiche, non ricevi i promemoria delle formazioni e non conti nel limite di partecipanti. Puoi cambiare idea, in un senso o nell'altro, finché il draft non inizia. Una lega può avere più commissioner; un commissioner non può essere tolto dagli admin finché non partecipa come giocatore. Nelle leghe ufficiali tutti i membri sono giocatori.</p>
+
     <h3>Modifica delle regole</h3>
-    <p>L'admin di una lega privata può cambiare modalità di gioco, formula punteggio, modalità di pick e formula roster finché il draft non è stato avviato. Una volta avviato o completato il draft, le regole sono bloccate. Nelle leghe senza draft (Regular Season) le regole restano modificabili dall'admin.</p>
+    <p>L'admin di una lega privata può cambiare modalità di gioco, formula punteggio, modalità di pick e formula roster finché il draft non è stato avviato. Il tetto salariale e le impostazioni di stagione e playoff della NBA si scelgono prima dell'avvio del draft e poi non cambiano. Una volta avviato o completato il draft, le regole sono bloccate. Nelle leghe senza draft (Regular Season) le regole restano modificabili dall'admin.</p>
 
     <h3>Roster fisso — come funziona</h3>
     <p>Nelle modalità con draft costruisci un roster da <strong>12 giocatori</strong>: almeno 4G + 4A + 2C, più 2 slot extra di qualsiasi ruolo. Ogni giornata scegli i <strong>10 da schierare</strong> tra i tuoi 12. I 2 non schierati non producono punti.</p>
@@ -329,6 +376,7 @@
     <h3>Vincoli di pick nel draft</h3>
     <p>Il sistema impedisce pick che renderebbero impossibile completare il roster minimo. Ad esempio, se sei all'11° round e hai già 4A e 2C ma solo 3G, puoi pickare solo guardie. Per questi minimi conta il ruolo principale del giocatore.</p>
     <p>Con formula <strong>6+6</strong>, il sistema blocca anche le pick che violano i limiti di nazionalità (max 6 stranieri e max 6 italiani nel roster da 12).</p>
+    <p>Con la <strong>Modalità di Pick Libera</strong> non ci sono minimi di ruolo: puoi draftare chi vuoi. Nelle leghe NBA con salary cap il sistema blocca inoltre le pick che renderebbero impossibile completare la rosa nel rispetto del tetto (vedi sezione 10).</p>
 
     <div class="highlight"><p><i class="fa-solid fa-star" aria-hidden="true"></i> <strong>Wishlist:</strong> prepara la tua wishlist prima e durante il draft. Se scatta l'autopick, il sistema scorre la wishlist e sceglie il primo giocatore disponibile che rispetta tutti i vincoli.</p></div>
 
@@ -347,12 +395,12 @@
 
     <h3>Classifica Giornata</h3>
     <p>Mostra i punteggi fantasy (calcolati con il sistema budget-minuti) dei partecipanti che hanno inserito la formazione, per la giornata corrente o per le giornate precedenti. Puoi visualizzare la formazione di qualsiasi partecipante toccando il suo nome.</p>
-    <p>Durante le partite i punteggi si aggiornano in diretta. La classifica di giornata diventa <strong>ufficiale</strong>, con l'assegnazione dei ranking points, alle 08:00 (ora italiana) del giorno dopo l'ultima partita della giornata.</p>
+    <p>Durante le partite i punteggi si aggiornano in diretta. La classifica di giornata diventa <strong>ufficiale</strong>, con l'assegnazione dei ranking points, alle 08:00 (ora italiana) del giorno dopo l'ultima partita della giornata (in NBA, della Gara).</p>
 
     <h3>Classifica Stagionale — Regular Season</h3>
     <p>Basata sui <strong>ranking points</strong> assegnati in base alla posizione in classifica giornaliera. La tabella dei punti è diversa per le leghe ufficiali, che contano centinaia di partecipanti, e per le leghe private.</p>
 
-    <p><strong>Leghe ufficiali</strong> (Virtua Basket LBA, Virtua EuroLeague, Virtua Basket LBF):</p>
+    <p><strong>Leghe ufficiali</strong> (Virtua Basket LBA, Virtua EuroLeague, Virtua Basket LBF, Virtua NBA):</p>
     <div class="table-wrap">
       <table>
         <tr><th>Posizione</th><th>Ranking Points</th></tr>
@@ -392,16 +440,16 @@
     <p>A parità di punteggio nella giornata, la posizione è decisa dai criteri di spareggio della <a href="#parita">sezione 9</a>.</p>
 
     <h3>Classifica Stagionale — Calendario 1v1</h3>
-    <p>Ogni giornata è uno scontro diretto tra due partecipanti. Vince chi fa più punti fantasy con il suo roster (calcolati con il sistema budget-minuti). Ogni sfida assegna 2 punti alla vittoria, 1 a testa in caso di pareggio e 0 alla sconfitta. La classifica riflette vittorie, pareggi e sconfitte come in un vero campionato.</p>
+    <p>Ogni giornata è uno scontro diretto tra due partecipanti. Vince chi fa più punti fantasy con il suo roster (calcolati con il sistema budget-minuti). Ogni sfida assegna 2 punti alla vittoria, 1 a testa in caso di pareggio e 0 alla sconfitta. La classifica riflette vittorie, pareggi e sconfitte come in un vero campionato. Nelle leghe NBA a calendario si può aggiungere una fase playoff (sezione 10).</p>
   </div>
 
   <!-- 8. DEADLINE -->
   <div class="section" id="deadline">
     <div class="section-header"><div class="section-bar"></div><h2>8. Deadline e Pick Mancanti</h2></div>
-    <p>Una giornata si apre ai pick quando la precedente è conclusa, e i pick si chiudono all'orario di inizio della prima partita della giornata. Fino alla chiusura puoi modificare la formazione quante volte vuoi. Se non inserisci la formazione entro la deadline:</p>
+    <p>Una giornata si apre ai pick quando la precedente è conclusa (in NBA la Gara successiva si apre non appena inizia la precedente, così puoi preparare la formazione in anticipo), e i pick si chiudono all'orario di inizio della prima partita della giornata. Fino alla chiusura puoi modificare la formazione quante volte vuoi.</p>
+    <p>Quando si apre una giornata, il sistema <strong>ripropone in automatico l'ultima formazione che avevi schierato</strong>, se è ancora valida (giocatori attivi e, nelle leghe con roster fisso, ancora nel tuo roster): puoi lasciarla così o modificarla. Se non c'è una formazione da riproporre (per esempio alla prima giornata) o la copia non è valida, e non ne inserisci una entro la deadline:</p>
     <ul>
       <li>Non ricevi punti per quella giornata e non compari nella classifica di giornata (0 ranking points)</li>
-      <li>La formazione non viene copiata automaticamente dalla giornata precedente: va inserita ogni giornata</li>
       <li>In <strong>Calendario 1v1</strong> il tuo punteggio della sfida è 0</li>
       <li>In modalità con <strong>roster fisso</strong> il roster rimane invariato per le giornate successive</li>
     </ul>
@@ -429,6 +477,38 @@
       <li><strong>Calendario 1v1:</strong> a parità di punti in classifica precede chi ha la maggior somma di punti fantasy nelle sfide disputate.</li>
     </ul>
     <p>Se la parità resta anche dopo questo criterio, i partecipanti condividono la posizione.</p>
+  </div>
+
+  <!-- 10. NBA -->
+  <div class="section" id="nba">
+    <div class="section-header"><div class="section-bar"></div><h2>10. NBA: Gara, Salary Cap e Playoff</h2></div>
+
+    <h3>Le giornate si chiamano "Gara"</h3>
+    <p>Nella NBA le squadre non giocano tutte nello stesso giorno, quindi la "giornata" è la <strong>Gara N</strong>: la N-esima partita di ogni squadra. Gara 1 è la prima partita stagionale di ogni squadra, Gara 2 la seconda, e così via.</p>
+    <ul>
+      <li>Una Gara si chiude ai pick all'inizio della <strong>prima partita di quella Gara</strong>, per tutti.</li>
+      <li>La Gara successiva si apre non appena inizia la precedente.</li>
+      <li>La Gara è <strong>conclusa</strong> quando sono finite tutte le sue partite e diventa <strong>ufficiale</strong> alle 08:00 (ora italiana) del giorno dopo l'ultima partita.</li>
+      <li>Le Gara possono sovrapporsi nel calendario: mentre una è in corso, la successiva può già essere aperta.</li>
+    </ul>
+    <p>Il calendario caricato comprende per ora 80 Gara per squadra; le Gara 81 e 82 verranno aggiunte appena disponibili.</p>
+
+    <h3>Salary cap</h3>
+    <p>Nelle leghe NBA con salary cap il tetto è di <strong>222 milioni di dollari</strong>, calcolato sugli stipendi della stagione. Chi sceglie <strong>Classic</strong> non ha nessun limite di spesa.</p>
+    <ul>
+      <li><strong>Formazione libera (come la Virtua NBA):</strong> la formazione di 12 giocatori non può costare più di 222 milioni. Il tetto è rigido: se lo superi, l'app non ti lascia salvare.</li>
+      <li><strong>Con draft:</strong> il monte stipendi della rosa non può superare i 222 milioni, ma per completarla puoi sempre prendere fino a <strong>3 giocatori al minimo salariale</strong> (circa 1,36 milioni di dollari), anche se hai finito il budget. Il sistema blocca le pick che renderebbero impossibile completare la rosa nel rispetto del tetto.</li>
+    </ul>
+    <div class="note"><p><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Il tetto salariale si sceglie alla creazione della lega e non cambia più dopo l'avvio del draft. Durante la scelta vedi sempre il budget residuo e puoi ordinare e filtrare i giocatori per stipendio.</p></div>
+
+    <h3>Stagione e playoff nelle leghe a calendario</h3>
+    <p>Nelle leghe NBA private a <strong>Calendario 1v1</strong> l'admin sceglie, prima del draft, come organizzare la stagione:</p>
+    <ul>
+      <li><strong>Prima e ultima Gara</strong> della lega (di default dalla prima Gara disponibile alla Gara 82).</li>
+      <li><strong>Squadre ai playoff</strong>: 2, 4, 8 o 16, mai più dei partecipanti (se a fine draft i partecipanti sono meno, i playoff si riducono alla potenza di 2 più grande possibile), oppure nessuno.</li>
+      <li><strong>Gara per ogni turno</strong>: 1, 3, 5, 7 o 9. Ogni Gara è uno scontro diretto e la serie la vince chi arriva per primo alla maggioranza delle vittorie.</li>
+    </ul>
+    <p>I turni dei playoff sono tanti quanti ne servono per arrivare alla finale (con 8 squadre sono 3). La regular season termina all'ultima Gara della lega meno le Gara riservate ai playoff: con 8 squadre, tre turni al meglio di 7 e ultima Gara 82, la regular season arriva fino alla Gara 61 e i playoff occupano le Gara dalla 62 alla 82. L'app mostra sempre, mentre scegli, dove finirà la regular season. Ai playoff l'accoppiamento è quello standard: la prima classificata contro l'ultima qualificata, la seconda contro la penultima, e così via.</p>
   </div>
 </main>
 
