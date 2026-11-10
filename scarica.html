@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Scarica Virtua Basket</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+  :root{--bg:#0D0D0D;--ink:#F0EAE8;--orange:#FF5500;--muted:rgba(240,234,232,.7)}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;
+       background:radial-gradient(circle at 50% 100%,rgba(255,85,0,.28),rgba(13,13,13,0) 60%),var(--bg);color:var(--ink);
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;text-align:center}
+  img{width:84px;height:84px;border-radius:20px}
+  h1{margin:0;font-size:28px;line-height:1.1}
+  p{margin:0;color:var(--muted);max-width:320px}
+  .btns{display:flex;flex-direction:column;gap:12px;width:100%;max-width:320px;margin-top:6px}
+  a.b{display:block;padding:15px 18px;border-radius:14px;background:var(--orange);color:#fff;font-weight:700;font-size:17px;text-decoration:none}
+  a.b.alt{background:transparent;border:2px solid rgba(240,234,232,.35);color:var(--ink)}
+</style>
+</head>
+<body>
+  <img src="/icon.png" alt="Virtua Basket">
+  <h1>Scarica Virtua Basket</h1>
+  <p id="msg">Il fantabasket per LBF, LBA, EuroLeague e NBA. Gratis.</p>
+  <div class="btns">
+    <a class="b" id="ios" href="https://apps.apple.com/app/id6774968256">Scarica per iPhone</a>
+    <a class="b alt" id="and" href="https://play.google.com/store/apps/details?id=com.virtuabasket&referrer=utm_source%3Dvolantino%26utm_medium%3Dflyer">Scarica per Android</a>
+  </div>
+<script>
+  // Reindirizza al negozio giusto; se non si riconosce il dispositivo restano visibili i due pulsanti.
+  // Origine "volantino": su Google Play compare in Play Console (Acquisizione utenti). Per Apple serve un link campagna creato in
+  // App Store Connect (Analytics > Campagne): incollarlo qui sotto in IOS_CAMPAIGN per contare anche gli iPhone.
+  var IOS_CAMPAIGN = '';   // es. 'https://apps.apple.com/app/id6774968256?pt=XXXXXX&ct=volantino&mt=8'
+  var ua = navigator.userAgent || '';
+  var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+  var and = /Android/i.test(ua);
+  if (IOS_CAMPAIGN) document.getElementById('ios').href = IOS_CAMPAIGN;
+  if (ios) location.replace(document.getElementById('ios').href);
+  else if (and) location.replace(document.getElementById('and').href);
+</script>
+</body>
+</html>

@@ -1,5 +1,15 @@
 {
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/scarica",
+      "destination": "/scarica.html"
+    }
   ]
 }
